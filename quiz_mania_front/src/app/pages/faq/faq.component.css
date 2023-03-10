@@ -1,0 +1,25 @@
+.faqtitle
+{
+    font-size: 22px;
+    color: darkgoldenrod;
+    /* background-color: blanchedalmond; */
+    background-color: whitesmoke;
+    padding: 12px;
+}
+
+.faqdisc
+{font-size: 17px;
+    color: black;
+    background-color: beige;
+    margin-top: 5px;
+    margin-right: 22px;
+    margin-left: 22px;
+
+}
+
+
+  .mat-expansion-panel{
+    font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+    letter-spacing: normal;
+    background-color: #f9f7dc;
+}

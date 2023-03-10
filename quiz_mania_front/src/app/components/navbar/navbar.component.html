@@ -1,0 +1,101 @@
+<!-- <h1>this is navbar</h1> -->
+
+<mat-toolbar class="color">
+  
+
+   
+  
+    <a
+    routerLink="/" 
+    mat-icon-button class="example-icon" 
+    aria-label="Example icon-button with menu icon">
+    <img src="../../../assets/Quiz Maniaa.png" alt="Logo" class=" logo-image">
+ 
+  
+    </a>
+  
+    <span>Quiz Mania</span>
+    <span class="example-spacer"></span>
+
+  
+  
+    <a 
+    
+    routerLink="/"
+    mat-icon-button class="example-icon favorite-icon  mr20 ml20 " 
+    aria-label="Example icon-button with heart icon">
+     Home
+  </a>
+  <a 
+    
+    [routerLink]=""
+    mat-icon-button class="example-icon favorite-icon  mr20 ml20" 
+    aria-label="Example icon-button with heart icon">
+     Feedback
+  </a>
+  <a 
+    
+    [routerLink]=""
+    mat-icon-button class="example-icon favorite-icon  mr20 ml20" 
+    aria-label="Example icon-button with heart icon">
+     Contact Us
+  </a>
+  <a 
+    
+    [routerLink]="'/faq'"
+    mat-icon-button class="example-icon favorite-icon  mr20 ml20" 
+    aria-label="Example icon-button with heart icon">
+     FAQs
+  </a>
+  
+  
+    <a 
+    *ngIf="!isLoggedIn"
+    [routerLink]="'/login'"
+    mat-icon-button class="example-icon favorite-icon" 
+    aria-label="Example icon-button with heart icon">
+    Login
+  </a>
+
+  <a
+  *ngIf="!isLoggedIn"
+    [routerLink]="'/signup'"
+     mat-icon-button class="example-icon favorite-icon mr20 ml20" 
+    aria-label="Example icon-button with heart icon">
+      Signup
+    </a>
+  
+    <a 
+    
+    [routerLink]=""
+    mat-icon-button class="example-icon favorite-icon  mr20 ml20" 
+    aria-label="Example icon-button with heart icon">
+     About
+  </a>
+
+  
+  
+
+<!-- check here -->
+    <a
+    (click)="logout()" 
+    *ngIf="isLoggedIn"
+    mat-icon-button class="example-icon favorite-icon mr20 ml20" 
+    aria-label="Example icon-button with heart icon">
+    Logout
+  </a>
+
+  <button
+  *ngIf="isLoggedIn && user"
+      class="example-icon favorite-icon ml20" 
+      mat-button
+      routerLink = "/admin/profile"
+    aria-label="Example icon-button with heart icon">
+    <!-- here router link is used to show your profile by clicking profile option or name -->
+      
+    <!-- if create any problem here make change-->
+    <!-- {{login.getUser().username}}     -->
+    {{login.getUser().username}}
+  </button>
+  
+</mat-toolbar>
