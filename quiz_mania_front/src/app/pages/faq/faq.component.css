@@ -24,13 +24,14 @@
     font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
     letter-spacing: normal;
     background-color: #f9f7dc;
+    
 
    
    
 } 
 
-h1{ margin-top:35px;
-    margin-left:35px;
+h1{ margin-left: 35px;
+
     font-weight: bold;
   
   }
@@ -38,12 +39,5 @@ h1{ margin-top:35px;
     height: 70%;
     width: 70%;
   }
-  .faqimg
-  {
-    
-    width:100%;
-    margin:10px;
-    
 
-  }
 
