@@ -48,7 +48,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
 import { FaqComponent } from "./pages/faq/faq.component";
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,6 +97,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatSelectModule,
     MatButtonToggleModule,
     MatProgressSpinnerModule,
+    MatPaginatorModule,
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true,

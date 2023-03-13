@@ -14,6 +14,7 @@ public class FeedbackQuestion {
     private Long feedId;
     private String content;
 
+
     private String answer;
     @ManyToOne(fetch = FetchType.EAGER)
     private Feedback feedback;

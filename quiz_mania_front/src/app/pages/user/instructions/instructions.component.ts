@@ -33,7 +33,8 @@ export class InstructionsComponent implements OnInit {
       }
     );
   }
-
+  elem=document.documentElement;
+  
   startQuiz()
   {
     Swal.fire({
@@ -44,6 +45,7 @@ export class InstructionsComponent implements OnInit {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
+        this.elem.requestFullscreen();
           this._router.navigate(['/start/'+this.qid]);
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')

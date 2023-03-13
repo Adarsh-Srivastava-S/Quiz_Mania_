@@ -100,6 +100,10 @@ const routes: Routes = [
         component: LoadQuizComponent,
       },
       {
+        path:'profile',
+        component:ProfileComponent,
+      },
+      {
         path:'instructions/:qid',
         component:InstructionsComponent,
       },

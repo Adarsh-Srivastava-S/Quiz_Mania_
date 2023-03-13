@@ -1,5 +1,6 @@
 package com.exam.service.impl;
 
+import com.exam.model.User;
 import com.exam.model.exam.Quiz;
 import com.exam.model.feedback.Feedback;
 import com.exam.repo.FeedbackRepository;
@@ -30,5 +31,10 @@ public class FeedbackServiceImpl implements FeedbackService {
     public Set<Feedback> getFeedbacks(){
         return new HashSet<>(this.feedbackRepository.findAll());
     }
+    @Override
+    public Set<Feedback> getFeedback(User user){
+        return new HashSet<>(this.feedbackRepository.findAll());
+    }
+
 
 }

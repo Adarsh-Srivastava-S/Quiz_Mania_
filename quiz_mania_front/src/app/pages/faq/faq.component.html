@@ -1,5 +1,9 @@
 <!-- <p class="faqdisc">faq works!</p> -->
+
+
 <div class="cont">
+  
+
 <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title  class="faqtitle" >
@@ -144,7 +148,19 @@
       You can handle tiebreakers by creating additional questions or using a bonus point system for participants who complete the quiz within a certain time frame or achieve a high score. You can also have a sudden-death round where participants answer a tie-breaking question and the first to answer correctly wins.
     </p>
   </mat-expansion-panel>
-
+  <mat-expansion-panel (opened)="panelOpenState = true"
+  (closed)="panelOpenState = false">
+  <mat-expansion-panel-header>
+  <mat-panel-title>
+    Self aware panel
+  </mat-panel-title>
+  
+</mat-expansion-panel-header>
+  </mat-expansion-panel>
+  <mat-paginator [length]="20"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10]">
+</mat-paginator>
   <!-- <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title >

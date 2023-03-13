@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-@Data
+
 @Entity
 public class Quiz {
         @Id
@@ -66,9 +66,11 @@ public class Quiz {
             this.description = description;
         }
 
+    public String getMaxMarks() {
+        return maxMarks;
+    }
 
-
-        public void setMaxMarks(String maxMarks) {
+    public void setMaxMarks(String maxMarks) {
             this.maxMarks = maxMarks;
         }
 

@@ -40,13 +40,7 @@
     aria-label="Example icon-button with heart icon">
      Contact Us
   </a>
-  <a 
-    
-    [routerLink]="'/faq'"
-    mat-icon-button class="example-icon favorite-icon  mr20 ml20" 
-    aria-label="Example icon-button with heart icon">
-     FAQs
-  </a>
+  
   
   
     <a 
@@ -89,13 +83,22 @@
   *ngIf="isLoggedIn && user"
       class="example-icon favorite-icon ml20" 
       mat-button
-      routerLink = "/admin/profile"
+      [routerLink]="'/user-dashboard/profile'"
+     
     aria-label="Example icon-button with heart icon">
     <!-- here router link is used to show your profile by clicking profile option or name -->
       
     <!-- if create any problem here make change-->
-    <!-- {{login.getUser().username}}     -->
-    {{login.getUser().username}}
+    {{login.getUser().username}}    
+    <!-- {{quiz.getActiveQuizzes()}} -->
+    <a 
+    *ngIf="login.getUserRole()=='ADMIN'"
+    
+    [routerLink]="'/faq'"
+    mat-icon-button class="example-icon favorite-icon  mr20 ml20" 
+    aria-label="Example icon-button with heart icon">
+     FAQs
+  </a>
   </button>
   
 </mat-toolbar>

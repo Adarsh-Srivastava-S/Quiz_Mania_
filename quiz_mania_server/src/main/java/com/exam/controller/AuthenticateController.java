@@ -6,6 +6,7 @@ import com.exam.model.JwtRequest;
 import com.exam.model.JwtResponse;
 import com.exam.model.User;
 import com.exam.service.impl.UserDetailsServiceImpl;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -34,7 +35,7 @@ public class AuthenticateController
 
     //generate token
     @PostMapping("/generate-token")
-    public ResponseEntity<?> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception{
+    public ResponseEntity<?> generateToken(@RequestBody @NotNull JwtRequest jwtRequest) throws Exception{
         try{
 
             authenticate(jwtRequest.getUsername(),jwtRequest.getPassword());

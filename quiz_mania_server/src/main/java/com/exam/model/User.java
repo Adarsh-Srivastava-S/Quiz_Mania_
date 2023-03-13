@@ -1,4 +1,5 @@
 package com.exam.model;
+import com.exam.model.feedback.Feedback;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jdk.jfr.DataAmount;
 import lombok.Data;
@@ -6,9 +7,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+
 @Data
 
 @Entity
@@ -28,6 +28,10 @@ public class User implements UserDetails
     private String phone;
     private boolean enabled = true;
     private String profile;
+    // user feedback
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "user")
+    @JsonIgnore
+    private List<Feedback> feedbacks= new LinkedList<>();
 
     // user many roles
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "user")

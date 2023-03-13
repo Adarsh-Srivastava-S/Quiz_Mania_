@@ -48,6 +48,13 @@ public class UserController
        return  this.userService.createUser(user,roles);
     }
 
+//    @GetMapping("/{userid}")
+//    public User getUserById(@PathVariable("userid") Long userId)
+//    {
+//        return this.userService.getUserById(userId);
+//    }
+
+
     @GetMapping("/{username}")
     public User getUser(@PathVariable("username") String username)
     {

@@ -12,11 +12,20 @@ import Swal from 'sweetalert2';
 export class StartComponent implements OnInit {
 
   qid: any;
-  questions: any;
+  questions: any=[{content:'',
+  option1:'',
+  option2:'',
+  option3:'',
+  option4:'',
+  answer:'',
+  quiz:{
+    qId:'',
+  },}]
  
-  marksGot=0;
-  correctAnswers=0;
-  attempted = 0;
+  marksGot:any;
+  correctAnswers:any;
+  
+  attempted :any;
   isSubmit=false;
   timer: any;
 
@@ -31,6 +40,11 @@ export class StartComponent implements OnInit {
     this.qid = this._route.snapshot.params['qid'];
     console.log(this.qid);
     this.loadQuestions();
+  }
+  exitFullscreen(){
+    if(document.exitFullscreen){
+      document.exitFullscreen();
+    }
   }
   loadQuestions() {
     this._question.getQuestionsOfQuizForTest(this.qid).subscribe

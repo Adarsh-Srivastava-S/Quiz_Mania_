@@ -31,28 +31,28 @@
                 <div class="row mt20">
                     <div class="col-md-6">
                         <input type="radio" [value]="q.option1"
-                         name="i" [(ngModel)]="q.givenAnswer" />
+                         [name]="q" [(ngModel)]="q.givenAnswer" />
                         {{q.option1}}
                     </div>
                     <div class="col-md-6">
-                        <input type="radio" [value]="q.option2" name="i"  [(ngModel)]="q.givenAnswer">
+                        <input type="radio" [value]="q.option2" [name]="q"  [(ngModel)]="q.givenAnswer">
                         {{q.option2}}
                     </div>
                 </div>
                 <div class="row mt20">
                     <div class="col-md-6">
-                        <input type="radio" [value]="q.option3" name="i"  [(ngModel)]="q.givenAnswer">
+                        <input type="radio" [value]="q.option3" [name]="q"  [(ngModel)]="q.givenAnswer">
                         {{q.option3}}
                     </div>
                     <div class="col-md-6">
-                        <input type="radio" [value]="q.option4" name="i"  [(ngModel)]="q.givenAnswer">
+                        <input type="radio" [value]="q.option4" [name]="q"  [(ngModel)]="q.givenAnswer">
                         {{q.option4}}
                     </div>
                 </div>
             </mat-card-content>
         </mat-card>
         <div class="container text-center mt20 mb20">
-            <button (click)="submitQuiz()" mat-raised-button color="primary">Submit Quiz</button>
+            <button (click)="submitQuiz(); exitFullscreen()" mat-raised-button color="primary">Submit Quiz</button>
         </div>
         </div>
         <div class="col-md-2">
