@@ -5,6 +5,7 @@
     /* background-color: blanchedalmond; */
     background-color: whitesmoke;
     padding: 12px;
+ 
 }
 
 .faqdisc
@@ -14,12 +15,35 @@
     margin-top: 5px;
     margin-right: 22px;
     margin-left: 22px;
-
+    
 }
+
 
 
   .mat-expansion-panel{
     font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
     letter-spacing: normal;
     background-color: #f9f7dc;
-}
+
+   
+   
+} 
+
+h1{ margin-top:35px;
+    margin-left:35px;
+    font-weight: bold;
+  
+  }
+  img{
+    height: 70%;
+    width: 70%;
+  }
+  .faqimg
+  {
+    
+    width:100%;
+    margin:10px;
+    
+
+  }
+

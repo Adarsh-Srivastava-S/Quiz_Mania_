@@ -49,6 +49,9 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
 import { FaqComponent } from "./pages/faq/faq.component";
 import {MatExpansionModule} from '@angular/material/expansion';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridTile } from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +78,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     InstructionsComponent,
     StartComponent,
     FaqComponent,
+    
 
 
   ],
@@ -98,9 +102,13 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatButtonToggleModule,
     MatProgressSpinnerModule,
     NgxUiLoaderModule,
+    MatGridListModule,
+    
+    
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true,
     }),
+    NgbModule,
     
   ],
   providers: [authInterceptorProviders],
