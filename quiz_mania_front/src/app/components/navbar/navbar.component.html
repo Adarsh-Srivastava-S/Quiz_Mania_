@@ -46,7 +46,7 @@
     <a 
     *ngIf="!isLoggedIn"
     [routerLink]="'/login'"
-    mat-icon-button class="example-icon favorite-icon" 
+    mat-icon-button class="example-icon favorite-icon mr20 ml20" 
     aria-label="Example icon-button with heart icon">
     Login
   </a>
@@ -91,14 +91,14 @@
     <!-- if create any problem here make change-->
     {{login.getUser().username}}    
     <!-- {{quiz.getActiveQuizzes()}} -->
-    <a 
+    <!-- <a 
     *ngIf="login.getUserRole()=='ADMIN'"
     
     [routerLink]="'/faq'"
     mat-icon-button class="example-icon favorite-icon  mr20 ml20" 
     aria-label="Example icon-button with heart icon">
      FAQs
-  </a>
+  </a> -->
   </button>
   
 </mat-toolbar>

@@ -49,6 +49,8 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
 import { FaqComponent } from "./pages/faq/faq.component";
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,10 +100,13 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatButtonToggleModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
+    MatGridListModule,
+  
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true,
     }),
+    NgbModule,
     
   ],
   providers: [authInterceptorProviders],
