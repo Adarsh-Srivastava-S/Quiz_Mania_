@@ -7,165 +7,22 @@
     <h1>
       Frequently Asked Question (FAQs) :- 
     </h1>
-    <mat-expansion-panel  (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title  class="faqtitle" >
-      What is a quiz mania ?
-      </mat-panel-title >
-      
-    </mat-expansion-panel-header >
-    <p class="faqdisc">
-      A quiz mania is an activity or game that involves a series of questions on a specific topic. It can be played individually or in groups, and participants aim to answer the questions correctly
-    </p>
-  </mat-expansion-panel>
-
-  <mat-expansion-panel  (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title  class="faqtitle">
-        How many questions should I include in the quiz?
-      </mat-panel-title >
-      
-    </mat-expansion-panel-header>
-    <p class="faqdisc">
-      The number of questions in a quiz can vary depending on the topic and the time available to complete the quiz. However, it is recommended to have at least 10-20 questions to make the quiz challenging and engaging.
-    </p>
-  </mat-expansion-panel>
-
-  <mat-expansion-panel  (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title  class="faqtitle">
-        Can I include multimedia elements in the quiz?
-      </mat-panel-title >
-      
-    </mat-expansion-panel-header>
-    <p class="faqdisc">
-      Yes, you can include multimedia elements such as images, videos, or audio in the quiz to make it more interactive and engaging.
-    </p>
-  </mat-expansion-panel>
-
-  <mat-expansion-panel  (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title  class="faqtitle">
-        Can I use existing quizzes from the internet?
-      </mat-panel-title >
-      
-    </mat-expansion-panel-header>
-    <p class="faqdisc">
-      You can use existing quizzes from the internet as a reference or for inspiration, but it is not recommended to copy or plagiarize the content. It is best to create your own questions and ensure that they are accurate and relevant to the topic but it's depends on admin
-    </p>
-  </mat-expansion-panel>
-
-  <mat-expansion-panel  (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title  class="faqtitle">
-        Can I have different levels of difficulty in the quiz?
-      </mat-panel-title >
-      
-    </mat-expansion-panel-header>
-    <p class="faqdisc">
-      Yes, you can have different levels of difficulty in the quiz by creating questions that range from easy to difficult. You can also assign different point values to each question based on its difficulty level.
-    </p>
-  </mat-expansion-panel>
-
-  <mat-expansion-panel  (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title  class="faqtitle">
-        How do I promote the quiz to attract participants?
-      </mat-panel-title >
-      
-    </mat-expansion-panel-header>
-    <p class="faqdisc">
-      You can promote the quiz through various channels such as social media, email, or word-of-mouth. You can also offer incentives or prizes for the top performers to attract more participants.
-    </p>
-  </mat-expansion-panel>
-
-  <mat-expansion-panel  (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
+ 
+  <mat-expansion-panel *ngFor="let result of faqs "  >
     <mat-expansion-panel-header>
       <mat-panel-title class="faqtitle">
-        How do I evaluate the quiz results?
+        <!-- How do I handle tiebreakers? -->
+        {{result.content}}
       </mat-panel-title >
       
     </mat-expansion-panel-header>
     <p class="faqdisc">
-      You can evaluate the quiz results by reviewing the responses of each participant, analyzing the scores and identifying the areas where participants performed well or struggled. You can also provide feedback to participants on their performance and areas of improvement.
+      {{result.answer}}
     </p>
   </mat-expansion-panel>
-
-  <mat-expansion-panel  (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title class="faqtitle">
-        Can I have a time limit for the quiz?
-      </mat-panel-title >
-      
-    </mat-expansion-panel-header>
-    <p class="faqdisc">
-      Yes, admin can set a time limit for the quiz to ensure that participants complete it within a specific timeframe. This can help to make the quiz more challenging and add an element of competition.
-    </p>
-  </mat-expansion-panel>
-
-  <mat-expansion-panel  (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title class="faqtitle" >
-        How do I ensure that participants don't cheat?
-      </mat-panel-title >
-      
-    </mat-expansion-panel-header>
-    <p class="faqdisc">
-      You can prevent cheating by setting a time limit, randomizing the order of questions, or using software that detects cheating behavior such as copying and pasting answers. You can also include questions that are difficult to find answers to through a quick internet search.
-    </p>
-  </mat-expansion-panel>
-
-  <mat-expansion-panel  (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title class="faqtitle" >
-        How do I award points for each question?
-      </mat-panel-title >
-      
-    </mat-expansion-panel-header>
-    <p class="faqdisc">
-      You can award points for each question based on its difficulty level or assign a fixed point value for all questions. You can also deduct points for incorrect answers or for unanswered questions.
-
-    </p>
-  </mat-expansion-panel>
-
-  <mat-expansion-panel  (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title class="faqtitle" >
-        Can I allow participants to retake the quiz?
-      </mat-panel-title >
-      
-    </mat-expansion-panel-header>
-    <p class="faqdisc">
-      Yes, you can allow participants to retake the quiz but it is recommended to limit the number of attempts to avoid participants memorizing the answers. You can also set a penalty for retaking the quiz, such as a reduction in points or a longer waiting period between attempts.
-    </p>
-  </mat-expansion-panel>
-
-  <mat-expansion-panel  (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title class="faqtitle">
-        How do I handle tiebreakers?
-      </mat-panel-title >
-      
-    </mat-expansion-panel-header>
-    <p class="faqdisc">
-      You can handle tiebreakers by creating additional questions or using a bonus point system for participants who complete the quiz within a certain time frame or achieve a high score. You can also have a sudden-death round where participants answer a tie-breaking question and the first to answer correctly wins.
-    </p>
-  </mat-expansion-panel>
-  <mat-paginator [length]="20"
+  <mat-paginator [length]="50"
               [pageSize]="5"
-              [pageSizeOptions]="[5, 10]">
+              [pageSizeOptions]="[5, 10]" (page)="nextPage($event)">
 </mat-paginator> 
   </mat-accordion>
   </mat-grid-tile>
@@ -177,3 +34,5 @@
 </mat-grid-list>
 
 
+<!-- (opened)="panelOpenState = true"
+  (closed)="panelOpenState = false" -->

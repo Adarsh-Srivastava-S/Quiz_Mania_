@@ -51,6 +51,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
+import { AddFaqsComponent } from './pages/admin/add-faqs/add-faqs.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,6 +78,7 @@ import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
     InstructionsComponent,
     StartComponent,
     FaqComponent,
+    AddFaqsComponent,
 
 
   ],

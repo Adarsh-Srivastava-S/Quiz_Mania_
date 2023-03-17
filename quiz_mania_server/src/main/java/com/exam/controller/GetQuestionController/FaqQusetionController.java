@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/faqs")
 public class FaqQusetionController {
     @Autowired
@@ -30,8 +31,8 @@ public class FaqQusetionController {
 
     @GetMapping("/faqpage")
     public ResponseEntity<List<FaqQuestion>> getAllFaq
-            (@RequestParam(value = "pageNumber", defaultValue = "10", required = false) Integer pageNumber,
-             @RequestParam(value = "pageSize", defaultValue = "1", required = false) Integer pageSize) {
+            (@RequestParam(value = "pageNumber", defaultValue = "1", required = false) Integer pageNumber,
+             @RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize) {
         List<FaqQuestion> allFaq = this.faqQuestionService.getAllFaqQuestion(pageNumber, pageSize);
 
         return new ResponseEntity<List<FaqQuestion>>(allFaq, HttpStatus.OK);
