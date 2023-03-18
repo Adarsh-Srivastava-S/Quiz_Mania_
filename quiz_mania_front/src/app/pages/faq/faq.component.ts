@@ -8,7 +8,8 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class FaqComponent implements OnInit {
   panelOpenState: boolean = false;
-  constructor() { }
+  faqs:any;
+  constructor(private faq:FaqService) { }
 
   ngOnInit(): void {
     let request:{[key:string]:any}={};

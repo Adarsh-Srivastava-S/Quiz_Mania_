@@ -1,0 +1,32 @@
+h1{
+    text-align: center;
+    font-weight: bolder;
+    font-size: xx-large;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    padding: 10px;
+}
+h2{
+    margin:20px;
+    text-align: center;
+    font-weight:400;
+    font-size: x-large;
+}
+h3{
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+}
+.cont{
+    
+    width:70%;
+
+    
+}
+img{
+    
+    height:100%;
+}
+.button{
+    word-spacing: 20px;
+}

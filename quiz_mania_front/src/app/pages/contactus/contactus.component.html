@@ -1,0 +1,68 @@
+<div class="bootstrap-wrapper">
+    <div class="row">
+   <div class="col-md-12" >
+
+<h2>If You Have Any Query,Please feel Free Contact Us</h2>
+<div>
+<h3>Get in Touch</h3>
+</div> 
+<mat-grid-list cols="2" rowHeight="2:1">
+   
+    <mat-grid-tile>
+        
+<img  src="../../../assets/2453706.png" >
+    </mat-grid-tile>
+
+    <mat-grid-tile >
+        
+        <form (submit)="formSubmit()" >
+            <!-- name field -->
+            <mat-form-field   class="cont" appearance="outline"  >
+                <mat-label>Enter the Name</mat-label>
+                <input  required
+                [(ngModel)]="con.name"
+                name="name"
+                matInput placeholder="">
+              </mat-form-field> 
+
+              <!-- email field -->
+              <mat-form-field class="cont" appearance="outline">
+                <mat-label>Email here</mat-label>
+                <input  required
+                [(ngModel)]="con.email"
+                name="email"
+                 matInput placeholder="">
+              </mat-form-field> 
+
+              <!-- subject field -->
+              <mat-form-field class="cont"appearance="outline">
+                <mat-label>subject</mat-label>
+                <input  required
+                [(ngModel)]="con.subject"
+                name="subject"
+                 matInput placeholder="">
+              </mat-form-field> 
+
+              <!-- message field -->
+              <mat-form-field class="cont"appearance="outline">
+                <mat-label>Message</mat-label>
+                <textarea matInput
+                required
+                [(ngModel)]="con.content"
+                name="content"
+                ></textarea>
+              </mat-form-field> 
+<div class="button">
+              <button mat-raised-button color="primary" type="send">
+                Send
+              </button>
+               
+           
+            </div>
+        </form>
+    </mat-grid-tile>
+</mat-grid-list> 
+
+</div>
+</div>
+</div>

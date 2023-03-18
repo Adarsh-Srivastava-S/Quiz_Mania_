@@ -5,25 +5,34 @@
             <mat-card>
                 <mat-card-header>
                     <mat-card-subtitle>
-                        Enter the details of the new question
+                       <h1> Enter the details of the new Frequently Asked Question (FAQs)</h1>
                     </mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
                     <form class="mt20" (submit)="formSubmit()">
                         <!-- content-feield -->
+<div>
+    <mat-form-field class="w100">
+        <mat-label>Enter Question</mat-label>
+        <input 
+        required
+        [(ngModel)]="faq.content"
+        name="content"
+         type="text" matInput />
+    </mat-form-field>
 
                         <mat-form-field class="w100">
-                            <mat-label>Write question content</mat-label>
+                            <mat-label>Write Answer content</mat-label>
                             <textarea 
                             required
-                             [(ngModel)]="faq.content"
-                            rows="8"
-                            name="content"
+                             [(ngModel)]="faq.answer"
+                            rows="5"
+                            name="answer"
                             matInput
                             placeholder="Enter here"
                             ></textarea>
                         </mat-form-field>
-                        
+                    </div>                   
                         <!-- data="<h1>Question Content goes here</h1>" -->
                         <!-- <ckeditor 
                         [editor]="Editor" 
@@ -37,14 +46,7 @@
                         <!-- <div class="row">
                             <div class="col-md-6">
                                 <!-- option1 -->
-                                <mat-form-field class="w100">
-                                    <mat-label>Enter answer</mat-label>
-                                    <input 
-                                    required
-                                    [(ngModel)]="faq.answer"
-                                    name="option1"
-                                     type="text" matInput />
-                                </mat-form-field>
+                                
                             <!-- </div> -->
                            
                             <!-- answer -->

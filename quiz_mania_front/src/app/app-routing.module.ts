@@ -20,6 +20,8 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
 import { AdminGuard } from './services/admin.guard';
 import { NormalGuard } from './services/normal.guard';
 import { FaqComponent } from './pages/faq/faq.component';
+import { ContactusComponent } from './pages/contactus/contactus.component';
+import { AddFaqsComponent } from './pages/admin/add-faqs/add-faqs.component';
 
 const routes: Routes = [
   
@@ -33,6 +35,11 @@ const routes: Routes = [
     component: FaqComponent,
     pathMatch:'full',
  },
+ {
+  path: 'contact',
+  component: ContactusComponent,
+  pathMatch:'full',
+},
 
   {
     path: 'signup',
@@ -74,6 +81,11 @@ const routes: Routes = [
       path:'add-quiz',
       component:AddQuizComponent,
     },
+    {
+      path:'addfaq',
+      component:AddFaqsComponent,
+    },
+
     {
       path:'quiz/:qid',
       component: UpdateQuizComponent,
