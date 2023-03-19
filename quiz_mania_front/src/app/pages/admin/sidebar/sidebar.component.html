@@ -20,8 +20,18 @@
         <button mat-list-item routerLink="/admin/addfaq">
             <mat-icon mat-list-icon>add faq</mat-icon>Add Faq
         </button>
-<button>
-         <mat-icon mat-list-icon>logout</mat-icon>Logout
+ 
+        <button mat-list-item routerLink="/admin/viewcontact">
+            <mat-icon mat-list-icon>View Contact</mat-icon>View contact
         </button>
+
+        <a
+    (click)="logout()" 
+    *ngIf="isLoggedIn"
+    mat-icon-button class="example-icon favorite-icon mr20 ml20" 
+    aria-label="Example icon-button with heart icon">
+    Logout
+  </a>
+
     </mat-action-list>
 </mat-card>

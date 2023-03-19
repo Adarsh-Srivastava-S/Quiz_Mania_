@@ -1,0 +1,9 @@
+.width{
+    width: 70%;
+}
+
+.name{
+    margin-left: 10px;
+    margin-right: 20px;
+    font-weight: bolder;
+}

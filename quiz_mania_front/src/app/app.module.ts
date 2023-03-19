@@ -53,6 +53,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
 import { AddFaqsComponent } from './pages/admin/add-faqs/add-faqs.component';
 import { ContactusComponent } from './pages/contactus/contactus.component';
+import { ContactusViewComponent } from './pages/admin/contactus-view/contactus-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +82,7 @@ import { ContactusComponent } from './pages/contactus/contactus.component';
     FaqComponent,
     AddFaqsComponent,
     ContactusComponent,
+    ContactusViewComponent,
 
 
   ],

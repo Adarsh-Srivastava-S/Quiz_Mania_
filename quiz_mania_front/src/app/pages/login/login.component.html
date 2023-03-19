@@ -1,16 +1,22 @@
 <div class="bootstrap-wrapper">
-    <div class="container">
-        <div class="row ">
-            <div class="col-md-6 offset-md-3">
+    
+           
 
-                <mat-card>
+                
+<mat-grid-list cols="2" >
 
-                <div class="container text=center ">
+<mat-grid-tile>
+    <img src="../../../assets/logo.png" alt="" style="height: 70px; padding-left:43%;">
+    <h1 >Login Here!!</h1>
+</mat-grid-tile>
+
+    <mat-grid-tile >
+                 
                     <!-- here you we use height and padding to adjust the img -->
-                    <img src="../../../assets/logo.png" alt="" style="height: 70px; padding-left:43%;">
-                </div>
+                   
+               
 
-                <h1 class="text-center">Login Here!!</h1>
+                
                  <!-- {{userloginData | json}} -->
                  <form action=""  (ngSubmit)="formSubmit()">
                   <!-- username feld -->
@@ -44,9 +50,11 @@
                         </button>
                     </div>
                 </form>
-            </mat-card>
+            </mat-grid-tile>
+            </mat-grid-list>
+  
 
             </div>
-        </div>
-    </div>
-</div>
+       
+
+

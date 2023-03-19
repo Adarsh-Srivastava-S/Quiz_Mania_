@@ -22,7 +22,7 @@ import { NormalGuard } from './services/normal.guard';
 import { FaqComponent } from './pages/faq/faq.component';
 import { ContactusComponent } from './pages/contactus/contactus.component';
 import { AddFaqsComponent } from './pages/admin/add-faqs/add-faqs.component';
-
+import { ContactusViewComponent } from './pages/admin/contactus-view/contactus-view.component';
 const routes: Routes = [
   
   {
@@ -84,6 +84,10 @@ const routes: Routes = [
     {
       path:'addfaq',
       component:AddFaqsComponent,
+    },
+    {
+      path:'viewcontact',
+      component:ContactusViewComponent,
     },
 
     {
