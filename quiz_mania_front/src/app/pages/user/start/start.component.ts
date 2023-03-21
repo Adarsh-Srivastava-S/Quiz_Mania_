@@ -1,6 +1,8 @@
 import { LocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LeaderboardService } from 'src/app/services/leaderboard/leaderboard.service';
+import { LoginService } from 'src/app/services/login.service';
 import { QuestionService } from 'src/app/services/question.service';
 import Swal from 'sweetalert2';
 
@@ -24,7 +26,19 @@ export class StartComponent implements OnInit {
  
   marksGot:any;
   correctAnswers:any;
-  
+  score:any;
+  id:any;
+  leaderboard:any={
+    score:'',
+    
+    quiz:{
+      id:'',
+    },
+    user:{
+      id:'',
+    },
+  }
+
   attempted :any;
   isSubmit=false;
   timer: any;
@@ -32,7 +46,9 @@ export class StartComponent implements OnInit {
   constructor(
     private locationSt:LocationStrategy,
     private _route:ActivatedRoute,
-    private _question:QuestionService
+    private _question:QuestionService,
+    private _leaderboard:LeaderboardService,
+    private login:LoginService 
   ) { }
 
   ngOnInit(): void {
@@ -40,6 +56,8 @@ export class StartComponent implements OnInit {
     this.qid = this._route.snapshot.params['qid'];
     console.log(this.qid);
     this.loadQuestions();
+    this.leaderboard.user.id=this.login.userId;
+    this.leaderboard.quiz.id=this.qid;
   }
   exitFullscreen(){
     if(document.exitFullscreen){
@@ -116,20 +134,23 @@ export class StartComponent implements OnInit {
        //calculation
 
       //  call to server  to check question
-
+        //  this._question.getScore(this.questions)
          this._question.evalQuiz(this.questions).subscribe(
           (data:any)=>{
             console.log(data);
             this.marksGot = parseFloat(Number(data.marksGot).toFixed(2));
+            this.leaderboard.score = this.marksGot;
             this.correctAnswers = data.correctAnswers;
             this.attempted = data.attempted;
             this.isSubmit = true;
+            this._leaderboard.addLeaderboard(this.leaderboard);
           },
           (error)=>{
             console.log(error);
           }
+          
          );
-
+        //  this._leaderboard.addLeaderboard(this.leaderboard)
       //  this.isSubmit=true;
       //  this.questions.forEach((q: { givenAnswer: any; answer: any; })=>{
       //   if(q.givenAnswer==q.answer)

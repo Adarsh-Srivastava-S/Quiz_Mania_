@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatTableModule } from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,7 +30,7 @@ import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
-import { QuizComponent } from './services/quiz/quiz.component';
+
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import{MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
@@ -54,6 +54,7 @@ import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
 import { AddFaqsComponent } from './pages/admin/add-faqs/add-faqs.component';
 import { ContactusComponent } from './pages/contactus/contactus.component';
 import { ContactusViewComponent } from './pages/admin/contactus-view/contactus-view.component';
+import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +71,7 @@ import { ContactusViewComponent } from './pages/admin/contactus-view/contactus-v
     ViewCategoriesComponent,
     AddCategoryComponent,
     ViewQuizzesComponent,
-    QuizComponent,
+    
     AddQuizComponent,
     UpdateQuizComponent,
     ViewQuizQuestionsComponent,
@@ -83,6 +84,7 @@ import { ContactusViewComponent } from './pages/admin/contactus-view/contactus-v
     AddFaqsComponent,
     ContactusComponent,
     ContactusViewComponent,
+    LeaderboardComponent,
 
 
   ],
@@ -107,7 +109,7 @@ import { ContactusViewComponent } from './pages/admin/contactus-view/contactus-v
     MatProgressSpinnerModule,
     MatPaginatorModule,
     MatGridListModule,
-  
+  MatTableModule,
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true,

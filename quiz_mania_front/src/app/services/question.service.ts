@@ -32,6 +32,11 @@ export class QuestionService {
   {
      return this._http.post(`${baseUrl}/question/eval-quiz`,questions);
   }
+ // getting score of quiz 
+ public getScore(questions:any)  
+ { 
+ return this._http.post(`${baseUrl}/question/quiz-score`,questions);
+}
 
 
 }

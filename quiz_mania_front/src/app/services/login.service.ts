@@ -82,6 +82,11 @@ export class LoginService {
       let user = this.getUser();
       return user.authorities[0].authority;
     }
+    public userId()
+    {
+      let user = this.getUser();
+      return user.id;
+    }
 }
 
 
