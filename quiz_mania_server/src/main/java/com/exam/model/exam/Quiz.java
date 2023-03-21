@@ -1,4 +1,5 @@
 package com.exam.model.exam;
+import com.exam.model.leaderboard.Leaderboard;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
@@ -23,7 +24,7 @@ public class Quiz {
 
         private boolean active = false;
 
-        //add.....
+    //add.....
 
     public Set<Question> getQuestions() {
         return questions;
@@ -33,24 +34,28 @@ public class Quiz {
         this.questions = questions;
     }
 
+    @OneToMany(mappedBy = "quiz")
+    @JsonIgnore
+    Set<Leaderboard> leaderboards;
     @ManyToOne(fetch = FetchType.EAGER)
-        private Category category;
+    private Category category;
 
-        @OneToMany(mappedBy = "quiz",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-        @JsonIgnore
-        private Set<Question> questions = new HashSet<>();
-        public Quiz() {
-        }
+    @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Set<Question> questions = new HashSet<>();
 
-        public Long getqId() {
-            return qId;
-        }
+    public Quiz() {
+    }
 
-        public void setqId(Long qId) {
-            this.qId = qId;
-        }
+    public Long getqId() {
+        return qId;
+    }
 
-        public String getTitle() {
+    public void setqId(Long qId) {
+        this.qId = qId;
+    }
+
+    public String getTitle() {
             return title;
         }
 

@@ -2,6 +2,7 @@ package com.exam.controller;
 
 import com.exam.model.exam.Question;
 import com.exam.model.exam.Quiz;
+import com.exam.model.leaderboard.Leaderboard;
 import com.exam.service.QuestionService;
 import com.exam.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,8 @@ import java.util.*;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/question")
-public class QuestionController
-{
+public class
+QuestionController {
     @Autowired
     private QuestionService service;
 
@@ -23,8 +24,7 @@ public class QuestionController
 
     // add question
     @PostMapping("/")
-    public ResponseEntity<Question> add(@RequestBody Question question)
-    {
+    public ResponseEntity<Question> add(@RequestBody Question question) {
         return ResponseEntity.ok(this.service.addQuestion(question));
     }
 
@@ -97,19 +97,43 @@ public class QuestionController
            // System.out.println(q.getGivenAnswer());
             // single questions
             Question question = this.service.get(q.getQuesId());
-            if(question.getAnswer().equals(q.getGivenAnswer()))
-            {
+            if (question.getAnswer().equals(q.getGivenAnswer())) {
                 // correct
                 correctAnswers++;
-                double marksSingle = Double.parseDouble(questions.get(0).getQuiz().getMaxMarks())/questions.size();
-                     marksGot += marksSingle;
+                double marksSingle = Double.parseDouble(questions.get(0).getQuiz().getMaxMarks()) / questions.size();
+                marksGot += marksSingle;
             }
-            if(q.getGivenAnswer()!=null)
-            {
+            if (q.getGivenAnswer() != null) {
                 attempted++;
             }
-        };
-        Map<String,Object> map = Map.of("marksGot",marksGot, "correctAnswers",correctAnswers,"attempted",attempted);
+        }
+        ;
+        Map<String, Object> map = Map.of("marksGot", marksGot, "correctAnswers", correctAnswers, "attempted", attempted);
         return ResponseEntity.ok(map);
+    }
+
+    @PostMapping("/quiz-score")
+    public ResponseEntity<?> getscore(@RequestBody List<Question> questions) {
+        System.out.println(questions);
+        double marksGot = 0;
+        int correctAnswers = 0;
+        int attempted = 0;
+
+        for (Question q : questions) {
+            // System.out.println(q.getGivenAnswer());
+            // single questions
+            Question question = this.service.get(q.getQuesId());
+            if (question.getAnswer().equals(q.getGivenAnswer())) {
+                // correct
+                correctAnswers++;
+                double marksSingle = Double.parseDouble(questions.get(0).getQuiz().getMaxMarks()) / questions.size();
+                marksGot += marksSingle;
+            }
+            if (q.getGivenAnswer() != null) {
+                attempted++;
+            }
+        }
+        ;
+        return ResponseEntity.ok(marksGot);
     }
 }
