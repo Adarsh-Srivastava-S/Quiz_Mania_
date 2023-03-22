@@ -10,9 +10,9 @@ export class LeaderboardService {
   constructor(private http:HttpClient) { }
 
   // adding score and user in leaderboard 
-  public addLeaderboard(leaderboard:any)
+  public addLeaderboard(leaderboard1:any)
   {
-    return this.http.get(`${baseUrl}/leaderboard/`,leaderboard);
+    return this.http.post(`${baseUrl}/leaderboard/`,leaderboard1);
   }
 
   // getting leaderboard by quizes

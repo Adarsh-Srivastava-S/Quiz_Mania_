@@ -28,14 +28,15 @@ export class StartComponent implements OnInit {
   correctAnswers:any;
   score:any;
   id:any;
-  leaderboard:any={
+  leaderboard1:any={
     score:'',
     
-    quiz:{
-      id:'',
-    },
+   
     user:{
       id:'',
+    },
+    quiz:{
+      qId:'',
     },
   }
 
@@ -56,8 +57,8 @@ export class StartComponent implements OnInit {
     this.qid = this._route.snapshot.params['qid'];
     console.log(this.qid);
     this.loadQuestions();
-    this.leaderboard.user.id=this.login.userId;
-    this.leaderboard.quiz.id=this.qid;
+    this.leaderboard1.user.id=this.login.userId();
+    this.leaderboard1.quiz.qId=this.qid;
   }
   exitFullscreen(){
     if(document.exitFullscreen){
@@ -100,9 +101,11 @@ export class StartComponent implements OnInit {
         icon:'info',
       }).then((e)=>{
         if(e.isConfirmed)
-        {
+        {  this.setScore();
             this.evalQuiz();
+           
         }
+        
       });
     }
 
@@ -132,24 +135,31 @@ export class StartComponent implements OnInit {
     evalQuiz()
     {
        //calculation
-
+      //  this.setScore();
+       
       //  call to server  to check question
         //  this._question.getScore(this.questions)
          this._question.evalQuiz(this.questions).subscribe(
           (data:any)=>{
             console.log(data);
             this.marksGot = parseFloat(Number(data.marksGot).toFixed(2));
-            this.leaderboard.score = this.marksGot;
+            //  this.leaderboard1.score = parseFloat(Number(data.marksGot).toFixed(2));
+            
+       
+       
+            
             this.correctAnswers = data.correctAnswers;
             this.attempted = data.attempted;
             this.isSubmit = true;
-            this._leaderboard.addLeaderboard(this.leaderboard);
+            
           },
           (error)=>{
             console.log(error);
           }
           
          );
+        //  this._leaderboard.addLeaderboard(this.leaderboard1);
+
         //  this._leaderboard.addLeaderboard(this.leaderboard)
       //  this.isSubmit=true;
       //  this.questions.forEach((q: { givenAnswer: any; answer: any; })=>{
@@ -171,7 +181,48 @@ export class StartComponent implements OnInit {
       // console.log("attempted"+this.attempted);
       // console.log(this.questions);
     }
-
+    leader()
+    {
+      this._leaderboard.addLeaderboard(this.leaderboard1).subscribe(
+        (data)=>{
+     // this.question.answer=''
+        this.leaderboard1={
+          score:'',
+          
+         
+          user:{
+            id:'',
+          },
+          quiz:{
+            qId:'',
+          },
+        };
+  
+      },
+      (error)=>{
+     
+      }
+      );
+    }
+     setScore()
+     {
+ this._question.getScore(this.questions).subscribe(
+  (data:any)=>{
+    console.log(data);
+   
+     this.leaderboard1.score =data;
+    
+     console.log(this.leaderboard1);
+    
+   
+    
+  },
+  (error)=>{
+    console.log(error);
+  }
+  
+ );
+     }
     printPage()
     {
       window.print();

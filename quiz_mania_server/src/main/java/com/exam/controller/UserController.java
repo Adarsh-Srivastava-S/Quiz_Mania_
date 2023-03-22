@@ -45,20 +45,19 @@ public class UserController
         userRole.setRole(role);
 
         roles.add(userRole);
-       return  this.userService.createUser(user,roles);
+        return this.userService.createUser(user, roles);
     }
 
-    @GetMapping("/{userid}")
-    public User getUserById(@PathVariable("userid") Long userId)
-    {
-        return this.userService.getUserById(userId);
-    }
+//    @GetMapping("/{userid}")
+//    public User getUserById(@PathVariable("userid") Long userId)
+//    {
+//        return this.userService.getUserById(userId);
+//    }
 
 
     @GetMapping("/{username}")
-    public User getUser(@PathVariable("username") String username)
-    {
-      return this.userService.getUser(username);
+    public ResponseEntity<User> getUser(@PathVariable("username") String username) {
+        return ResponseEntity.ok(this.userService.getUser(username));
     }
 
     // delete the user by id

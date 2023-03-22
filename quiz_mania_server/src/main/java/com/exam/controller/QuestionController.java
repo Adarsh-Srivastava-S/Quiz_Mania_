@@ -113,7 +113,7 @@ QuestionController {
     }
 
     @PostMapping("/quiz-score")
-    public ResponseEntity<?> getscore(@RequestBody List<Question> questions) {
+    public double getscore(@RequestBody List<Question> questions) {
         System.out.println(questions);
         double marksGot = 0;
         int correctAnswers = 0;
@@ -134,6 +134,6 @@ QuestionController {
             }
         }
         ;
-        return ResponseEntity.ok(marksGot);
+        return marksGot;
     }
 }
