@@ -10,4 +10,5 @@ public interface LeaderboardService {
      Leaderboard addLeaderboard(Leaderboard leaderboard);
 
      Set<Leaderboard> getLeaderboard(Quiz quiz);
+     Set<Leaderboard> getLeader();
 }

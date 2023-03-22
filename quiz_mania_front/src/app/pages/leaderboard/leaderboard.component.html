@@ -25,8 +25,8 @@
 <mat-table class="mat-elevation-z8"  *ngFor="let leaders of leader;let i=index">
     <!-- Position Column -->
     <ng-container matColumnDef="position" >
-      <mat-header-cell *matHeaderCellDef  >  </mat-header-cell>
-      <mat-cell *matCellDef="leadesr">  {{i+1}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef  > {{i+1}} </mat-header-cell>
+    
     </ng-container>
   
     <!-- Name Column -->

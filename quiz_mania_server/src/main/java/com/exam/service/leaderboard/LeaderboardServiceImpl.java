@@ -25,9 +25,13 @@ public class LeaderboardServiceImpl implements LeaderboardService {
     public Set<Leaderboard> getLeaderboard(Quiz quiz) {
 
 
-        return sort(new ArrayList<>(this.leaderboardRepo.findByQuiz(quiz)));
+        return (this.leaderboardRepo.findByQuizOrderByScoreDesc(quiz));
     }
-
+    @Override
+    public Set<Leaderboard> getLeader()
+    {
+        return this.leaderboardRepo.findByOrderByScoreDesc();
+    }
     private Set<Leaderboard> sort(ArrayList<Leaderboard> leaderbloards) {
         Collections.sort(leaderbloards, Comparator.comparing(Leaderboard::getScore).reversed());
         return new HashSet<>(leaderbloards);

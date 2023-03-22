@@ -34,6 +34,11 @@ public class LeaderboardController {
 
         return ResponseEntity.ok(leaderboards);
     }
+    @GetMapping("/leader")
+    public ResponseEntity<?> getLeader(){
+        Set<Leaderboard> leaderboards=this.leaderboardService.getLeader();
+        return ResponseEntity.ok(leaderboards);
+    }
 
 
 }
