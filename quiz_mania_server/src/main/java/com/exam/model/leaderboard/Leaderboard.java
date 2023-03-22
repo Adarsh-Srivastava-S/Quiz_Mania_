@@ -7,18 +7,53 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 
-@Data
+
 @Entity
 public class Leaderboard {
-    @EmbeddedId
-    LeaderboardKey id;
-
+//    @EmbeddedId
+//    LeaderboardKey id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Long id;
     @ManyToOne
-    @MapsId("id")
+//@MapsId("id")
     @JoinColumn(name = "user_id")
     User user;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
+    }
+
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
+    }
+
     @ManyToOne
-    @MapsId("qId")
+//@MapsId("qId")
     @JoinColumn(name = "quiz_id")
     Quiz quiz;
     private double score;

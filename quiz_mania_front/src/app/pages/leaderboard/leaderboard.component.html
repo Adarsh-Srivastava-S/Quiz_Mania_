@@ -1,23 +1,44 @@
 <h1 > Leaderboard Quiz Mania</h1>
-
-<mat-table [dataSource]="leaderboardData" class="mat-elevation-z8">
+<mat-form-field appearance="fill">
+  <mat-label>Categories</mat-label>
+  <mat-select  required>
+    <mat-option >--</mat-option>
+    
+    <mat-option  (click)="Quiz(categorie.cid)" *ngFor="let categorie of category" [value]="categorie" >
+      {{categorie.title}}
+    </mat-option>
+  </mat-select>
+  <!-- <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error> -->
+  <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Quiz</mat-label>
+  <mat-select  required>
+    <mat-option >--</mat-option>
+    <mat-option (click)="Leaderboard(quiz.qId)" *ngFor="let quiz of quizzes" [value]="quiz">
+      {{quiz.title}}
+    </mat-option>
+  </mat-select>
+  <!-- <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error> -->
+  <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
+</mat-form-field>
+<mat-table class="mat-elevation-z8"  *ngFor="let leaders of leader;let i=index">
     <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+    <ng-container matColumnDef="position" >
+      <mat-header-cell *matHeaderCellDef  >  </mat-header-cell>
+      <mat-cell *matCellDef="leadesr">  {{i+1}} </mat-cell>
     </ng-container>
   
     <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    <ng-container matColumnDef="name" >
+      <mat-header-cell *matHeaderCellDef >{{leaders.user.username}} </mat-header-cell>
+     
     </ng-container>
   
     <!-- Score Column -->
     <ng-container matColumnDef="score">
-      <mat-header-cell *matHeaderCellDef> Score </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.score}} </mat-cell>
-    </ng-container>
+      <mat-header-cell *matHeaderCellDef> {{leaders.score}} </mat-header-cell>
+     </ng-container>
   
     <!-- Date Column -->
     <!-- <ng-container matColumnDef="date">
