@@ -1,5 +1,6 @@
 package com.exam.model;
 import com.exam.model.feedback.Feedback;
+import com.exam.model.image.Image;
 import com.exam.model.leaderboard.Leaderboard;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jdk.jfr.DataAmount;
@@ -29,6 +30,12 @@ public class User implements UserDetails
     private String phone;
     private boolean enabled = true;
     private String profile;
+
+
+//    Image upload
+    @OneToOne(mappedBy = "user")
+     Image image;
+
     //Leaderboard
     @OneToMany(mappedBy = "user")
     @JsonIgnore

@@ -55,6 +55,7 @@ import { AddFaqsComponent } from './pages/admin/add-faqs/add-faqs.component';
 import { ContactusComponent } from './pages/contactus/contactus.component';
 import { ContactusViewComponent } from './pages/admin/contactus-view/contactus-view.component';
 import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component';
+import { ImageComponent } from './pages/image/image.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +86,7 @@ import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component'
     ContactusComponent,
     ContactusViewComponent,
     LeaderboardComponent,
+    ImageComponent,
 
 
   ],
