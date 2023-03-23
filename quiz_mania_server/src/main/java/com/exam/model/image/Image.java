@@ -2,6 +2,7 @@ package com.exam.model.image;
 
 
 import com.exam.model.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,7 +11,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "image")
+@Table(name = "image", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id"})})
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -31,5 +33,7 @@ public class Image {
     private byte[] image;
 
     @OneToOne
+            @JoinColumn(name = "user_id",unique = true)
+            @JsonIgnore
     User user;
 }

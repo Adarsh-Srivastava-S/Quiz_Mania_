@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService
     @Override
     public User getUserById(Long userId)
     {
-        return null ;
+        return this.userRepository.getById(userId) ;
     }
     @Override
     public void deleteUser(Long userId) {

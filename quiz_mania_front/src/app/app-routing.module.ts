@@ -114,13 +114,14 @@ const routes: Routes = [
     canActivate:[NormalGuard],
     children:[
       {
-        path:':catId',
-        component: LoadQuizComponent,
-      },
-      {
         path:'profile',
         component:ProfileComponent,
       },
+      {
+        path:':catId',
+        component: LoadQuizComponent,
+      },
+      
       {
         path:'instructions/:qid',
         component:InstructionsComponent,

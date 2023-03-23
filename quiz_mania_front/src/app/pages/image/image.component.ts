@@ -16,6 +16,7 @@ export class ImageComponent implements OnInit {
   successResponse: string | any;
   image: any;
   id : any;
+  user:any;
   images = 
         {
           user : {
@@ -36,26 +37,38 @@ export class ImageComponent implements OnInit {
 
   imageUploadAction() {    
     const imageFormData = new FormData();
-    this.images.user.id = this.login.userId();
-    imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
+     const userId = this.login.userId();
+    console.log(imageFormData);
+    const req = new FormData();
+    req.append('img', this.uploadedImage, this.uploadedImage.name);
+    req.append('userid', userId.toString());
   
-     console.log(imageFormData);
-    this.httpClient.post('http://localhost:9005/upload/image', imageFormData, { observe: 'response' })
-      .subscribe((response) => {
-        if (response.status === 200) { 
+    // Generate a boundary string using Math.random()
+    const boundary = Math.random().toString().substr(2);
+  
+    this.httpClient.post('http://localhost:9005/upload/image', req, {
+  
+      observe: 'response'
+    }).subscribe((
+  response) => {
+      if (response.status === 200) { 
           this.postResponse = response;                
           this.successResponse = this.postResponse.body.message;
-        } else {
+      } else {
           this.successResponse = 'Image not uploaded due to some error!';
-        }
       }
-      );
+  });
     }
 
   viewImage() {
-    this.httpClient.get('http://localhost:9005/get/image/info/' + this.image)
+    
+    const userId = this.login.userId();
+    let req:{[key:string]:any}={};
+    this.id=userId;
+    const params=req;
+    this.httpClient.get(`http://localhost:9005/get/image/info/${this.id}`)
       .subscribe(
-        res => {
+       ( res) => {
           this.postResponse = res;          
           this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
         }
@@ -64,6 +77,7 @@ export class ImageComponent implements OnInit {
 
 
   ngOnInit(): void {
+
   }
 
 }

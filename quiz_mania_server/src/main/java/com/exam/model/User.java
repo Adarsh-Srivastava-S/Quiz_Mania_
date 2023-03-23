@@ -34,6 +34,7 @@ public class User implements UserDetails
 
 //    Image upload
     @OneToOne(mappedBy = "user")
+        @JsonIgnore
      Image image;
 
     //Leaderboard

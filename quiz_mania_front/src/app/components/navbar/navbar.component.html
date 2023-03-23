@@ -21,7 +21,7 @@
   
     <a 
     
-   routerLink="/"
+   routerLink="/admin/Home"
     mat-icon-button class="example-icon favorite-icon  mr20 ml20 " 
     aria-label="Example icon-button with heart icon">
      Home
@@ -83,7 +83,7 @@
   *ngIf="isLoggedIn && user"
       class="example-icon favorite-icon ml20" 
       mat-button
-      [routerLink]="'/user-dashboard/profile'"
+      routerLink="/user-dashboard/profile"
      
     aria-label="Example icon-button with heart icon">
     <!-- here router link is used to show your profile by clicking profile option or name -->

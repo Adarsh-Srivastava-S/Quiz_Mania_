@@ -4,6 +4,7 @@ import com.exam.model.contactus.ContactUs;
 import com.exam.model.faq.FaqQuestion;
 import com.exam.model.feedback.Feedback;
 import com.exam.service.ContactUsService;
+import com.exam.service.email.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,10 +20,14 @@ import java.util.List;
 public class ContactusController {
     @Autowired
     ContactUsService contactUsService;
+    @Autowired
+    EmailService emailService;
 
     @PostMapping("/add")
     public ResponseEntity<?> addContactUs(@RequestBody ContactUs contactUs) {
-        return ResponseEntity.ok(this.contactUsService.addContactUs(contactUs));
+        ContactUs contactUs1 = this.contactUsService.addContactUs(contactUs);
+        this.emailService.sendEmail(contactUs1.getEmail(), contactUs1.getSubject(), contactUs1.getContent());
+        return ResponseEntity.ok(contactUs1);
     }
 
     @GetMapping("/show")
