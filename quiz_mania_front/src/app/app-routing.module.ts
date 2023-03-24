@@ -26,7 +26,7 @@ import { ContactusViewComponent } from './pages/admin/contactus-view/contactus-v
 
 
 const routes: Routes = [
-  
+
   {
      path: '',
      component: HomeComponent,
@@ -44,15 +44,16 @@ const routes: Routes = [
 },
 
   {
+    path: 'login',
+    component:LoginComponent ,
+    pathMatch:'full',
+  },
+  {
     path: 'signup',
     component: SingupComponent,
     pathMatch:'full',
   },
-  {
-    path: 'login',
-    component:LoginComponent,
-    pathMatch: 'full',
-  },
+
 
   {
     path: 'admin',
@@ -105,9 +106,11 @@ const routes: Routes = [
       component:AddQuestionComponent,
     },
     //
+
   ],
     canActivate:[AdminGuard],
   },
+
   {
     path:'user-dashboard',
     component:UserDashboardComponent,
@@ -121,7 +124,7 @@ const routes: Routes = [
         path:':catId',
         component: LoadQuizComponent,
       },
-      
+
       {
         path:'instructions/:qid',
         component:InstructionsComponent,

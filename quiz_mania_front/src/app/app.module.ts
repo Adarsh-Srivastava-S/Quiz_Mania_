@@ -56,6 +56,7 @@ import { ContactusComponent } from './pages/contactus/contactus.component';
 import { ContactusViewComponent } from './pages/admin/contactus-view/contactus-view.component';
 import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component';
 import { ImageComponent } from './pages/image/image.component';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +73,7 @@ import { ImageComponent } from './pages/image/image.component';
     ViewCategoriesComponent,
     AddCategoryComponent,
     ViewQuizzesComponent,
-    
+
     AddQuizComponent,
     UpdateQuizComponent,
     ViewQuizQuestionsComponent,
@@ -104,6 +105,7 @@ import { ImageComponent } from './pages/image/image.component';
     MatExpansionModule,
     MatToolbarModule,
     MatIconModule,
+    MatMenuModule,
     MatListModule,
     MatSlideToggleModule,
     MatSelectModule,
@@ -117,7 +119,7 @@ import { ImageComponent } from './pages/image/image.component';
       showForeground: true,
     }),
     NgbModule,
-    
+
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent],

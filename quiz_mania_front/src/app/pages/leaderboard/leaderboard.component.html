@@ -1,54 +1,94 @@
 <h1 > Leaderboard Quiz Mania</h1>
-<mat-form-field appearance="fill">
-  <mat-label>Categories</mat-label>
-  <mat-select  required>
-    <mat-option >--</mat-option>
-    
-    <mat-option  (click)="Quiz(categorie.cid)" *ngFor="let categorie of category" [value]="categorie" >
-      {{categorie.title}}
-    </mat-option>
-  </mat-select>
-  <!-- <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error> -->
-  <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
-</mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label>Quiz</mat-label>
-  <mat-select  required>
-    <mat-option >--</mat-option>
-    <mat-option (click)="Leaderboard(quiz.qId)" *ngFor="let quiz of quizzes" [value]="quiz">
-      {{quiz.title}}
-    </mat-option>
-  </mat-select>
-  <!-- <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error> -->
-  <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
-</mat-form-field>
-<mat-table class="mat-elevation-z8"  *ngFor="let leaders of leader;let i=index">
-    <!-- Position Column -->
-    <ng-container matColumnDef="position" >
-      <mat-header-cell *matHeaderCellDef  > {{i+1}} </mat-header-cell>
-    
-    </ng-container>
-  
-    <!-- Name Column -->
-    <ng-container matColumnDef="name" >
-      <mat-header-cell *matHeaderCellDef >{{leaders.user.username}} </mat-header-cell>
-     
-    </ng-container>
-  
-    <!-- Score Column -->
-    <ng-container matColumnDef="score">
-      <mat-header-cell *matHeaderCellDef> {{leaders.score}} </mat-header-cell>
-     </ng-container>
-  
-    <!-- Date Column -->
-    <!-- <ng-container matColumnDef="date">
-      <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
-    </ng-container> -->
-  
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-  <div class="container text-center">
-  <button  class="mt10" mat-raised-button color="primary"  > Load more </button>
+
+<div class="text-center">
+  <h3 > Choose categories option </h3>
+<button mat-raised-button color="primary"mat-button [matMenuTriggerFor]="menu">Categories</button>
+<mat-menu #menu="matMenu" xPosition="before">
+	<button mat-menu-item [matMenuTriggerFor]="quiz"(click)="Quiz(categorie.cid)" *ngFor="let categorie of category" [value]="categorie" >
+    {{categorie.title}}</button>
+
+</mat-menu>
+<mat-menu #quiz="matMenu" >
+	<button (click)="Leaderboard(quiz.qId)" *ngFor="let quiz of quizzes" [value]="quiz">
+    {{quiz.title}}</button>
+</mat-menu>
 </div>
+
+<div >
+  <mat-form-field appearance="fill">
+    <mat-label>Categories</mat-label>
+    <mat-select  required>
+      <mat-option >--</mat-option>
+
+      <mat-option  (click)="Quiz(categorie.cid)" *ngFor="let categorie of category" [value]="categorie" >
+        {{categorie.title}}
+      </mat-option>
+    </mat-select>
+    <!-- <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error> -->
+    <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Quiz</mat-label>
+    <mat-select  required>
+      <mat-option >--</mat-option>
+      <mat-option (click)="Leaderboard(quiz.qId)" *ngFor="let quiz of quizzes" [value]="quiz">
+        {{quiz.title}}
+      </mat-option>
+
+    </mat-select>
+
+    <!-- <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error> -->
+    <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
+  </mat-form-field>
+  </div>
+  
+        
+  <!-- <div>
+    <table>
+              <tr>
+                <td>
+                  Rank
+                </td>
+              </tr>
+            </table>
+            </div> -->
+            <mat-table class="mat-elevation-z8" [dataSource]="leader">
+              <!-- Position Column -->
+              <!-- <ng-container matColumnDef="position">
+                <mat-header-cell *matHeaderCellDef class="same"> Position </mat-header-cell>
+                <mat-cell *matCellDef="let i = index , let leaders" class="same1"> {{ viewImage(leaders[i+1].user.id) }}</mat-cell>
+              </ng-container> -->
+              <ng-container matColumnDef="position">
+                <mat-header-cell *matHeaderCellDef class="same">Position</mat-header-cell>
+                <mat-cell *matCellDef="let i = index; let leaders" class="same1">
+               {{viewImage(leaders.user.id)}} 
+                </mat-cell>
+              </ng-container>
+              
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef class="same"> Name </mat-header-cell>
+                <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.user.username }} </mat-cell>
+              </ng-container>
+            
+              <!-- Score Column -->
+              <ng-container matColumnDef="score">
+                <mat-header-cell *matHeaderCellDef class="same"> Score </mat-header-cell>
+                <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.score }} </mat-cell>
+              </ng-container>
+            
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            
+            
+    <!-- <div class="container text-center">
+    <button  class="mt10" mat-raised-button color="primary"  > Load more </button>
+  </div> -->
+
+
+
+  <!-- <div class="container text-center">
+  <button  class="mt10" mat-raised-button color="primary"  > Load more </button>
+</div> -->

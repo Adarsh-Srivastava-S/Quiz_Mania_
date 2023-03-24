@@ -2,3 +2,22 @@ h1{
     text-align: center;
     margin-top:10px;
 }
+h3{
+    text-align:end;
+
+    margin-right: 50%;
+}
+.same{
+    font-weight:bolder;
+    color: black;
+    font-size: x-large;
+    background: #ffcb65;
+    text-align: center;
+}
+.same1{
+    font-weight:bolder;
+    color: black;
+    font-size:larger;
+    background: #f9f7dc;;
+    text-align: center;
+}

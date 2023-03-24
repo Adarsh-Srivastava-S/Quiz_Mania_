@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ImageService } from 'src/app/services/ImageService/image.service';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -9,9 +10,10 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class ImageComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient,private login:LoginService) { }
+  constructor(private httpClient: HttpClient,private login:LoginService ,private img:ImageService) { }
   uploadedImage: File | any;  
   dbImage: any; 
+  status: any;
   postResponse: any;
   successResponse: string | any;
   image: any;
@@ -46,10 +48,11 @@ export class ImageComponent implements OnInit {
     // Generate a boundary string using Math.random()
     const boundary = Math.random().toString().substr(2);
   
-    this.httpClient.post('http://localhost:9005/upload/image', req, {
+    // this.httpClient.post('http://localhost:9005/upload/image', req, {
   
-      observe: 'response'
-    }).subscribe((
+    //   observe: 'response'
+    // }
+    this.img.addImage(req).subscribe((
   response) => {
       if (response.status === 200) { 
           this.postResponse = response;                
@@ -66,8 +69,9 @@ export class ImageComponent implements OnInit {
     let req:{[key:string]:any}={};
     this.id=userId;
     const params=req;
-    this.httpClient.get(`http://localhost:9005/get/image/info/${this.id}`)
-      .subscribe(
+    // this.httpClient.get(`http://localhost:9005/get/image/info/${this.id}`)
+    this.img.showImage(this.id)  
+    .subscribe(
        ( res) => {
           this.postResponse = res;          
           this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
