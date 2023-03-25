@@ -16,3 +16,9 @@
     margin-right: 40px;
   }
   
+  .profile-image{
+    max-width: 50px;
+    max-height: 50px;
+    border: 2px solid #ff4081;
+    border-radius: 50%;
+}

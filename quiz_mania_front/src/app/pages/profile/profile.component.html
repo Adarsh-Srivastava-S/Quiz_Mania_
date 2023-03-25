@@ -1,19 +1,27 @@
 
-<app-image></app-image>
+
 
 
 <mat-card *ngIf="user">
     <h1>Your Profile Details</h1>
     <!-- {{user | json}} -->
-    <mat-card-content>
+    <mat-card-content >
 
         <div class="bootstrap-wrapper">
             
-            <div class="container">
+            <div class="container" >
                 <div class="container text-center">
-                    <img src="https://tse2.mm.bing.net/th?id=OIP.9UBb9jEPJ74wxTL1FgBuWwAAAA&pid=Api&P=0" 
+                    <img  *ngIf="!dbImage" src="https://tse2.mm.bing.net/th?id=OIP.9UBb9jEPJ74wxTL1FgBuWwAAAA&pid=Api&P=0" 
                     alt=""
                     class="profile-image">
+                    <div  >
+                        <div  >
+                            <img [src]="dbImage"  class="profile-image" >
+                           
+                        </div>
+                    </div>
+                    
+                    <!-- <input type="button" (click)="viewImage()" value="View Image" class="btn1"> -->
                     <h1 class="mt20">{{ login.getUser().firstName }} {{ login.getUser().lastName }}</h1>
                 </div>
 
@@ -48,8 +56,10 @@
             </div>
         </div>
     </mat-card-content>
+
+    
     <mat-card-actions class="text-center">
-        <button mat-raised-button color="primary">UPDATE</button>
+        <button mat-raised-button color="primary" >UPDATE</button>
         <button mat-raised-button color="accent">SHARE</button>
     </mat-card-actions>
 </mat-card>

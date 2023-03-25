@@ -83,13 +83,24 @@
   *ngIf="isLoggedIn && user"
       class="example-icon favorite-icon ml20" 
       mat-button
-      routerLink="/user-dashboard/profile"
-     
+      routerLink="/user-dashboard/profile"  
+
     aria-label="Example icon-button with heart icon">
+    
+    
+
     <!-- here router link is used to show your profile by clicking profile option or name -->
       
     <!-- if create any problem here make change-->
-    {{login.getUser().username}}    
+    
+    <img  *ngIf="!dbImage" src="https://tse2.mm.bing.net/th?id=OIP.9UBb9jEPJ74wxTL1FgBuWwAAAA&pid=Api&P=0" 
+    
+    class="profile-image">
+    
+            <img [src]="dbImage "  class="profile-image" >
+          
+   {{login.getUser().username}}  
+    
     <!-- {{quiz.getActiveQuizzes()}} -->
     <!-- <a 
     *ngIf="login.getUserRole()=='ADMIN'"
@@ -99,6 +110,8 @@
     aria-label="Example icon-button with heart icon">
      FAQs
   </a> -->
+
   </button>
+  
   
 </mat-toolbar>
