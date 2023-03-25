@@ -1,7 +1,7 @@
 <div class="container">
-    <h1>Upload Image Example</h1>
+    <h1>Profile Image Update</h1>
     <br>
-    <form>
+    <form class="text-center">
         <div class="form-group">
             <input type="file" (change)="onImageUpload($event)">
             <input type="button" (click)="imageUploadAction()" value="Upload Image" class="btn1">
@@ -14,8 +14,8 @@
         <br>
 
         <div class="form-group">
-            <input type="text" id="image" placeholder="Search Image" [(ngModel)]="image" name="image" />
-            <input type="button" (click)="viewImage()" value="View Image" class="btn1">
+            <!-- <input type="text" id="image" placeholder="Search Image" [(ngModel)]="image" name="image" /> -->
+            <input type="button" (click)="viewImage()" value="See Profile Image " class="btn1">
 
         </div>
 
