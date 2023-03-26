@@ -1,6 +1,7 @@
 <div class="bootstrap-wrapper">
     <div class="row mt20">
         <div class="col-md-12">
+
             <h1>Add Question to <span style="font-weight:bold">{{qTitle}}</span></h1>
             <mat-card>
                 <mat-card-header>
@@ -12,17 +13,13 @@
                     <form class="mt20" (submit)="formSubmit()">
                         <!-- content-feield -->
 
-                        <mat-form-field class="w100">
-                            <mat-label>Write question content</mat-label>
-                            <textarea 
-                            required
-                             [(ngModel)]="question.content"
-                            rows="8"
-                            name="content"
-                            matInput
-                            placeholder="Enter here"
-                            ></textarea>
-                        </mat-form-field>
+                       <ckeditor 
+                          [editor]="Editor" 
+                          data="<h1>Question content goes here</h1>"
+                          name="content"
+                          [(ngModel)]="question.content"
+                        >
+                    </ckeditor>
                         
                         <!-- data="<h1>Question Content goes here</h1>" -->
                         <!-- <ckeditor 

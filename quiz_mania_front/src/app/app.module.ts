@@ -57,6 +57,9 @@ import { ContactusViewComponent } from './pages/admin/contactus-view/contactus-v
 import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component';
 import { ImageComponent } from './pages/image/image.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -114,6 +117,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatPaginatorModule,
     MatGridListModule,
   MatTableModule,
+  CKEditorModule,
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true,

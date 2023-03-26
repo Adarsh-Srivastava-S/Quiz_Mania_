@@ -31,7 +31,7 @@ export class AddQuestionComponent implements OnInit {
 
   constructor(private _route:ActivatedRoute,
     private _question:QuestionService) { }
-
+    public Editor = ClassicEditor;
   ngOnInit(): void {
 
     this.qId = this._route.snapshot.params['qid'];

@@ -25,8 +25,9 @@ export class ViewCategoriesComponent implements OnInit {
       title:'PRACTICE',
       description:'this is testing categoreis'
     }
+    
   ];
-  constructor(private _category:CategoryService) { }
+  constructor(private _category:CategoryService ) { }
 
   ngOnInit(): void {
 
@@ -38,6 +39,29 @@ export class ViewCategoriesComponent implements OnInit {
     (error)=>{
       console.log(error);
       Swal.fire('Error !!','Error in loding data','error');
+    });
+  }
+
+  deleteCategory(cId: any)
+  {
+    Swal.fire({
+      icon:'info',
+      title: 'Are you sure ?',
+      confirmButtonText: 'Delete',
+      showCancelButton:true,
+    }).then((result)=>{
+      if(result.isConfirmed){
+        //delete...
+      
+        this._category.deleteCategory(cId).subscribe(
+          (data)=>{
+            this.categories = this.categories.filter((category)=>category.cid!=cId);
+          Swal.fire('Success','Category deleted','success');
+          },
+        (error)=>{
+          Swal.fire('Error','Error in deleting category','error');
+        });
+      }
     });
   }
 }
