@@ -28,6 +28,7 @@ export class StartComponent implements OnInit {
   correctAnswers:any;
   score:any;
   id:any;
+  user1:any
   leaderboard1:any={
     score:'',
 
@@ -61,6 +62,7 @@ export class StartComponent implements OnInit {
     this.leaderboard1.user.id=this.login.userId();
     // this.leaderboard1.image.user.id=this.login.userId();
     this.leaderboard1.quiz.qId=this.qid;
+    
   }
   exitFullscreen(){
     if(document.exitFullscreen){
@@ -153,6 +155,8 @@ export class StartComponent implements OnInit {
             this.correctAnswers = data.correctAnswers;
             this.attempted = data.attempted;
             this.isSubmit = true;
+            // only for testing
+            this.user1=this.login.getUser();
 
           },
           (error)=>{
