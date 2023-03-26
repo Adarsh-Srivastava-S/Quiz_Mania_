@@ -65,13 +65,14 @@ public class ImageController {
     @GetMapping(path = {"/get/image/info/{id}"})
     public Image getImageDetails(@PathVariable("id") Long id) throws IOException {
         User user = userService.getUserById(id);
-        List<Image> images = imageRepository.findByUserId(user.getId());
+        Image images;
+        images = imageRepository.findByUserId(user.getId());
 
 //        if (images.isEmpty()) {
 //            throw new ResourceNotFoundException("No image found for user with id " + user.getId());
 //        }
 
-        Image dbImage = images.get(0);
+        Image dbImage = images;
 
         return Image.builder()
                 .name(dbImage.getName())

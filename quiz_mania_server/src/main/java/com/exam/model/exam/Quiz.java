@@ -34,7 +34,7 @@ public class Quiz {
         this.questions = questions;
     }
 
-    @OneToMany(mappedBy = "quiz")
+    @OneToMany(mappedBy = "quiz",cascade =CascadeType.ALL)
     @JsonIgnore
     Set<Leaderboard> leaderboards;
     @ManyToOne(fetch = FetchType.EAGER)

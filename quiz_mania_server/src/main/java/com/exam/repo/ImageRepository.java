@@ -9,5 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface ImageRepository extends JpaRepository<Image, Long> {
-List<Image> findByUserId(Long userId);
+Image findByUserId(Long userId);
+
+//    List<Image> findByUserId(Long userId);
 }

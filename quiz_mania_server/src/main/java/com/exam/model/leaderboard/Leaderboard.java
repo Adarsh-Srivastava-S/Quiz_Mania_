@@ -2,6 +2,8 @@ package com.exam.model.leaderboard;
 
 import com.exam.model.User;
 import com.exam.model.exam.Quiz;
+import com.exam.model.image.Image;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,14 +21,31 @@ public class Leaderboard {
 //@MapsId("id")
     @JoinColumn(name = "user_id")
     User user;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name ="image_id",referencedColumnName = "user_id")
 
-    public Long getId() {
-        return id;
+    Image image;
+
+
+    public Image getImage() {
+        return image;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setImage(Image image) {
+        if (image == null || image.getUser() == null) {
+            throw new IllegalArgumentException("Invalid Image object provided");
+        }
+
+        this.image = image;
     }
+
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
 
     public User getUser() {
         return user;
@@ -56,5 +75,14 @@ public class Leaderboard {
 //@MapsId("qId")
     @JoinColumn(name = "quiz_id")
     Quiz quiz;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     private double score;
 }

@@ -62,9 +62,10 @@
               <ng-container matColumnDef="position">
                 <mat-header-cell *matHeaderCellDef class="same">Position</mat-header-cell>
                 <mat-cell *matCellDef="let i = index; let leaders" class="same1">
-               {{viewImage(leaders.user.id)}} 
+                  <img class="leader" *ngIf="leaders?.image?.image" [src]="'data:image/jpeg;base64,' + leaders.image.image" [alt]="leaders.image.name + 's profile picture'">
                 </mat-cell>
               </ng-container>
+              
               
               <!-- Name Column -->
               <ng-container matColumnDef="name">
