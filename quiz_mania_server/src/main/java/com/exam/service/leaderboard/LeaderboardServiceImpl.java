@@ -1,8 +1,10 @@
 package com.exam.service.leaderboard;
 
 import com.exam.model.exam.Quiz;
+import com.exam.model.image.Image;
 import com.exam.model.leaderboard.Leaderboard;
 import com.exam.repo.LeaderboardRepo;
+import com.exam.utility.ImageUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,10 +24,16 @@ public class LeaderboardServiceImpl implements LeaderboardService {
     }
 
     @Override
-    public Set<Leaderboard> getLeaderboard(Quiz quiz) {
+    public List<Leaderboard> getLeaderboard(Quiz quiz) {
+       List<Leaderboard> leaderboards= new ArrayList<>(this.leaderboardRepo.findByQuizOrderByScoreDesc(quiz));
+        for (Leaderboard leaderboard : leaderboards) {
+            Image dbImage=leaderboard.getImage();
+            leaderboard.getImage().setImage(ImageUtility.decompressImage(dbImage.getImage()));
 
-
-        return (this.leaderboardRepo.findByQuizOrderByScoreDesc(quiz));
+//           Image image1= Image.builder().name(dbImage.getName()).type(dbImage.getType()).image(ImageUtility.decompressImage(dbImage.getImage())).build();
+//        leaderboard.setImage(image1);
+        }
+        return leaderboards;
     }
     @Override
     public Set<Leaderboard> getLeader()

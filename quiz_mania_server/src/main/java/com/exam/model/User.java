@@ -34,8 +34,13 @@ public class User implements UserDetails
 
 //    Image upload
     @OneToOne(mappedBy = "user")
-        @JsonIgnore
-     Image image;
+    @JsonIgnore
+    Image image;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, password, firstName, lastName, email, phone, enabled, profile);
+    }
+
 
     //Leaderboard
     @OneToMany(mappedBy = "user")

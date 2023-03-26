@@ -59,12 +59,20 @@
                 <mat-header-cell *matHeaderCellDef class="same"> Position </mat-header-cell>
                 <mat-cell *matCellDef="let i = index , let leaders" class="same1"> {{ viewImage(leaders[i+1].user.id) }}</mat-cell>
               </ng-container> -->
-              <ng-container matColumnDef="position">
+              <ng-container matColumnDef="position" >
                 <mat-header-cell *matHeaderCellDef class="same">Position</mat-header-cell>
                 <mat-cell *matCellDef="let i = index; let leaders" class="same1">
-               {{viewImage(leaders.user.id)}} 
+                 {{i+1}}
                 </mat-cell>
               </ng-container>
+              
+              <ng-container matColumnDef="image">
+                <mat-header-cell *matHeaderCellDef class="same">Image</mat-header-cell>
+                <mat-cell *matCellDef="let i = index; let leaders" class="same1">
+                  <img class="leader" *ngIf="leaders?.image?.image" [src]="'data:image/jpeg;base64,' + leaders.image.image" [alt]="leaders.image.name + 's profile picture'">
+                </mat-cell>
+              </ng-container>
+              
               
               <!-- Name Column -->
               <ng-container matColumnDef="name">
@@ -78,8 +86,8 @@
                 <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.score }} </mat-cell>
               </ng-container>
             
-              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;" ></mat-row>
             </mat-table>
             
             
