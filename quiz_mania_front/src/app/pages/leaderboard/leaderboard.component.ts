@@ -21,7 +21,7 @@ export interface LeaderboardElement {
 })
 export class LeaderboardComponent implements OnInit {
 
-   displayedColumns: string[] = ['position', 'name', 'score'];
+   displayedColumns: string[] = ['position', 'image','name', 'score'];
   // leaderboardData: MatTableDataSource<LeaderboardElement>;
   categories:any;
   catId:any;

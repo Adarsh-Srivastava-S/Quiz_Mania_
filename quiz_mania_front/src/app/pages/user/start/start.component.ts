@@ -23,21 +23,22 @@ export class StartComponent implements OnInit {
   quiz:{
     qId:'',
   },}]
- 
+
   marksGot:any;
   correctAnswers:any;
   score:any;
   id:any;
   leaderboard1:any={
     score:'',
-    
-   
+
+
     user:{
       id:'',
     },
     quiz:{
       qId:'',
     },
+
   }
 
   attempted :any;
@@ -49,7 +50,7 @@ export class StartComponent implements OnInit {
     private _route:ActivatedRoute,
     private _question:QuestionService,
     private _leaderboard:LeaderboardService,
-    private login:LoginService 
+    private login:LoginService
   ) { }
 
   ngOnInit(): void {
@@ -58,6 +59,7 @@ export class StartComponent implements OnInit {
     console.log(this.qid);
     this.loadQuestions();
     this.leaderboard1.user.id=this.login.userId();
+    // this.leaderboard1.image.user.id=this.login.userId();
     this.leaderboard1.quiz.qId=this.qid;
   }
   exitFullscreen(){
@@ -69,7 +71,7 @@ export class StartComponent implements OnInit {
     this._question.getQuestionsOfQuizForTest(this.qid).subscribe
     ((data:any)=>{
       this.questions = data;
-  
+
       this.timer=this.questions.length*2*60;
 
       // this.questions.forEach((q: any) => {
@@ -103,9 +105,9 @@ export class StartComponent implements OnInit {
         if(e.isConfirmed)
         {  this.setScore();
             this.evalQuiz();
-           
+
         }
-        
+
       });
     }
 
@@ -136,7 +138,7 @@ export class StartComponent implements OnInit {
     {
        //calculation
       //  this.setScore();
-       
+
       //  call to server  to check question
         //  this._question.getScore(this.questions)
          this._question.evalQuiz(this.questions).subscribe(
@@ -144,19 +146,19 @@ export class StartComponent implements OnInit {
             console.log(data);
             this.marksGot = parseFloat(Number(data.marksGot).toFixed(2));
             //  this.leaderboard1.score = parseFloat(Number(data.marksGot).toFixed(2));
-            
-       
-       
-            
+
+
+
+
             this.correctAnswers = data.correctAnswers;
             this.attempted = data.attempted;
             this.isSubmit = true;
-            
+
           },
           (error)=>{
             console.log(error);
           }
-          
+
          );
         //  this._leaderboard.addLeaderboard(this.leaderboard1);
 
@@ -166,7 +168,7 @@ export class StartComponent implements OnInit {
       //   if(q.givenAnswer==q.answer)
       //   {
       //     this.correctAnswers++;
-      //     let marksSingle = 
+      //     let marksSingle =
       //             this.questions[0].quiz.maxMarks / this.questions.length;
       //     this.marksGot += marksSingle;
       //   }
@@ -188,19 +190,20 @@ export class StartComponent implements OnInit {
      // this.question.answer=''
         this.leaderboard1={
           score:'',
-          
-         
+
+
           user:{
             id:'',
           },
           quiz:{
             qId:'',
           },
+
         };
-  
+
       },
       (error)=>{
-     
+
       }
       );
     }
@@ -209,18 +212,18 @@ export class StartComponent implements OnInit {
  this._question.getScore(this.questions).subscribe(
   (data:any)=>{
     console.log(data);
-   
+
      this.leaderboard1.score =data;
-    
+
      console.log(this.leaderboard1);
-    
-   
-    
+
+
+
   },
   (error)=>{
     console.log(error);
   }
-  
+
  );
      }
     printPage()
