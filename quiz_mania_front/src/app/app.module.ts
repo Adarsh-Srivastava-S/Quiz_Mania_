@@ -58,6 +58,7 @@ import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component'
 import { ImageComponent } from './pages/image/image.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { CertificateComponent } from './pages/certificate/certificate.component';
 
 
 @NgModule({
@@ -91,6 +92,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     ContactusViewComponent,
     LeaderboardComponent,
     ImageComponent,
+    CertificateComponent,
 
 
   ],
