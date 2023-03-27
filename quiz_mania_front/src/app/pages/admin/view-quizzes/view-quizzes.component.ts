@@ -22,17 +22,7 @@ export class ViewQuizzesComponent implements OnInit {
         title:'Programming'
       }
     },
-    {
-      qId:10,
-      title:'Basic Java Quiz',
-      description:'The word Core describes the basic concept of something, and here, the phrase Core Java defines the basic Java that covers the basic concept of Java programming language.',
-      maxMarks:'50',
-      numberOfQuestions:'20',
-      active:'',
-      category:{
-        title:'Programming'
-      }
-    },
+   
   ];
   constructor(private _quiz:QuizService) { }
 

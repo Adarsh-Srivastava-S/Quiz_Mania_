@@ -4,12 +4,15 @@ import com.exam.model.contactus.ContactUs;
 import com.exam.model.faq.FaqQuestion;
 import com.exam.model.feedback.Feedback;
 import com.exam.service.ContactUsService;
+//import com.exam.service.email.EmailService;
 import com.exam.service.email.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
+import javax.mail.MessagingException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -24,9 +27,9 @@ public class ContactusController {
     EmailService emailService;
 
     @PostMapping("/add")
-    public ResponseEntity<?> addContactUs(@RequestBody ContactUs contactUs) {
+    public ResponseEntity<?> addContactUs(@RequestBody ContactUs contactUs) throws MessagingException {
         ContactUs contactUs1 = this.contactUsService.addContactUs(contactUs);
-        this.emailService.sendEmail(contactUs1.getEmail(), contactUs1.getSubject(), contactUs1.getContent());
+        this.emailService.sendEmail(contactUs);
         return ResponseEntity.ok(contactUs1);
     }
 
