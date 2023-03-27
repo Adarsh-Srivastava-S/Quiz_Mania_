@@ -1,10 +1,18 @@
 import { LocationStrategy } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LeaderboardService } from 'src/app/services/leaderboard/leaderboard.service';
 import { LoginService } from 'src/app/services/login.service';
 import { QuestionService } from 'src/app/services/question.service';
 import Swal from 'sweetalert2';
+
+import * as pdfMake from "pdfmake/build/pdfMake";
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
+const htmlToPdfmake = require("html-to-pdfmake");
+(pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
+
+
+
 
 @Component({
   selector: 'app-start',
@@ -13,6 +21,7 @@ import Swal from 'sweetalert2';
 })
 export class StartComponent implements OnInit {
 
+  
   qid: any;
   questions: any=[{content:'',
   option1:'',
@@ -230,8 +239,53 @@ export class StartComponent implements OnInit {
 
  );
      }
-    printPage()
-    {
-      window.print();
-    }
+    // printPage()
+    // {
+    //   window.print();
+    // }
+    // printPage1() {
+    //   const doc = new jsPDF();
+    //   doc.fromHTML(window.document.getElementById('printable-content'), 15, 15);
+    //   const pdfBlob = doc.output('blob');
+    //   const formData = new FormData();
+    //   formData.append('pdf', pdfBlob, 'printed-page.pdf');
+    //   // Use your backend API endpoint to send the PDF file
+    //   // For example:
+    //   // this.http.post('https://example.com/api/print', formData).subscribe();
+    // }
+   
+  // public exportPDF() {
+  //   const pdfTable = this.pdfTable.nativeElement;
+  //   var html = htmlToPdfmake(pdfTable.innerHTML);
+  //   const documentDefinition = { content: html };
+  //    pdfMake.createPdf(documentDefinition); 
+  // }
+  @ViewChild('printableContent') printableContent!: ElementRef;
+
+printPage() {
+  const printableContent = document.getElementById('printableContent');
+  if (printableContent) {
+    window.print();
+
+    const htmlContent = htmlToPdfmake(printableContent.innerHTML);
+    const documentDefinition = { content: htmlContent };
+
+    pdfMake.createPdf(documentDefinition).getBlob((pdfBlob) => {
+      const userId = this.login.userId();
+      const formData = new FormData();
+      formData.append('pdf', pdfBlob, 'my-document.pdf');
+      formData.append('userid', userId.toString());
+
+      // perform an HTTP request with the formData object as the payload, e.g.:
+      fetch('http://localhost:9005/pdf/submit-pdf', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.text())
+        .then(data => console.log(data))
+        .catch(error => console.error(error));
+    });
+    
+  }
+}
 }

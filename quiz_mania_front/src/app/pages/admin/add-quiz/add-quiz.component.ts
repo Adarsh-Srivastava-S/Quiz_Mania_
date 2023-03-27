@@ -16,10 +16,7 @@ export class AddQuizComponent implements OnInit {
       cid:23,
       title:'Progrmming'
     },
-    {
-      cid:23,
-      title:'Programming'
-    }
+    
   ];
  
   quizData={
