@@ -11,7 +11,8 @@ import org.springframework.stereotype.Service;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.mail.util.ByteArrayDataSource;
-import java.io.ByteArrayOutputStream;
+import java.io.*;
+import java.util.Base64;
 import java.util.zip.Inflater;
 
 @Service
@@ -21,7 +22,7 @@ public class PdfServiceImpl implements PdfService {
     @Autowired
     private JavaMailSender mailSender;
 
-    public void addPdf(Pdf pdf, User user) throws MessagingException {
+    public void addPdf(Pdf pdf, User user) throws MessagingException, FileNotFoundException {
 //        Pdf model = pdf; // Assuming you have a method to get the PDF model by ID
 //        byte[] compressedPdfBytes = model.getPdf();
 //
@@ -39,7 +40,7 @@ public class PdfServiceImpl implements PdfService {
 //        } catch (Exception exception) {
 //            // Handle any exceptions that occur while decompressing the PDF bytes
 //        }
-        byte[] pdfBytes = pdf.getPdf();
+
 //        Attach the PDF file to an email using JavaMail
 //        String emailBody = "Dear " +user.getFirstName()+" "+user.getLastName() + ",\n\n" +
 //                "Thank you for reaching out to us at Quiz Mania! We have received your message and will get back to you as soon as possible. Our team is dedicated to providing excellent customer service and we are excited to assist you with any questions or concerns you may have.\n\n" +
@@ -53,13 +54,23 @@ public class PdfServiceImpl implements PdfService {
                 "We hope this achievement brings you great satisfaction and encourages you to continue working hard towards your goals. If you have any questions or concerns regarding your scorecard, please do not hesitate to reach out to us.\n\n" +
                 "Thank you for your continued dedication to learning and growth.\n\nBest regards," +
                 "\nThe Quiz Mania Team!";
+        byte[] imageBytes = Base64.getDecoder().decode(pdf.getName());
+//        System.out.println(imageBytes);
+        File imageFile = new File(user.getFirstName()+".png");
+        try (OutputStream outputStream = new FileOutputStream(imageFile)) {
+            outputStream.write(imageBytes);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
-        helper.setTo(user.getEmail());
+        helper.setTo("quizmania007@gmail.com");
         helper.setSubject("Your Score Card");
         helper.setText(emailBody);
-        ByteArrayDataSource dataSource = new ByteArrayDataSource(pdfBytes, "application/pdf");
-        helper.addAttachment(pdf.getName(), dataSource);
+//        ByteArrayDataSource dataSource = new ByteArrayDataSource(pdfBytes, "application/pdf");
+
+        helper.addAttachment(user.getFirstName(), imageFile);
 
         mailSender.send(message);
 

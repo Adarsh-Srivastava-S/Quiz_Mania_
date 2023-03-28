@@ -5,11 +5,13 @@ import { LeaderboardService } from 'src/app/services/leaderboard/leaderboard.ser
 import { LoginService } from 'src/app/services/login.service';
 import { QuestionService } from 'src/app/services/question.service';
 import Swal from 'sweetalert2';
+import html2canvas from 'html2canvas';
+import { HttpClient } from '@angular/common/http';
 
-import * as pdfMake from "pdfmake/build/pdfMake";
-import * as pdfFonts from "pdfmake/build/vfs_fonts";
-const htmlToPdfmake = require("html-to-pdfmake");
-(pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
+// import * as pdfMake from "pdfmake/build/pdfMake";
+// import * as pdfFonts from "pdfmake/build/vfs_fonts";
+// const htmlToPdfmake = require("html-to-pdfmake");
+// (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
 
 
@@ -60,7 +62,8 @@ export class StartComponent implements OnInit {
     private _route:ActivatedRoute,
     private _question:QuestionService,
     private _leaderboard:LeaderboardService,
-    private login:LoginService
+    private login:LoginService,
+    private _http:HttpClient
   ) { }
 
   ngOnInit(): void {
@@ -266,25 +269,44 @@ printPage() {
   const printableContent = document.getElementById('printableContent');
   if (printableContent) {
     window.print();
+    html2canvas(printableContent).then(canvas=>{
+      const htmlContent = canvas.toDataURL("Data");
+      console.log(htmlContent);
+      const data={
+        userid:this.login.userId(),
+        
+        name:htmlContent.substring("data:image/png;base64,".length)
+      }
+      console.log(data.name);
+      this._http.post('http://localhost:9005/pdf/submit-pdf', data).subscribe(response => { console.log('Certificate sent successfully'); }, error => {
 
-    const htmlContent = htmlToPdfmake(printableContent.innerHTML);
-    const documentDefinition = { content: htmlContent };
+console.error('Error sending certificate',
 
-    pdfMake.createPdf(documentDefinition).getBlob((pdfBlob) => {
-      const userId = this.login.userId();
-      const formData = new FormData();
-      formData.append('pdf', pdfBlob, 'my-document.pdf');
-      formData.append('userid', userId.toString());
+error);
 
-      // perform an HTTP request with the formData object as the payload, e.g.:
-      fetch('http://localhost:9005/pdf/submit-pdf', {
-        method: 'POST',
-        body: formData
-      })
-        .then(response => response.text())
-        .then(data => console.log(data))
-        .catch(error => console.error(error));
-    });
+});
+
+});
+     
+    //   fetch('http://localhost:9005/pdf/submit-pdf', {
+    //      method: 'POST',
+    //      body: data
+    //    })
+    //      .then(response => response.text())
+    //      .then(data => console.log(data))
+    //      .catch(error => console.error(error));
+    //  });
+    // }
+    // // const documentDefinition = { content: htmlContent };
+
+    // // pdfMake.createPdf(documentDefinition).getBlob((pdfBlob) => {
+    // //   const userId = this.login.userId();
+    // //   const formData = new FormData();
+    // //   formData.append('pdf', pdfBlob, 'my-document.pdf');
+    // //   formData.append('userid', userId.toString());
+
+    //   // perform an HTTP request with the formData object as the payload, e.g.:
+   
     
   }
 }

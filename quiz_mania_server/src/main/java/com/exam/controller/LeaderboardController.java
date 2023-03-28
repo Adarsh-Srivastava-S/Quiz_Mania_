@@ -66,6 +66,13 @@ Image image=imageRepository.findByUserId(user.getId());
         List<Leaderboard> leaderboards = this.leaderboardService.getLeaderboard(quiz);
      return ResponseEntity.ok(leaderboards);
     }
+    @GetMapping("/leaderboard/user/{uid}")
+    public ResponseEntity<?> getUserLeader(@PathVariable("uid") Long uid) {
+        User user=new User();
+        user.setId(uid);
+        List<Leaderboard> leaderboards = this.leaderboardService.getLeaderboardByUser(user);
+        return ResponseEntity.ok(leaderboards);
+    }
     @GetMapping("/leader")
     public ResponseEntity<?> getLeader(){
         Set<Leaderboard> leaderboards=this.leaderboardService.getLeader();

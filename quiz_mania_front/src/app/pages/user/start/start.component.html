@@ -4,7 +4,7 @@
         <div class="col-md-2">
        <!-- instructions -->
        <mat-card style="margin-top: 70px;">
-           <mat-card-content> 
+           <mat-card-content>
             <h1><b style="color: #ff0000;">Instructions</b></h1>
             <ul>
              <li>Do not refresh the page otherwise you will get new questions in this quiz.</li>
@@ -67,9 +67,9 @@
                 </mat-card-header>
                 <mat-card-content>
                     <h1 class="text-center" style="color: #ff0000; "><b>{{getFormattedTime()}}</b></h1>
-                    <mat-spinner 
+                    <mat-spinner
                     mode="determinate"
-                    color="accent" 
+                    color="accent"
                     style="margin: auto;"
                     [value]="(timer/(this.questions.length*2*60))*100"
                     >
@@ -89,10 +89,11 @@
            <mat-card>
             <mat-card-header>
                 <mat-card-title>
-                    <b style="color: blueviolet;">Quiz Result:</b> 
+                    <b style="color: blueviolet;">Quiz Result:</b>
                 </mat-card-title>
             </mat-card-header>
             <mat-card-content class="text-center">
+                <img src="../../../../assets/Quiz Maniaa.png" alt="Logo" class=" logo-image">
                 <h1><b>Name: </b> <b style="color: deeppink;">{{ user1.firstName }} {{user1.lastName }}</b></h1>
                 <h1><b>Quiz on: </b> <b style="color: deeppink;">{{questions[0].quiz.title}}</b></h1>
                 <h1><b>Marks Obtained: </b> <b style="color: deeppink;">{{marksGot}}</b></h1>
@@ -102,7 +103,7 @@
 
             <mat-card-actions class="text-center">
                     <button (click)="printPage()" mat-raised-button color="primary">Print</button>
-                    <button (click)="leader()" mat-raised-button color="accent" 
+                    <button (click)="leader()" mat-raised-button color="accent"
                         [routerLink]="'/user-dashboard/0'">Back To Home
                     </button>
             </mat-card-actions>

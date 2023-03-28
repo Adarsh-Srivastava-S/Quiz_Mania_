@@ -5,7 +5,9 @@ import com.exam.model.User;
 import com.exam.repo.PdfRepo;
 import com.exam.service.UserService;
 import com.exam.service.pdf.PdfService;
+import com.exam.utility.ImageUtility;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.mail.MessagingException;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Base64;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
@@ -26,10 +29,11 @@ public class PdfController {
     UserService userService;
     PdfRepo pdfRepo;
 
-    @PostMapping("/submit-pdf")
-    public ResponseEntity<String> submitPdf(@RequestParam("pdf") MultipartFile pdfFile, @RequestParam("userid") Long id) throws IOException, MessagingException {
-//        byte[] pdfBytes = pdfFile.getBytes();
-//
+    @PostMapping(value = "/submit-pdf",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> submitPdf(@RequestBody Pdf data) throws IOException, MessagingException {
+//        byte[] imageBytes = ImageUtility.compressImage(data.getPdf());
+//        byte[] image=ImageUtility.decompressImage(imageBytes);
+
 //        // Compress the PDF bytes using the Deflater class
 //        Deflater deflater = new Deflater();
 //        deflater.setLevel(Deflater.BEST_COMPRESSION);
@@ -46,11 +50,11 @@ public class PdfController {
 //        byte[] compressedPdfBytes = outputStream.toByteArray();
 
         // Save the compressed PDF bytes to your model
-        User user = this.userService.getUserById(id);
-
+        User user = this.userService.getUserById(data.getUserid());
+String image="data:image/png;base64,"+data.getName();
         Pdf model = new Pdf();
-        model.setPdf(pdfFile.getBytes());
-        model.setName(pdfFile.getName());
+        model.setPdf(data.getPdf());
+        model.setName(data.getName());
         pdfService.addPdf(model, user);
         // ... save the model to your database or perform any other operations as needed
 
