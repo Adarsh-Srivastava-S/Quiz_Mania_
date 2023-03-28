@@ -1,5 +1,6 @@
 package com.exam.service.leaderboard;
 
+import com.exam.model.User;
 import com.exam.model.exam.Quiz;
 import com.exam.model.image.Image;
 import com.exam.model.leaderboard.Leaderboard;
@@ -40,6 +41,13 @@ public class LeaderboardServiceImpl implements LeaderboardService {
     {
         return this.leaderboardRepo.findByOrderByScoreDesc();
     }
+    @Override
+    public List<Leaderboard> getLeaderboardByUser(User user)
+    {
+        List<Leaderboard> leaderboards= new ArrayList<>(this.leaderboardRepo.findByUserOrderByScoreDesc(user));
+        return leaderboards;
+    }
+
     private Set<Leaderboard> sort(ArrayList<Leaderboard> leaderbloards) {
         Collections.sort(leaderbloards, Comparator.comparing(Leaderboard::getScore).reversed());
         return new HashSet<>(leaderbloards);

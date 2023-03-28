@@ -1,0 +1,5 @@
+You should install this before run code
+npm install pdfmake --save
+npm install html-to-pdfmake --save
+npm install jspdf --save
+npm install @ckeditor/ckeditor5-angular

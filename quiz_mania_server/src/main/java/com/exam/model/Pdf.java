@@ -13,6 +13,7 @@ public class Pdf {
     private String name;
     @Column(name = "pdf", unique = false, nullable = false, length = 10000)
     private byte[] pdf;
+    private Long userid;
 
 
     public Pdf() {
