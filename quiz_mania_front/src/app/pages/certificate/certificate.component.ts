@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LeaderboardService } from 'src/app/services/leaderboard/leaderboard.service';
 
 @Component({
   selector: 'app-certificate',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./certificate.component.css']
 })
 export class CertificateComponent implements OnInit {
-
-  constructor() { }
+  onlineDate: Date = new Date();
+  constructor(private leader:LeaderboardService) { }
 
   ngOnInit(): void {
   }
