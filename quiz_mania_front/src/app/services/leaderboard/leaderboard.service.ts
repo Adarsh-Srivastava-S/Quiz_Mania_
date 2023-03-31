@@ -14,7 +14,10 @@ export class LeaderboardService {
   {
     return this.http.post(`${baseUrl}/leaderboard/`,leaderboard1);
   }
-
+public getLeaderByUser(uid:any)
+{
+  return this.http.get(`${baseUrl}/leaderboard/leaderboard/user/${uid}`);
+}
   // getting leaderboard by quizes
   public getLeaderboard(qId:any)
   {

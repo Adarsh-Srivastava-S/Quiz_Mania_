@@ -24,6 +24,7 @@ import { ContactusComponent } from './pages/contactus/contactus.component';
 import { AddFaqsComponent } from './pages/admin/add-faqs/add-faqs.component';
 import { ContactusViewComponent } from './pages/admin/contactus-view/contactus-view.component';
 import { ImageComponent } from './pages/image/image.component';
+import { CertificateComponent } from './pages/certificate/certificate.component';
 
 
 const routes: Routes = [
@@ -133,6 +134,10 @@ const routes: Routes = [
       {
         path:'instructions/:qid',
         component:InstructionsComponent,
+      },
+      {
+        path:'certificate/:uid',
+        component:CertificateComponent,
       },
       
 

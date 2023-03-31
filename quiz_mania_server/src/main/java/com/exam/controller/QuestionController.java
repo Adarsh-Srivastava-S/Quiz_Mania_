@@ -92,6 +92,7 @@ QuestionController {
        double marksGot = 0;
        int correctAnswers = 0;
        int attempted = 0;
+       int maxMarks=0;
 
         for(Question q: questions){
            // System.out.println(q.getGivenAnswer());
@@ -101,6 +102,7 @@ QuestionController {
                 // correct
                 correctAnswers++;
                 double marksSingle = Double.parseDouble(questions.get(0).getQuiz().getMaxMarks()) / questions.size();
+                maxMarks=Integer.parseInt(questions.get(0).getQuiz().getMaxMarks());
                 marksGot += marksSingle;
             }
             if (q.getGivenAnswer() != null) {
@@ -108,7 +110,7 @@ QuestionController {
             }
         }
         ;
-        Map<String, Object> map = Map.of("marksGot", marksGot, "correctAnswers", correctAnswers, "attempted", attempted);
+        Map<String, Object> map = Map.of("marksGot", marksGot, "correctAnswers", correctAnswers, "attempted", attempted,"maxMarks",maxMarks);
         return ResponseEntity.ok(map);
     }
 

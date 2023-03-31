@@ -65,7 +65,7 @@ public class PdfServiceImpl implements PdfService {
 
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
-        helper.setTo("quizmania007@gmail.com");
+        helper.setTo(user.getEmail());
         helper.setSubject("Your Score Card");
         helper.setText(emailBody);
 //        ByteArrayDataSource dataSource = new ByteArrayDataSource(pdfBytes, "application/pdf");
