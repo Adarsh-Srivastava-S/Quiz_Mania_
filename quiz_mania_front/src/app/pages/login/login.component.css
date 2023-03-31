@@ -4,3 +4,22 @@
 h1{
     text-align: center;
 }
+.login{
+    text-align: center;
+    /* background-color: antiquewhite; */
+    margin-left: 20px;
+    
+}
+.signup{
+    text-align: center;
+    margin-left: 219px;
+    width: 150px;
+    margin-top: -50px;
+}
+.first{
+    text-align: center;
+    width: 181px;
+    
+    margin-top: 2pc;
+   
+}

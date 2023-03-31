@@ -41,14 +41,26 @@
                          matInput 
                          placeholder="enter password">
                       </mat-form-field>
+                      <div>
+                        <h5>Having Trouble in sign in?</h5>
+                      </div>
 
-                    <div class="container text-center">
+                    <div class="login">
                         <button mat-raised-button color="primary" type="submit">
                             Login
                         </button>
-                        <button class="ml10" mat-raised-button color="accent" type="submit">
-                            Reset
-                        </button>
+                       
+                    </div>
+                   <div class="first">
+                       <h3> Don't you have account?</h3>
+                    </div>
+                       <div class="signup">  <a
+                       [routerLink]="'/signup'"
+                        mat-raised-button color="primary">
+                         Create Account 
+                        
+                       </a> 
+ 
                     </div>
                 </form>
             </mat-grid-tile>
