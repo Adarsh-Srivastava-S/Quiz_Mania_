@@ -34,6 +34,12 @@ const routes: Routes = [
      component: HomeComponent,
      pathMatch:'full',
   },
+
+  {
+    path: 'certi',
+    component: CertificateComponent,
+    pathMatch:'full',
+ },
   {
     path: 'faq',
     component: FaqComponent,
