@@ -1,22 +1,22 @@
 <div class="bootstrap-wrapper">
-    
-           
 
-                
+
+
+
 <mat-grid-list cols="2" >
 
 <mat-grid-tile>
     <img src="../../../assets/login.png">
-    
+
 </mat-grid-tile>
 
     <mat-grid-tile >
-                 
+
                     <!-- here you we use height and padding to adjust the img -->
-                   
-               
-                   
-                
+
+
+
+
                  <!-- {{userloginData | json}} -->
                  <form action=""  (ngSubmit)="formSubmit()">
                   <!-- username feld -->
@@ -25,11 +25,11 @@
                         <mat-label>User Name</mat-label>
                         <input
                         [(ngModel)]="userloginData.username"
-                        name="username" 
+                        name="username"
                         required matInput placeholder="Enter here">
                         <mat-hint>Valid User Name</mat-hint>
                     </mat-form-field>
-                    
+
                     <!-- password field -->
                     <mat-form-field class="full-width"  appearance="outline">
                         <mat-label>User Password</mat-label>
@@ -38,7 +38,7 @@
                         name="password"
                          required
                          type="password"
-                         matInput 
+                         matInput
                          placeholder="enter password">
                       </mat-form-field>
                       <div>
@@ -49,7 +49,9 @@
                         <button mat-raised-button color="primary" type="submit">
                             Login
                         </button>
-                       
+                        <button mat-raised-button color="accent" class="ml20" type="reset">
+                            Reset
+                        </button>
                     </div>
                    <div class="first">
                        <h3> Don't you have account?</h3>
@@ -57,17 +59,17 @@
                        <div class="signup">  <a
                        [routerLink]="'/signup'"
                         mat-raised-button color="primary">
-                         Create Account 
-                        
-                       </a> 
- 
+                         Create Account
+
+                       </a>
+
                     </div>
                 </form>
             </mat-grid-tile>
             </mat-grid-list>
-  
+
 
             </div>
-       
+
 
 

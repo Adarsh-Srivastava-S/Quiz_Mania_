@@ -16,6 +16,8 @@ export class LoadQuizComponent implements OnInit {
   leader:any;
   quizzes: any;
   id:any;
+  flag=false;
+  
   constructor( private _route:ActivatedRoute, private _quiz:QuizService,private _login:LoginService,private _leader:LeaderboardService) { }
 
   ngOnInit(): void {
@@ -64,8 +66,19 @@ export class LoadQuizComponent implements OnInit {
   user(){
   this.id=this._login.userId();
   console.log(this.id);
- 
+ return this.id;
 
 }
+setFlagvalue()
+  {
+    this.flag = true;
+    
+
+  }
+  public hasUserCompletedQuiz(q:any): boolean {
+    return this.leader.some((l: { user: { id: any; }; quiz: { qId: any; }; }) => l.user.id == this._login.userId() && l.quiz.qId == q);
+  }
+
+  
 
 }

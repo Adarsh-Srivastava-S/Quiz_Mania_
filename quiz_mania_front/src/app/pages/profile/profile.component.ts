@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from 'src/app/services/ImageService/image.service';
+import { LeaderboardService } from 'src/app/services/leaderboard/leaderboard.service';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -10,13 +11,16 @@ import { LoginService } from 'src/app/services/login.service';
 
 
 export class ProfileComponent implements OnInit {
+  displayedColumns: string[] = ['position','category','quiz','name', 'score'];
 
 
   
   user = null;
-  constructor(public login:LoginService,private img:ImageService) { }
+  constructor(public login:LoginService,private img:ImageService,private _leader:LeaderboardService) { }
   dbImage: any; 
   id : any;
+  leader:any;
+  i:any;
   postResponse: any;
 
 
@@ -24,18 +28,24 @@ export class ProfileComponent implements OnInit {
     
 
     this.user=this.login.getUser();
+    this.id=this.login.userId();
     this.viewImage();
     
-    // used to get data from server
-    // this.login.getCurrentUser().subscribe(
-    //   (user:any)=>{
-    //     this.user = user;
-    //   },
-    //   (error)=>{
-    //     alert("error");
-    //   }
-    // )
-  }
+  
+  
+        this._leader.getLeaderByUser(this.id).subscribe(
+          (data:any)=>{
+            this.leader=data;
+            this.i=this.leader.length;
+            console.log(this.leader);
+
+          },(error)=>{
+            alert("error in loading leaderboard data");
+          }
+        );
+        
+  
+}
 
   viewImage() {
     

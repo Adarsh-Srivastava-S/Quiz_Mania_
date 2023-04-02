@@ -73,7 +73,7 @@ color:#f91942;
 line-height: 1;
 letter-spacing:0.3px;
 font-size: 34px;
-font-weight: 700;  
+font-weight: 700;
 text-align:center;
 text-transform:none;
 margin-bottom:30px;
@@ -86,7 +86,7 @@ background: #f91942;
 position: absolute;
 left: 0px;
 bottom: -10px;
-right:0;  
+right:0;
 margin:0 auto;
 }
 .section-head h4 span {
@@ -98,13 +98,13 @@ p.service_text{
 color:#cccccc !important;
 font-size:16px;
 line-height:28px;
-text-align:center;    
+text-align:center;
 }
 .section-head p, p.awesome_line{
 color:#818181;
 font-size:16px;
 line-height:28px;
-text-align:center;  
+text-align:center;
 }
 
 .extra-text {
@@ -167,7 +167,7 @@ transition: all 0.5s ease 0s;
 .item .icon {
 font-size: 40px;
 margin-bottom:25px;
-color: #f91942;   
+color: #f91942;
 width: 90px;
 height: 90px;
 line-height: 96px;
@@ -265,7 +265,7 @@ position: absolute;
 top: -5px;
 right: 0;
 font-size: 10px;
-font-weight:600;    
+font-weight:600;
 color: #fff;
 background:rgba(0, 0, 0, 0.9);
 padding: 3px 7px;

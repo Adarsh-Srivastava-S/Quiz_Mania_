@@ -17,14 +17,24 @@
                         <p class="truncate">{{q.description}}</p>
                     </mat-card-content>
                     <mat-card-actions>
+
                         <button mat-raised-button color="primary">View</button>
-                        <button mat-raised-button color="accent" 
-                        [routerLink]="'/user-dashboard/instructions/'+q.qId" 
-                        class="ml10" *ngIf="leader[0].quiz.qId!=q.qId">Start</button>
-                        <button mat-raised-button color="accent" 
-                        [routerLink]="'/user-dashboard/certificate/'+this.id" 
-                        class="ml10" *ngIf="leader[0].quiz.qId==q.qId">Cirtificate</button>
-                        <button mat-raised-button color="primary" (click)="user()">Questions :{{q.numberOfQuestions}}</button>
+                        
+                            <ng-container *ngIf="!hasUserCompletedQuiz(q.qId)">
+                              <button mat-raised-button color="accent" 
+                              [routerLink]="'/user-dashboard/instructions/'+q.qId"
+                                
+                                class="ml10">
+                                Start    
+                              </button>
+                            </ng-container>
+                                                 
+                          <button mat-raised-button color="accent" 
+                          [routerLink]="'/user-dashboard/certificate/'+this.id"  
+                            class="ml10" *ngIf="hasUserCompletedQuiz(q.qId)">
+                             Certificate
+                          </button>
+                                <button mat-raised-button color="primary" (click)="user()">Questions :{{q.numberOfQuestions}}</button>
                         <button mat-raised-button color="primary" >M.M :{{q.maxMarks}}</button>
                     </mat-card-actions>
                 </mat-card>
