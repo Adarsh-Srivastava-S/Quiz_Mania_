@@ -40,6 +40,7 @@ export class StartComponent implements OnInit {
   score:any;
   id:any;
   user1:any
+  uid:any;
   leaderboard1:any={
     score:'',
 
@@ -52,7 +53,7 @@ export class StartComponent implements OnInit {
     },
 
   }
-
+maximumMarks:any;
   attempted :any;
   isSubmit=false;
   timer: any;
@@ -69,6 +70,7 @@ export class StartComponent implements OnInit {
   ngOnInit(): void {
     this.preventBackButton();
     this.qid = this._route.snapshot.params['qid'];
+    this.uid=this.login.userId();
     console.log(this.qid);
     this.loadQuestions();
     this.leaderboard1.user.id=this.login.userId();
@@ -161,8 +163,7 @@ export class StartComponent implements OnInit {
             this.marksGot = parseFloat(Number(data.marksGot).toFixed(2));
             //  this.leaderboard1.score = parseFloat(Number(data.marksGot).toFixed(2));
 
-
-
+            this.maximumMarks=data.maxMarks;
 
             this.correctAnswers = data.correctAnswers;
             this.attempted = data.attempted;
@@ -273,16 +274,14 @@ printPage() {
       const htmlContent = canvas.toDataURL("Data");
       console.log(htmlContent);
       const data={
-        userid:this.login.userId(),
+        userid:this.uid,
         
         name:htmlContent.substring("data:image/png;base64,".length)
       }
       console.log(data.name);
       this._http.post('http://localhost:9005/pdf/submit-pdf', data).subscribe(response => { console.log('Certificate sent successfully'); }, error => {
 
-console.error('Error sending certificate',
-
-error);
+console.error('Error sending certificate',error);
 
 });
 

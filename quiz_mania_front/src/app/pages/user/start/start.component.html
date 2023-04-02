@@ -24,7 +24,7 @@
         <mat-card *ngFor="let q of questions; let i=index" class="mt10">
             <mat-card-content>
               <p> <b>Q {{i + 1}})</b>
-                <span class="ml10" [innerHTML]="q.content"></span></p>
+                <span class="ml10" [innerHTML]="q.content "></span></p>
 
                 <mat-divider></mat-divider>
                  <br>
@@ -96,7 +96,7 @@
                 <img src="../../../../assets/Quiz Maniaa.png" alt="Logo" class=" logo-image">
                 <h1><b>Name: </b> <b style="color: deeppink;">{{ user1.firstName }} {{user1.lastName }}</b></h1>
                 <h1><b>Quiz on: </b> <b style="color: deeppink;">{{questions[0].quiz.title}}</b></h1>
-                <h1><b>Marks Obtained: </b> <b style="color: deeppink;">{{marksGot}}</b></h1>
+                <h1><b>Marks Obtained: </b> <b style="color: deeppink;">{{marksGot}}/{{maximumMarks}}</b></h1>
                 <h1><b>Correct Answers: </b> <b style="color: deeppink;">{{correctAnswers}}</b></h1>
                 <h1><b>Questions Attempted: </b><b style="color: deeppink;">{{attempted}}</b></h1>
             </mat-card-content>

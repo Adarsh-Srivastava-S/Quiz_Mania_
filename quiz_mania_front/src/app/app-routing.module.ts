@@ -141,6 +141,10 @@ const routes: Routes = [
         path:'instructions/:qid',
         component:InstructionsComponent,
       },
+      {
+        path:'certificate/:uid',
+        component:CertificateComponent,
+      },
       
 
     ],

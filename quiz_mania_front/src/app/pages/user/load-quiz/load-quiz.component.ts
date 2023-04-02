@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LeaderboardService } from 'src/app/services/leaderboard/leaderboard.service';
+import { LoginService } from 'src/app/services/login.service';
 import { QuizService } from 'src/app/services/quiz.service';
+import { LoginComponent } from '../../login/login.component';
 
 @Component({
   selector: 'app-load-quiz',
@@ -10,11 +13,13 @@ import { QuizService } from 'src/app/services/quiz.service';
 export class LoadQuizComponent implements OnInit {
 
   catId: any;
+  leader:any;
   quizzes: any;
-  constructor( private _route:ActivatedRoute, private _quiz:QuizService) { }
+  id:any;
+  constructor( private _route:ActivatedRoute, private _quiz:QuizService,private _login:LoginService,private _leader:LeaderboardService) { }
 
   ngOnInit(): void {
-    
+    this.id=this._login.userId();
     this._route.params.subscribe((params)=>{
       this.catId = params['catId'];
       if(this.catId==0)
@@ -25,6 +30,14 @@ export class LoadQuizComponent implements OnInit {
           (data:any)=>{
              this.quizzes = data;
              console.log(this.quizzes);
+             this._leader.getLeaderByUser(this.id).subscribe(
+              (data:any)=>{
+                this.leader=data;
+                console.log(this.leader);
+              },(error)=>{
+                alert("error in loading leader data");
+              }
+            );
           },(error)=>{
             console.log(error);
             alert('error in loading all quizzes');
@@ -32,16 +45,27 @@ export class LoadQuizComponent implements OnInit {
           );
       }else{
         console.log("Load specific quiz");
+       
+      
         
         this._quiz.getActiveQuizzesOfCategory(this.catId).subscribe(
           (data:any)=>{
             this.quizzes=data;
             console.log(this.quizzes);
+           
           },(error)=>{
             alert("error in loading quiz data");
           }
         );
       }
+     
     });
   }
+  user(){
+  this.id=this._login.userId();
+  console.log(this.id);
+ 
+
+}
+
 }

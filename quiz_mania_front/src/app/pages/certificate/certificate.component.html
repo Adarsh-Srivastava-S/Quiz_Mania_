@@ -1,13 +1,12 @@
 
 <div class="row mt20">
-  <div class="col-md-6 offset-md-3">
-    <div class="bg">
+  <div class="col-md-6">
+    <div class="bg" id="printableContent">
      <div  class="first">
-      Anand praksh signh s    
-   
+      {{leader[0].user.firstName}} {{leader[0].user.lastName}}
     </div>
     <div class="second">
-    <p>    for their impressive score of [10/100]% in the [Java programming langulage], reflecting their knowledge and expertise in the subject matter.</p>
+    <p>    for their impressive score of <b>{{leader[0].score}}</b> out of {{leader[0].quiz.maxMarks}} in the Quiz <b>{{leader[0].quiz.title}}</b>  of category <b> {{leader[0].quiz.category.title}} </b>, reflecting their knowledge and expertise in the subject matter.</p>
     </div>
     <div class="third">
       <h3>Anand PRaksh Singhd</h3>
@@ -15,5 +14,16 @@
     <div class="fourth">
     <h3>{{ onlineDate | date:'shortDate' }}</h3>
     </div>
+    </div>
+    <mat-card-actions class="text-center">
+      
+      <button (click)="printPage()" mat-raised-button color="primary">Get in Mail</button>
+      <button (click)="Mail()" mat-raised-button color="primary">Download</button>
+      <button  mat-raised-button color="accent"
+          [routerLink]="'/user-dashboard/0'">Back To Home
+      </button>
+  </mat-card-actions>
   </div>
+  
+
 </div>
