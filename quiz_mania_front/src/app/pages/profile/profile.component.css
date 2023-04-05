@@ -1,4 +1,4 @@
-.profile-image{
+/* .profile-image{
     max-width: 150px;
     max-height: 150px;
     border: 2px solid #ff4081;
@@ -12,7 +12,180 @@
 }
 .table tr td{
     padding: 15px 10px;
-    border: .5px solid #e2e2e2;
+    border: 1px solid black;
     font-weight: 80px;
+    background-color: antiquewhite;
 
+} */
+
+
+/* yaha se hamra code hai */
+
+/* .bootstrap-wrapper {
+    margin-top: 50px;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  }
+  
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  table {
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 2px solid black;
+  }
+  
+  td {
+    font-weight: bold;
+    padding: 10px;
+  }
+  
+  button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  } */
+
+
+  /* again inset style code */
+  /* table ,tr {
+    background-color: #f8f8f8;
+    border: 2px solid #b2d620;
+    border-collapse: collapse;
+  }
+
+  table th {
+    font-size: 16px;
+    color: #333;
+  }
+
+  table td {
+    padding: 8px;
+  }
+  
+  .col-md-10.offset-md-1 {
+    display: flex;
+    justify-content: center;
+  }
+  mat-table{
+    background-color: #f8f8f8;
+    border: 2px solid #d1d4c7;
+    border-collapse: collapse;
+  }  */
+ 
+  .same{
+    border-radius: 2px solid black;
+    color: #150108;
+    font-size:18px;
+    font-weight: 500;
+  }
+  
+  .same1{
+    background-color: beige;
+  }
+
+  body{
+    background: #f7f7ff;
+    margin-top:20px;
 }
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid transparent;
+    border-radius: .25rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+}
+.me-2 {
+    margin-right: .5rem!important;
+}
+h3{
+    font-size:20px ;
+    font-weight: 500;
+}
+
+/* this is for desiging the image around like line but shape half circle type */
+
+.user-image {
+  position: relative;
+  margin: 0 auto;
+  display: inline-block;
+  padding: 5px;
+  width: 110px;
+  height: 110px;
+}
+
+.user-image img {
+  z-index: 20;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+      width: 100px;
+  height: 100px;
+}
+
+.img-radius {
+  border-radius: 50%;
+}
+
+.user-image:before {
+  bottom: 0;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.user-image:after,.user-image:before {
+  content: "";
+  width: 100%;
+  height: 48%;
+  border: 2px solid #4099ff;
+  position: absolute;
+  left: 0;
+  z-index: 10;
+}
+.user-image:after {
+  top: 0;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+.user-image:after,.user-image:before {
+  content: "";
+  width: 100%;
+  height: 48%;
+  border: 2px solid #4099ff;
+  position: absolute;
+  left: 0;
+  z-index: 10;
+}
+
+.my-2{
+  font-weight: bold;
+}
+
+/* ye code hai expwerienc */
+.text-custom {
+  color: #02c0ce!important;
+}
+
+.text-muted {
+  color: #98a6ad!important;
+}
+
+.font-13 {
+  font-size: 13px!important;
+}
+
+
