@@ -46,7 +46,7 @@ public class LeaderboardController {
 
         // Create a new Image object and set the User object in it
 Image image=imageRepository.findByUserId(user.getId());
-        leaderboard.setImage(image);
+//        leaderboard.setImage(image);
         // Save the Image object to the database
 
 //        imageService.addImage(image);

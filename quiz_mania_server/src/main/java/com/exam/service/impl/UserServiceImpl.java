@@ -5,6 +5,7 @@ import com.exam.helper.UserNotFoundException;
 import com.exam.model.Role;
 import com.exam.model.User;
 import com.exam.model.UserRole;
+import com.exam.model.image.Image;
 import com.exam.repo.RoleRepository;
 import com.exam.repo.UserRepository;
 import com.exam.service.UserService;
@@ -27,7 +28,7 @@ public class UserServiceImpl implements UserService
 
     // creating user
     @Override
-    public User createUser(User user, Set<UserRole> userRoles) throws Exception {
+    public User createUser(User user, Set<UserRole> userRoles, Image image) throws Exception {
         User local =this.userRepository.findByUsername(user.getUsername());
         if(local!=null)
         {
@@ -42,7 +43,29 @@ public class UserServiceImpl implements UserService
             {
                 roleRepository.save(ur.getRole());
             }
-
+            user.setImage(image);
+            user.getUserRoles().addAll(userRoles);
+            local = this.userRepository.save(user);
+        }
+        return local;
+    }
+    @Override
+    public User createUser1(User user, Set<UserRole> userRoles) throws Exception {
+        User local =this.userRepository.findByUsername(user.getUsername());
+        if(local!=null)
+        {
+            System.out.println("User is already there !!.");
+//            throw new Exception("User already present !!.");
+//            throw new UserNotFoundException();
+            throw new UserFoundException();
+        }
+        else {
+            //user create
+            for(UserRole ur:userRoles)
+            {
+                roleRepository.save(ur.getRole());
+            }
+//            user.setImage(image);
             user.getUserRoles().addAll(userRoles);
             local = this.userRepository.save(user);
         }

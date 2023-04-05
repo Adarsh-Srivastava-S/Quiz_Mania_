@@ -1,7 +1,7 @@
 <h1 > Leaderboard Quiz Mania</h1>
 
 <div class="text-center">
-  <h3 > Choose categories option </h3>
+  <!-- <h3 > Choose categories option </h3> -->
 <button mat-raised-button color="primary"mat-button [matMenuTriggerFor]="menu">Categories</button>
 <mat-menu #menu="matMenu" xPosition="before">
 	<button mat-menu-item [matMenuTriggerFor]="quiz"(click)="Quiz(categorie.cid)" *ngFor="let categorie of category" [value]="categorie" >
@@ -42,8 +42,8 @@
     <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
   </mat-form-field>
   </div>
-  
-        
+
+
   <!-- <div>
     <table>
               <tr>
@@ -65,32 +65,32 @@
                  {{i+1}}
                 </mat-cell>
               </ng-container>
-              
+
               <ng-container matColumnDef="image">
                 <mat-header-cell *matHeaderCellDef class="same">Image</mat-header-cell>
                 <mat-cell *matCellDef="let i = index; let leaders" class="same1">
-                  <img class="leader" *ngIf="leaders?.image?.image" [src]="'data:image/jpeg;base64,' + leaders.image.image" [alt]="leaders.image.name + 's profile picture'">
+                  <img class="leader" *ngIf="leaders?.user?.image?.image" [src]="'data:image/jpeg;base64,' + leaders.user.image.image" [alt]="leaders.user.image.name + 's profile picture'">
                 </mat-cell>
               </ng-container>
-              
-              
+
+
               <!-- Name Column -->
               <ng-container matColumnDef="name">
                 <mat-header-cell *matHeaderCellDef class="same"> Name </mat-header-cell>
                 <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.user.username }} </mat-cell>
               </ng-container>
-            
+
               <!-- Score Column -->
               <ng-container matColumnDef="score">
                 <mat-header-cell *matHeaderCellDef class="same"> Score </mat-header-cell>
                 <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.score }} </mat-cell>
               </ng-container>
-            
+
               <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
               <mat-row *matRowDef="let row; columns: displayedColumns;" ></mat-row>
             </mat-table>
-            
-            
+
+
     <!-- <div class="container text-center">
     <button  class="mt10" mat-raised-button color="primary"  > Load more </button>
   </div> -->

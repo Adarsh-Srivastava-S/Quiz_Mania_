@@ -5,11 +5,14 @@ import com.exam.helper.UserNotFoundException;
 import com.exam.model.Role;
 import com.exam.model.User;
 import com.exam.model.UserRole;
+import com.exam.model.image.Image;
 import com.exam.service.UserService;
+import com.exam.utility.ImageUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,15 +29,20 @@ public class UserController
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     //for creating user
-    @PostMapping("/")
-    public User createUser(@RequestBody User user) throws Exception
+    @PostMapping(value = "/",consumes = {"multipart/form-data"})
+    public User createUser(@ModelAttribute User user, @RequestParam("img") MultipartFile file) throws Exception
     {
-        user.setProfile("default.png");
 
         // encoding password with bcrptpass
         user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
 
         Set<UserRole> roles = new HashSet<>();
+
+        Image image=new Image();
+        image.setImage(file.getBytes());
+        image.setType(file.getContentType());
+        image.setName(file.getName());
+
 
         Role role = new Role();
         role.setRoleId(45L);
@@ -45,7 +53,7 @@ public class UserController
         userRole.setRole(role);
 
         roles.add(userRole);
-        return this.userService.createUser(user, roles);
+        return this.userService.createUser(user, roles,image);
     }
 
 //    @GetMapping("/{userid}")

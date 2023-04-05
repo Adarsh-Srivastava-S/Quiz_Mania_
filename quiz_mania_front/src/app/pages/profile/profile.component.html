@@ -59,7 +59,8 @@
 
     
     <mat-card-actions class="text-center">
-        <button mat-raised-button color="primary" >UPDATE</button>
+        <button [routerLink]="'/user/profile/'+login.getUser().username"
+        mat-raised-button color="primary" >UPDATE</button>
         <!-- <button mat-raised-button color="accent">SHARE</button> -->
     </mat-card-actions>
 </mat-card>

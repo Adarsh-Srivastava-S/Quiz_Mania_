@@ -6,6 +6,7 @@ import baseUrl from './helper';
   providedIn: 'root'
 })
 export class UserService {
+  
 
   constructor(private http:HttpClient) 
   { 
@@ -14,7 +15,13 @@ export class UserService {
 
   // add user
   public addUser(user: any)
-  {
-     return this.http.post(`${baseUrl}/user/`,user)
-  }
+{
+   return this.http.post(`${baseUrl}/user/`,user, {observe:'response'})
+}
+public getUser(username:any)
+{
+  return this.http.get(`${baseUrl}/user/${username}`);
+
+}
+ 
 }

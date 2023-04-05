@@ -29,18 +29,26 @@ public class User implements UserDetails
     private String email;
     private String phone;
     private boolean enabled = true;
-    private String profile;
-
+    private String discription;
+    private String github;
+    private String instagram;
 
 //    Image upload
-    @OneToOne(mappedBy = "user")
-    @JsonIgnore
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+            @JoinColumn(name="image_id")
     Image image;
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, username, password, firstName, lastName, email, phone, enabled, profile);
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, username, password, firstName, lastName, email, phone, enabled);
+//    }
+
+    public Image getImage() {
+        return image;
     }
 
+    public void setImage(Image image) {
+        this.image = image;
+    }
 
     //Leaderboard
     @OneToMany(mappedBy = "user")
@@ -69,7 +77,7 @@ public class User implements UserDetails
     }
 
     public User(Long id, String username, String password, String firstName, String lastName, String email,
-                String phone, boolean enabled, String profile) {
+                String phone, boolean enabled) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -78,16 +86,10 @@ public class User implements UserDetails
         this.email = email;
         this.phone = phone;
         this.enabled = enabled;
-        this.profile = profile;
+
     }
 
-    public String getProfile() {
-        return profile;
-    }
 
-    public void setProfile(String profile) {
-        this.profile = profile;
-    }
 
     public Long getId() {
         return id;

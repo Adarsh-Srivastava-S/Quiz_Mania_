@@ -54,6 +54,14 @@ export class LoadQuizComponent implements OnInit {
           (data:any)=>{
             this.quizzes=data;
             console.log(this.quizzes);
+            this._leader.getLeaderByUser(this.id).subscribe(
+              (data:any)=>{
+                this.leader=data;
+                console.log(this.leader);
+              },(error)=>{
+                alert("error in loading leader data");
+              }
+            );
            
           },(error)=>{
             alert("error in loading quiz data");
