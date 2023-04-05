@@ -9,12 +9,9 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./profile.component.css'],
 })
 
-
 export class ProfileComponent implements OnInit {
   displayedColumns: string[] = ['position','category','quiz','name', 'score'];
 
-
-  
   user = null;
   constructor(public login:LoginService,private img:ImageService,private _leader:LeaderboardService) { }
   dbImage: any; 
@@ -22,17 +19,14 @@ export class ProfileComponent implements OnInit {
   leader:any;
   i:any;
   postResponse: any;
+  showContent= false;
 
 
   ngOnInit(): void {
-    
-
     this.user=this.login.getUser();
     this.id=this.login.userId();
     this.viewImage();
-    
-  
-  
+      
         this._leader.getLeaderByUser(this.id).subscribe(
           (data:any)=>{
             this.leader=data;
@@ -43,12 +37,11 @@ export class ProfileComponent implements OnInit {
             alert("error in loading leaderboard data");
           }
         );
-        
-  
 }
 
+
+
   viewImage() {
-    
     const userId = this.login.userId();
     let req:{[key:string]:any}={};
     this.id=userId;
@@ -62,5 +55,4 @@ export class ProfileComponent implements OnInit {
         }
       );
   }
-
 }
