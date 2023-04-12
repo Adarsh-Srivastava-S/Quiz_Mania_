@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ImageService } from 'src/app/services/ImageService/image.service';
 import { LoginService } from 'src/app/services/login.service';
 import { QuizService } from 'src/app/services/quiz.service';
@@ -58,5 +58,33 @@ export class NavbarComponent implements OnInit {
       );
   }
  
+
+
+  // apna code start
+  isMenuScrolled = false;
+  isSidebarShowing = false;
+
+  @HostListener('window:scroll', ['$event'])
+  scrollCheck() {
+    if (window.pageYOffset > 100)
+      this.isMenuScrolled = true;
+    else
+      this.isMenuScrolled = false;
+
+
+    // console.log(this.isMenuScrolled)
+  }
+
+  openSideBar() {
+    this.isSidebarShowing = true;
+  }
+
+  closeSideBar() {
+    this.isSidebarShowing = false;
+  }
+
+  scrollToTop() {
+    document.body.scrollIntoView({ behavior: 'smooth' })
+  }
 
 }

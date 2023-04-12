@@ -59,6 +59,7 @@ import { ImageComponent } from './pages/image/image.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { CertificateComponent } from './pages/certificate/certificate.component';
+import { CreativeTeamComponent } from './pages/creative-team/creative-team.component';
 
 
 @NgModule({
@@ -93,8 +94,7 @@ import { CertificateComponent } from './pages/certificate/certificate.component'
     LeaderboardComponent,
     ImageComponent,
     CertificateComponent,
-
-
+    CreativeTeamComponent,
   ],
   imports: [
     BrowserModule,

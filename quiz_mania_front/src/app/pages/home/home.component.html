@@ -11,16 +11,22 @@
 	<button>Quiz</button>
 </mat-menu>
 </div> -->
-<ngb-carousel >
+<!-- <ngb-carousel >
 	<ng-template ngbSlide>
 		<div class="carousel">
 			<img src="../../../assets/launching soon.png" alt="Random first slide" />
 		</div>
-		<div class="carousel-caption">
+		<div class="carousel-caption"> -->
+
+
 			<!-- <h3>First slide label</h3>
 			<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> -->
-		</div>
-	</ng-template>
+
+
+		<!-- </div>
+	</ng-template> -->
+
+
 	<!-- <ng-template ngbSlide>
 		<div  class="carousel">
 			<img src="../../../assets/20230228_132141_0000.png" alt="Random second slide" />
@@ -39,16 +45,17 @@
 			<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
 		</div>
 	</ng-template> -->
-</ngb-carousel>
-<hr>
-<app-leaderboard></app-leaderboard>
+
+<!-- </ngb-carousel> -->
+<!-- <hr> -->
+<!-- <app-leaderboard></app-leaderboard> -->
 
 
 
 
 <!-- why choose us -->
 
-<div class="feat bg-gray pt-5 pb-5">
+<!-- <div class="feat bg-gray pt-5 pb-5">
     <div class="container">
       <div class="row">
         <div class="section-head col-sm-12">
@@ -75,10 +82,10 @@
         </div>
          </div>
     </div>
-  </div>
+  </div> -->
 
 <!-- demo certificate -->
-<div class="col">
+<!-- <div class="col">
   <div class="head col-sm-12">
     <h4><span>Demo</span> certificate</h4>
     <div  >
@@ -92,13 +99,139 @@
       
   </div>
 
+</div> -->
+
+
+<!-- <hr> -->
+  <!-- <app-faq></app-faq> -->
+  <!-- <hr> -->
+  <!-- <app-contactus></app-contactus> -->
+  <!-- <hr> -->
+<!-- <app-footer></app-footer> -->
+<mat-card>
+<mat-card style="background-color: darkgrey;">
+<div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../../../assets/quiz-4.png" class="d-block w-100" alt="..." height="500px">
+    </div>
+    <div class="carousel-item">
+      <img src="../../../assets/quiz-5.png" class="d-block w-100" alt="..." height="500px">
+    </div>
+    <div class="carousel-item">
+      <img src="../../../assets/quiz1.png" class="d-block w-100" alt="..." height="500px">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
+</mat-card>
+</mat-card>
 
+<mat-divider></mat-divider>
 
-<hr>
+<mat-card style="background-color: rgb(214, 145, 42);">
+<app-leaderboard></app-leaderboard>
+</mat-card>
+
+<mat-divider></mat-divider>
+
+<!-- why choose us -->
+<mat-card style="background-color: aqua;">
+  <mat-card>
+<div class="feat bg-gray pt-5 pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="section-head col-sm-12">
+          <h4><span>Why Choose</span> Us?</h4>
+          <p>When you choose us, you'll Experience the excitement of quizzes, simplified with Quiz Mania's user-friendly design.Because we know the digital world and we know that how to handle it. With working knowledge of online and social media.</p>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item"> <span class="icon feature_box_col_one"><img src="../../../assets/why choose1.png"></span>
+            <h6>Certificate Generate</h6>
+            <p>Recognize your achievements with ease - Generate your certificate with Quiz Mania.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item"> <span class="icon feature_box_col_two"><img src="../../../assets/why choose2.jpeg"></span>
+            <h6>Secure System</h6>
+            <p>Protecting your data and ensuring a safe quiz-taking experience with Quiz Mania's secure system.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item"> <span class="icon feature_box_col_three"><img src="../../../assets/why choose 3.jpeg"></span>
+            <h6>Technical Support</h6>
+            <p> Providing technical support for any issues related to the quiz platform or quiz content.</p>
+          </div>
+        </div>
+         </div>
+    </div>
+  </div>
+  </mat-card>
+</mat-card>
+
+<mat-divider></mat-divider>
+<!-- certifiacte -->
+<mat-card style="background-color: rgb(196, 220, 220);">
+  <mat-card>
+<div class="feat bg-gray pt-4 pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="section-head col-sm-12">
+          <h4><span>Demo</span> certificate</h4>
+        </div>
+          
+          <div class="item1">
+            <p class="p1">Completion certification awarded</p>
+            <P style="font-size: 50px;">  on every quiz Completion </P>
+            <h4 style="font-size: 30px;">Get Certificate on every Quiz Completion when elgibility criteria meet. </h4>
+          </div>
+          &nbsp;
+          <div class="text-center"> <span class="icon feature_box_col_one">
+            <!-- <img class="Certificate" src="../../../assets/Demo Certificate.jpg"> agra background chiye tho -->
+            <mat-card style="background-color: rgba(197, 163, 181, 0.952); border:darkmagenta">
+            <img  src="../../../assets/Demo Certificate.jpg">
+          </mat-card>
+          </span>
+          </div>
+      </div>
+    </div>
+  </div>
+  </mat-card>
+</mat-card>
+
+<mat-divider></mat-divider>
+
+<mat-card style="background-color: darkgray;">
+  <app-creative-team></app-creative-team>
+</mat-card>
+
+<mat-divider></mat-divider>
+
+<mat-card style="background-color: rgb(136, 153, 118);">
   <app-faq></app-faq>
-  <hr>
+</mat-card>
+
+<mat-divider></mat-divider>
+
+<mat-card style="background-color: rgb(236, 111, 136);">
   <app-contactus></app-contactus>
-  <hr>
-<app-footer></app-footer>
+  </mat-card>
+
+  <mat-divider></mat-divider>
+
+<mat-card style="background-color: floralwhite;">
+  <app-footer></app-footer>
+</mat-card>
 

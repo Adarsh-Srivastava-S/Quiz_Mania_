@@ -4,3 +4,52 @@
     border: 2px solid #ff4081;
     border-radius: 50%;
 }
+
+.container {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  input[type="file"] {
+    display: block;
+  }
+  
+  .btn-file {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+  } 
+  
+  .btn-file button {
+    cursor: pointer;
+  }
+  
+  .btn-file span {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+  }
+  .success {
+    color: green;
+    font-weight: bold;
+  }
+    

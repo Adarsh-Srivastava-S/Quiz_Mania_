@@ -85,4 +85,5 @@ public class Leaderboard {
     }
 
     private double score;
+
 }

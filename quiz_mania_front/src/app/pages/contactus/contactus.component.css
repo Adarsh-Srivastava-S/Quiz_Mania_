@@ -1,8 +1,8 @@
 h1{
     text-align: center;
-    font-weight: bolder;
+    font-weight: bold;
     font-size: xx-large;
-    margin-bottom: 40px;
+    margin-bottom: 15px;
     margin-top: 20px;
     padding: 10px;
 }
@@ -11,12 +11,11 @@ h2{
     text-align: center;
     font-weight:400;
     font-size: x-large;
-}
-h3{
-    text-align: center;
-    font-size: x-large;
     font-weight: bold;
 }
+/* h3{
+    text-align: center;
+} */
 .cont{
     
     width:70%;
@@ -29,4 +28,11 @@ img{
 }
 .button{
     word-spacing: 20px;
+}
+mat-label{
+    font-weight: bold;
+}
+mat-form-field{
+    font-weight: bolder;
+    font-size: medium;
 }

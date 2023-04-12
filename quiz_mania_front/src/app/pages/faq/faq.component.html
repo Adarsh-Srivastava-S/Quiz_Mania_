@@ -1,13 +1,11 @@
 <!-- <p class="faqdisc">faq works!</p> -->
-
+<mat-card>
 <mat-grid-list cols="2" id="FAQs"  >
 <mat-grid-tile    >
-  
   <mat-accordion >
     <h1>
       Frequently Asked Question (FAQs) :- 
     </h1>
- 
   <mat-expansion-panel *ngFor="let result of faqs "  >
     <mat-expansion-panel-header>
       <mat-panel-title class="faqtitle">
@@ -32,7 +30,10 @@
     <img  src="../../../assets/faqs.jpeg">
   </mat-grid-tile>
 </mat-grid-list>
-
+</mat-card>
 
 <!-- (opened)="panelOpenState = true"
   (closed)="panelOpenState = false" -->
+
+
+  

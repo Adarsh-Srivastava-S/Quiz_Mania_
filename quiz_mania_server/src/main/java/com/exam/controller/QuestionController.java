@@ -23,6 +23,7 @@ QuestionController {
     private QuizService quizService;
 
     // add question
+
     @PostMapping("/")
     public ResponseEntity<Question> add(@RequestBody Question question) {
         return ResponseEntity.ok(this.service.addQuestion(question));

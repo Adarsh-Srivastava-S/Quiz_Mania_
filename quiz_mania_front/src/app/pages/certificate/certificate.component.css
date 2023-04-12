@@ -2,25 +2,25 @@
   background-image:url(../../../assets/certificate.jpg);
   background-repeat: no-repeat;
 background-size: 816px;
-
-
-width: 820px;
+text-align: center;
+margin-left: 350px;
+width: 1020px;
 height: 580px;
 
 }
 .pa{
 text-align: center;
 }
+.p1{
+  margin-left: 700px;
+}
 .first{
 width: 600px;
 height: 49px;
 position: relative;
 top: 253px;
-
 text-align: center;
-
 margin-left: 120px;
-
 font-size: xxx-large;
 font-family: -webkit-body;
 padding: 23px;

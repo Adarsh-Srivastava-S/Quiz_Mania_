@@ -1,0 +1,162 @@
+body{
+    margin-top:20px;
+    background-color: #f7f7ff;
+    }
+    .radius-10 {
+        border-radius: 10px !important;
+    }
+    
+    .border-info {
+        border-left: 5px solid  #0dcaf0 !important;
+    }
+    .border-danger {
+        border-left: 5px solid  #fd3550 !important;
+    }
+    .border-success {
+        border-left: 5px solid  #15ca20 !important;
+    }
+    .border-warning {
+        border-left: 5px solid  #ffc107 !important;
+    }
+    
+    
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0px solid rgba(0, 0, 0, 0);
+        border-radius: .25rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+    }
+    .bg-gradient-scooter {
+        background: #17ead9;
+        background: -webkit-linear-gradient( 
+    45deg
+     , #17ead9, #6078ea)!important;
+        background: linear-gradient( 
+    45deg
+     , #17ead9, #6078ea)!important;
+    }
+    .widgets-icons-2 {
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ededed;
+        font-size: 27px;
+        border-radius: 10px;
+    }
+    .rounded-circle {
+        border-radius: 50%!important;
+    }
+    .text-white {
+        color: #fff!important;
+    }
+    .ms-auto {
+        margin-left: auto!important;
+    }
+    .bg-gradient-bloody {
+        background: #f54ea2;
+        background: -webkit-linear-gradient( 
+    45deg
+     , #f54ea2, #ff7676)!important;
+        background: linear-gradient( 
+    45deg
+     , #f54ea2, #ff7676)!important;
+    }
+    
+    .bg-gradient-ohhappiness {
+        background: #00b09b;
+        background: -webkit-linear-gradient( 
+    45deg
+     , #00b09b, #96c93d)!important;
+        background: linear-gradient( 
+    45deg
+     , #00b09b, #96c93d)!important;
+    }
+    
+    .bg-gradient-blooker {
+        background: #ffdf40;
+        background: -webkit-linear-gradient( 
+    45deg
+     , #ffdf40, #ff8359)!important;
+        background: linear-gradient( 
+    45deg
+     , #ffdf40, #ff8359)!important;
+    }
+
+    /* for contact list */
+
+    body{margin-top:20px;
+        background-color:#eee;
+        }
+        .project-list-table {
+            border-collapse: separate;
+            border-spacing: 0 12px
+        }
+        
+        .project-list-table tr {
+            background-color: #fff
+        }
+        
+        .card-title{
+            font-size: 15px;
+            font-weight: 500;
+        }
+        .table-nowrap td, .table-nowrap th {
+            white-space: nowrap;
+        }
+        .table-borderless>:not(caption)>*>* {
+            border-bottom-width: 0;
+        }
+        .table>:not(caption)>*>* {
+            padding: 0.75rem 0.75rem;
+            background-color: var(--bs-table-bg);
+            border-bottom-width: 1px;
+            box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+        }
+        
+        .avatar-sm {
+            height: 2rem;
+            width: 2rem;
+        }
+        .rounded-circle {
+            border-radius: 50%!important;
+        }
+        .me-2 {
+            margin-right: 0.5rem!important;
+        }
+        img, svg {
+            vertical-align: middle;
+        }
+        
+        a {
+            color: #3b76e1;
+            text-decoration: none;
+        }
+        
+        .badge-soft-success {
+            color: #63ad6f !important;
+            background-color: rgba(99,173,111,.1);
+        }
+        
+        .avatar-title {
+            align-items: center;
+            background-color: #3b76e1;
+            color: #fff;
+            display: flex;
+            font-weight: 500;
+            height: 100%;
+            justify-content: center;
+            width: 100%;
+        }
+       
+/* user activity */
+
+        

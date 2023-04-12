@@ -84,7 +84,7 @@
 
 <!-- show the result -->
 <div class="bootstrap-wrapper" *ngIf="isSubmit" >
-    <div class="row mt20">
+    <div class="row mt10">
         <div class="col-md-6 offset-md-3" id="printableContent">
            <mat-card>
             <mat-card-header>
@@ -93,12 +93,12 @@
                 </mat-card-title>
             </mat-card-header>
             <mat-card-content class="text-center">
-                <img src="../../../../assets/Quiz Maniaa.png" alt="Logo" class=" logo-image">
-                <h1><b>Name: </b> <b style="color: deeppink;">{{ user1.firstName }} {{user1.lastName }}</b></h1>
-                <h1><b>Quiz on: </b> <b style="color: deeppink;">{{questions[0].quiz.title}}</b></h1>
-                <h1><b>Marks Obtained: </b> <b style="color: deeppink;">{{marksGot}}/{{maximumMarks}}</b></h1>
-                <h1><b>Correct Answers: </b> <b style="color: deeppink;">{{correctAnswers}}</b></h1>
-                <h1><b>Questions Attempted: </b><b style="color: deeppink;">{{attempted}}</b></h1>
+                <img src="../../../../assets/cong.jpg" alt="Logo" class=" logo-image">
+                <h2><b>Name: </b> <b style="color: deeppink;">{{ user1.firstName }} {{user1.lastName }}</b></h2>
+                <h2><b>Quiz on: </b> <b style="color: deeppink;">{{questions[0].quiz.title}}</b></h2>
+                <h2><b>Marks Obtained: </b> <b style="color: deeppink;">{{marksGot}}/{{maximumMarks}}</b></h2>
+                <h2><b>Correct Answers: </b> <b style="color: deeppink;">{{correctAnswers}}</b></h2>
+                <h2><b>Questions Attempted: </b><b style="color: deeppink;">{{attempted}}</b></h2>
             </mat-card-content>
 
             <mat-card-actions class="text-center">

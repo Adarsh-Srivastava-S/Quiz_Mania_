@@ -1,26 +1,22 @@
-<div class="bootstrap-wrapper">
+<!-- <div class="bootstrap-wrapper"> -->
     <!-- <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3" > -->
-           <mat-grid-list cols="2">
+           <!-- <mat-grid-list cols="2">
             <mat-grid-tile>    
-            
+             -->
          
                     <!-- here you we use height and padding to adjust the img -->
-                    <img src="../../../assets/signup.png">
-               
+                    <!-- <img src="../../../assets/signup.png"> -->
+              <!-- </mat-grid-tile>
 
-                
-             
-              </mat-grid-tile>
-
-              <mat-grid-tile>
+              <mat-grid-tile> -->
                 <!-- here we print data mens data interpolation -->
                  <!-- {{user | json}} -->
 
-                <form (ngSubmit)="formSubmit()">
+                <!-- <form (ngSubmit)="formSubmit()"> -->
                     <!-- username foeld -->
-                    <h1 >  Register Here!!</h1>
+                    <!-- <h1 >  Register Here!!</h1>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>User Name</mat-label>
                         <input required
@@ -28,48 +24,48 @@
                         name = "username"
                         matInput placeholder="Enter here">
                         <mat-hint>User name must be unique !!</mat-hint>
-                    </mat-form-field>
+                    </mat-form-field> -->
                     
                     <!-- password field -->
-                    <mat-form-field class="full-width"  appearance="outline">
+                    <!-- <mat-form-field class="full-width"  appearance="outline">
                         <mat-label>User Password</mat-label>
                         <input required
                         [(ngModel)] = "user.password"
                         name = "password"
                         type="password"
                         matInput placeholder="enter password">
-                      </mat-form-field>
+                      </mat-form-field> -->
 
                       <!-- firstname -->
-                      <mat-form-field class="full-width"  appearance="outline">
+                      <!-- <mat-form-field class="full-width"  appearance="outline">
                         <mat-label>First Name</mat-label>
                         <input required
                         [(ngModel)] = "user.firstName"
                         name = "firstName"
                         matInput placeholder="enter first name">
                       </mat-form-field>
-                      
+                       -->
                       <!-- lastname -->
-                      <mat-form-field class="full-width" appearance="outline">
+                      <!-- <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Last Name</mat-label>
                         <input required
                         [(ngModel)] = "user.lastName"
                         name = "lastName"
                          matInput placeholder="enter last name">
-                      </mat-form-field>
+                      </mat-form-field> -->
 
                       <!-- email -->
-                      <mat-form-field class="full-width" appearance="outline">
+                      <!-- <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Email Address</mat-label>
                         <input required
                         [(ngModel)] = "user.email"
                         name = "email"
                         type="email"
                         matInput placeholder="enter email">
-                      </mat-form-field>
+                      </mat-form-field> -->
 
                       <!-- phone -->
-                      <mat-form-field  class="full-width" appearance="outline">
+                      <!-- <mat-form-field  class="full-width" appearance="outline">
                         <mat-label>Phone Number</mat-label>
                         <input required
                         [(ngModel)] = "user.phone"
@@ -85,7 +81,69 @@
                 </form>
               </mat-grid-tile>
               </mat-grid-list>
-            </div>
+            </div> -->
         <!-- </div>
     </div>
 </div> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<mat-card>
+<section class="side">
+    <img src="../../../assets/log2.png" alt="">
+</section>
+
+<section class="main">
+    <div class="login-container">
+        <img class="img1"src="../../../assets/avatar.svg">
+        <p class="title">Welcome</p>
+        <div class="separator"></div>
+        <p class="welcome-message">Please, provide login credential to proceed and have access to all our services</p>
+
+        <form class="login-form" (ngSubmit)="formSubmit()" action="">
+            <div class="form-control">
+                <input type="text" required
+                [(ngModel)] = "user.username"
+                name = "username" placeholder="Username">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="form-control">
+                <input  [(ngModel)] = "user.password"
+                name = "password"
+                 type="password" placeholder="Password">
+                <i class="fas fa-lock"></i>
+            </div>
+            <div class="form-control">
+                <input  required
+                [(ngModel)] = "user.firstName"
+                name = "firstName" type="text" placeholder="FirstName">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="form-control">
+                <input  required
+                [(ngModel)] = "user.lastName"
+                name = "lastName" type="text" placeholder="LastName">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="form-control">
+                <input  required
+                [(ngModel)] = "user.email"
+                name = "email"
+                type="email" placeholder="Email..">
+                <i class="fa fa-envelope" ></i>
+            </div>
+            <div class="form-control">
+                <input  required
+                [(ngModel)] = "user.phone"
+                name = "phone"
+                type="number" placeholder="Phone">
+                <i class="fas fa-phone"></i>
+            </div>
+            <div class="container text-center">
+              <button class="submit" type="submit">Register</button>
+               <button class="submit" style="margin-left:20px">Clear</button>
+            </div>
+        </form>
+    </div>
+</section>
+</mat-card>

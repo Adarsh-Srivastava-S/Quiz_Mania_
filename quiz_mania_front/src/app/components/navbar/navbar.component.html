@@ -1,27 +1,17 @@
 <!-- <h1>this is navbar</h1> -->
 
 
-<mat-toolbar class="color">
-  
-
-   
-  
+<!-- <mat-toolbar class="color">
     <a
     routerLink="/" 
     mat-icon-button class="example-icon" 
     aria-label="Example icon-button with menu icon">
     <img src="../../../assets/Quiz Maniaa.png" alt="Logo" class=" logo-image">
- 
-  
     </a>
   
     <span>Quiz Mania</span>
     <span class="example-spacer"></span>
-
-  
-  
     <a 
-    
    [routerLink]="'/'"
     mat-icon-button class="example-icon favorite-icon  mr20 ml20 " 
     aria-label="Example icon-button with heart icon">
@@ -50,13 +40,13 @@
 </a>
   
   
-    <a 
+<a 
     *ngIf="!isLoggedIn"
     [routerLink]="'/login'"
     mat-icon-button class="example-icon favorite-icon mr20 ml20" 
     aria-label="Example icon-button with heart icon">
     Login
-  </a>
+  </a> -->
 
   <!-- <a
   *ngIf="!isLoggedIn"
@@ -65,20 +55,17 @@
     aria-label="Example icon-button with heart icon">
       Signup -->
     <!-- </a> -->
-  
+<!--   
     <a 
     
     [routerLink]=""
     mat-icon-button class="example-icon favorite-icon  mr20 ml20" 
     aria-label="Example icon-button with heart icon">
      About
-  </a>
-
-  
-  
+  </a> -->
 
 <!-- check here -->
-    <a
+    <!-- <a
     (click)="logout()" 
     *ngIf="isLoggedIn"
     mat-icon-button class="example-icon favorite-icon mr20 ml20" 
@@ -94,19 +81,20 @@
 
     aria-label="Example icon-button with heart icon">
     
-    
+     -->
 
     <!-- here router link is used to show your profile by clicking profile option or name -->
       
     <!-- if create any problem here make change-->
-    
+
+<!--     
     <img  *ngIf="!dbImage" src="https://tse2.mm.bing.net/th?id=OIP.9UBb9jEPJ74wxTL1FgBuWwAAAA&pid=Api&P=0" 
     
     class="profile-image">
     
             <img [src]="dbImage "  class="profile-image" >
           
-   {{login.getUser().username}}  
+   {{login.getUser().username}}   -->
     
     <!-- {{quiz.getActiveQuizzes()}} -->
     <!-- <a 
@@ -117,8 +105,68 @@
     aria-label="Example icon-button with heart icon">
      FAQs
   </a> -->
-
+<!-- 
   </button>
   
   
-</mat-toolbar>
+</mat-toolbar> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   <mat-card style="background-color: black;">   
+<nav>
+  <div class="logo">
+    <a routerLink="/">
+    <img src="../../../assets/Quiz Maniaa.png" alt="Logo" class=" logo-image">
+    </a>
+  
+    <span>Quiz Mania</span>
+    <span class="example-spacer"></span>
+  </div>
+  <input type="checkbox" id="click">
+  <label for="click" class="menu-btn">
+  <i class="fas fa-bars"></i>
+  </label>
+  <ul>
+     <li><a 
+      [routerLink]="'/'" >
+        Home
+     </a></li>
+     <li> <a
+      [routerLink]="'/contact'" >
+       Contact Us
+    </a></li>
+     <li><a 
+      *ngIf="!isLoggedIn"
+      [routerLink]="'/login'">
+      Login
+    </a> </li>
+     <li><a
+      *ngIf="!isLoggedIn"
+        [routerLink]="'/signup'">
+          Signup </a></li>
+     <li><a class="mr20"
+      (click)="logout()" 
+      *ngIf="isLoggedIn">
+      Logout
+    </a></li>
+    <!-- <li> -->
+      <a
+      *ngIf="isLoggedIn && user"
+          routerLink="/user-dashboard/profile" >
+        <img  *ngIf="!dbImage" src="https://tse2.mm.bing.net/th?id=OIP.9UBb9jEPJ74wxTL1FgBuWwAAAA&pid=Api&P=0" 
+        class="profile-image mr20">
+        <img [src]="dbImage "  class="profile-image" >
+      </a>
+      <!-- </li> -->
+      <li>
+        <a  *ngIf="isLoggedIn && user"
+        routerLink="/user-dashboard/profile">
+        {{login.getUser().username}}
+      </a>
+    </li>
+  </ul>
+</nav>
+</mat-card>
+  <div class="button">
+    <a href="#Home"><i class="fas fa-arrow-up"></i></a>
+  </div>

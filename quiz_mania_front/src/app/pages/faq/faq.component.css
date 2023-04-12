@@ -1,3 +1,7 @@
+mat-card{
+  height: 800px;
+}
+
 .faqtitle
 {
     font-size: 22px;
@@ -24,18 +28,13 @@
     background-color: #f9f7dc;
 }
     
-
-   
-   
-
 h1{ margin-left: 35px;
 
     font-weight: bold;
   
   }
   img{
+    padding: 80px 100px;
     height: 70%;
     width: 70%;
   }
-
-

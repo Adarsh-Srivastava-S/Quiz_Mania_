@@ -1,4 +1,4 @@
-<div class="bootstrap-wrapper">
+<!-- <div class="bootstrap-wrapper">
 
 
 
@@ -10,7 +10,7 @@
 
 </mat-grid-tile>
 
-    <mat-grid-tile >
+    <mat-grid-tile > -->
 
                     <!-- here you we use height and padding to adjust the img -->
 
@@ -18,9 +18,9 @@
 
 
                  <!-- {{userloginData | json}} -->
-                 <form action=""  (ngSubmit)="formSubmit()">
+                 <!-- <form action=""  (ngSubmit)="formSubmit()"> -->
                   <!-- username feld -->
-                  <h1  >Login Here!!</h1>
+                  <!-- <h1  >Login Here!!</h1>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>User Name</mat-label>
                         <input
@@ -28,10 +28,10 @@
                         name="username"
                         required matInput placeholder="Enter here">
                         <mat-hint>Valid User Name</mat-hint>
-                    </mat-form-field>
+                    </mat-form-field> -->
 
                     <!-- password field -->
-                    <mat-form-field class="full-width"  appearance="outline">
+                    <!-- <mat-form-field class="full-width"  appearance="outline">
                         <mat-label>User Password</mat-label>
                         <input
                         [(ngModel)]="userloginData.password"
@@ -69,7 +69,52 @@
             </mat-grid-list>
 
 
-            </div>
+            </div> -->
 
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+   <mat-card>
+    <section class="side">
+        <img src="../../../assets/img.svg" alt="">
+    </section>
 
+    <section class="main">
+        <div class="login-container">
+            <img class="img1"src="../../../assets/avatar.svg">
+            <p class="title">Welcome</p>
+            <div class="separator"></div>
+            <p class="welcome-message">Please, provide login credential to proceed and have access to all our services</p>
 
+            <form class="login-form" (ngSubmit)="formSubmit()" action="">
+                <div class="form-control">
+                    <input type="text" [(ngModel)]="userloginData.username"
+                    name="username"
+                    required placeholder="Username">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="form-control">
+                    <input [(ngModel)]="userloginData.password"
+                    name="password"
+                     required
+                     type="password" placeholder="Password">
+                    <i class="fas fa-lock"></i>
+                </div>
+                    <h6>Having Trouble in sign in?</h6>
+                    <div class="container text-center">
+                        <button class="submit" type="submit">Login</button>
+                         <button class="submit" type="reset" style="margin-left:20px">Reset</button>
+                      </div>
+                <hr>
+                <div class="first">
+                    <h3> Don't you have account?</h3>
+                 </div>
+                    <div class="signup">  <a
+                    [routerLink]="'/signup'"
+                     mat-raised-button color="primary">
+                      Create Account
+                    </a>
+                 </div>
+            </form>
+        </div>
+    </section>
+</mat-card>
