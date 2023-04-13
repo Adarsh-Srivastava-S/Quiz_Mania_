@@ -37,10 +37,10 @@ public class User implements UserDetails
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
             @JoinColumn(name="image_id")
     Image image;
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id, username, password, firstName, lastName, email, phone, enabled);
-//    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, password, firstName, lastName, email, phone, enabled);
+    }
 
     public Image getImage() {
         return image;

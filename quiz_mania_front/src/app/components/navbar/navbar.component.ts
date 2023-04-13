@@ -13,8 +13,9 @@ import { UserService } from 'src/app/services/user.service';
 export class NavbarComponent implements OnInit {
 
   isLoggedIn = false;
-  user = null;
+  user :any;
   constructor(private _user:UserService,public login:LoginService,public quiz:QuizService, private img:ImageService ) { }
+  flag :boolean | undefined;
 
   dbImage: any; 
   user2 ={
@@ -28,14 +29,19 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.isLoggedIn = this.login.isLoggedIn();
     this.user = this.login.getUser();
+   
+    if(this.isLoggedIn)
+    {
+       this.viewImage();
     
-    
+    }
     
    
     this.login.loginStatusSubject.asObservable().subscribe((data) =>{
       this.isLoggedIn = this.login.isLoggedIn();
       this.user = this.login.getUser();
        this.viewImage();
+       this.flag=true;
    
     });
     
@@ -52,9 +58,8 @@ export class NavbarComponent implements OnInit {
     // this.login.loginStatusSubject.next(false);
   }
  
-  
   viewImage() {
-    this._user.getUser(this.login.getUser().username).subscribe(
+    this._user.getUser(this.user.username).subscribe(
       (data:any)=>{
         this.user2=data;
         // this.i=this.leader.length;

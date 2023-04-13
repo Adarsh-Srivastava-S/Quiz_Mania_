@@ -25,6 +25,7 @@ import { AddFaqsComponent } from './pages/admin/add-faqs/add-faqs.component';
 import { ContactusViewComponent } from './pages/admin/contactus-view/contactus-view.component';
 import { ImageComponent } from './pages/image/image.component';
 import { CertificateComponent } from './pages/certificate/certificate.component';
+import { ProfileUpdateComponent } from './pages/profile-update/profile-update.component';
 
 
 const routes: Routes = [
@@ -127,6 +128,10 @@ const routes: Routes = [
       {
         path:'profile',
         component:ProfileComponent,
+      },
+      {
+        path:'pro/:id',
+        component:ProfileUpdateComponent,
       },
       {
         path:'update',

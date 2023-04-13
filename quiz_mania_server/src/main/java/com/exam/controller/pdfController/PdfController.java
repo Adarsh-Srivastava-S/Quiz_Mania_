@@ -57,7 +57,6 @@ String image="data:image/png;base64,"+data.getName();
         model.setName(data.getName());
         pdfService.addPdf(model, user);
         // ... save the model to your database or perform any other operations as needed
-System.out.println("jfgjdgsfhsdfgjds");
         return ResponseEntity.ok("PDF file uploaded and compressed successfully");
     }
 

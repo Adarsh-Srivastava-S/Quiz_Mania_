@@ -169,7 +169,10 @@
 							<hr class="my-4">
 
                             <h3 class="header-title mt-0">Personal Information</h3>
-                                <p class="text-muted">Hye, I’m Jitendra Vermn residing in this beautiful world. I create websites and mobile apps with great UX and UI design. I have done work with big companies like Nokia, Google and Yahoo. Meet me or Contact me for any queries. One Extra line for filling space. Fill as many you want.</p>
+                                <p class="text-muted">
+                                    {{user.discription}}
+                                    <!-- Hye, I’m Jitendra Vermn residing in this beautiful world. I create websites and mobile apps with great UX and UI design. I have done work with big companies like Nokia, Google and Yahoo. Meet me or Contact me for any queries. One Extra line for filling space. Fill as many you want. -->
+                                </p>
                              <hr class="my-4"> 
                            <!--<h3 class="header-title mt-0">My Skills</h3>
                             <ul>
@@ -269,7 +272,11 @@
 							<div class="row">
 								<div class="col-sm-3"></div>
 								<div class="col-sm-9 text-secondary">
-									<input type="button" class="btn btn-primary px-4" value="Save Changes">
+								 <button 
+                                [routerLink]="'/user-dashboard/pro/'+login.getUser().username"
+                                 mat-flat-button color="accent">Update</button>
+   <!-- login.getUser().id -->
+                                    <!-- <input type="button" class="btn btn-primary px-4" value="Save Changes"> -->
 								</div>
 							</div>
 						</div>
@@ -277,28 +284,28 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="card">
-								<div class="card-body">
+								<div class="card-body" *ngFor="let l of leader">
 									<h3 class="d-flex align-items-center mb-3">Quiz Status</h3>
 									<p>Web Design</p>
 									<div class="progress mb-3" style="height: 5px">
 										<div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>
-									<p>Website Markup</p>
+									<!-- <p>Website Markup</p>
 									<div class="progress mb-3" style="height: 5px">
 										<div class="progress-bar bg-danger" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>
 									<p>One Page</p>
 									<div class="progress mb-3" style="height: 5px">
 										<div class="progress-bar bg-success" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
+									</div> -->
 									<!-- <p>Mobile Template</p>
 									<div class="progress mb-3" style="height: 5px">
 										<div class="progress-bar bg-warning" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
 									</div> -->
-									<p>Backend API</p>
+									<!-- <p>Backend API</p>
 									<div class="progress" style="height: 5px">
 										<div class="progress-bar bg-info" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
+									</div> -->
 								</div>
 							</div>
 						</div>

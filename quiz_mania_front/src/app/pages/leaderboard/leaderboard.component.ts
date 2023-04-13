@@ -7,7 +7,7 @@ import { LeaderboardService } from 'src/app/services/leaderboard/leaderboard.ser
 import { LoginService } from 'src/app/services/login.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 export interface LeaderboardElement {
   position: number;
   name: string;

@@ -43,6 +43,16 @@ public class Image implements Serializable {
     @OneToOne(mappedBy = "image",cascade = CascadeType.ALL)
             @JsonIgnore
     User user;
+    @Override
+    public String toString() {
+        return "Image{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", image=" + (image != null ? Arrays.toString(image) : null) +
+                '}';
+    }
+
 //    @Override
 //    public int hashCode() {
 //        return Objects.hash(id, name, type, Arrays.hashCode(image));

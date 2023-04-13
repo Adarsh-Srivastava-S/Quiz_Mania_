@@ -35,7 +35,7 @@ public class UserController
 
         // encoding password with bcrptpass
         user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
-
+        user.setUsername(user.getUsername());
         Set<UserRole> roles = new HashSet<>();
 
         Image image=new Image();
@@ -55,7 +55,19 @@ public class UserController
         roles.add(userRole);
         return this.userService.createUser(user, roles,image);
     }
+    @PostMapping(value = "/update",consumes = {"multipart/form-data"})
+    public User createUser1(@ModelAttribute User user, @RequestParam(value = "img" , required = false)  MultipartFile file) throws Exception
+    {
 
+        // encoding password with bcrptpass
+        if(file!=null) {
+            return this.userService.createUser1(user ,file);
+        }
+        else{
+            return this.userService.createUser2(user);
+        }
+
+    }
 //    @GetMapping("/{userid}")
 //    public User getUserById(@PathVariable("userid") Long userId)
 //    {
@@ -67,6 +79,7 @@ public class UserController
     public ResponseEntity<User> getUser(@PathVariable("username") String username) {
         return ResponseEntity.ok(this.userService.getUser(username));
     }
+
 
     // delete the user by id
     @DeleteMapping("/{userId}")
