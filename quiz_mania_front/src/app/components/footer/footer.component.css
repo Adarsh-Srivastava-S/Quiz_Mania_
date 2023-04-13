@@ -10,7 +10,7 @@
   color:#fff;
   bottom:o;
   border-top-left-radius:125px;
-  padding:100px 0 30px;
+  padding:20px 0 30px;
   font-size:13px;
 line-height:20px;
   }
@@ -32,8 +32,9 @@ justify-content:space-between;
 }
 .col h3{
   width:fit-content;
-  margin-bottom:40px;
+  margin-bottom:15px;
   position:relative;
+  margin-left:30px;
 }
 .email-id{
   width:fit-content;
@@ -159,9 +160,42 @@ p {
   background-color: #fff;
   color: #333;
 }
+/* 
+.content .link-boxes .input-box{
+  margin-right: 55px;
+}
+.link-boxes .input-box input{
+  height: 40px;
+  width: calc(100% + 55px);
+  outline: none;
+  border: 2px solid #AFAFB6;
+  background: #140B5C;
+  border-radius: 4px;
+  padding: 0 15px;
+  font-size: 15px;
+  color: #fff;
+  margin-top: 5px;
+}
+.link-boxes .input-box input::placeholder{
+  color: #AFAFB6;
+  font-size: 16px;
+}
+.link-boxes .input-box input[type="button"]{
+  background: #fff;
+  color: #140B5C;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 4px 0;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.input-box input[type="button"]:hover{
+  opacity: 1;
+}
 
 
-
-
+ */
 
 

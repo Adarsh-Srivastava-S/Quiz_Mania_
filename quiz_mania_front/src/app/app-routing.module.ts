@@ -25,7 +25,7 @@ import { AddFaqsComponent } from './pages/admin/add-faqs/add-faqs.component';
 import { ContactusViewComponent } from './pages/admin/contactus-view/contactus-view.component';
 import { ImageComponent } from './pages/image/image.component';
 import { CertificateComponent } from './pages/certificate/certificate.component';
-
+import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component';
 
 const routes: Routes = [
 
@@ -39,6 +39,11 @@ const routes: Routes = [
     path: 'certi',
     component: CertificateComponent,
     pathMatch:'full',
+ },
+ {
+  path:'leaderboard',
+  component:LeaderboardComponent,
+  pathMatch:'full',
  },
   {
     path: 'faq',

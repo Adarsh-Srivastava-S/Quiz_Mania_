@@ -1,5 +1,19 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+mat-card{
+  background-color:bisque;
+}
 
-hr{
+.d-block{
+  height: 550px;
+  
+}
+.first{
+  margin:10px;
+  background-color: gray;
+}
+
+
+/* hr{
   height: 5px;
     background-color: cadetblue;
 }
@@ -22,7 +36,7 @@ img {
 .leader{
   text-align: right;
   margin:10px;
-}
+} */
 
 
 /* why us */
@@ -274,7 +288,12 @@ border-radius: 30px;
 
 
 /* demo certificate */
-
+.col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 .head {
   margin-bottom: 60px;
   }
@@ -318,6 +337,9 @@ color:#2f2f2f
   border: 10px solid rgba(0, 0, 0, 0.07);
   margin-bottom: 20px;
   height: 570px;
+
+
+  
   }
   .certificate .icon {
     font-size: 40px;
@@ -363,3 +385,180 @@ color:#2f2f2f
     /* background: aqua; */
     line-height: 1;
   }
+
+  /* meet our team */
+ 
+  .meet {
+    margin-bottom: 60px;
+    }
+    .meet h4 {
+    position: relative;
+    padding:0;
+    color:#f91942;
+    line-height: 1;
+    letter-spacing:0.3px;
+    font-size: 34px;
+    font-weight: 700;  
+    text-align:center;
+    text-transform:none;
+    margin-bottom:30px;
+    }
+    .meet h4:before {
+  
+    content: '';
+    width: 120px;
+    height: 3px;
+    background: #f91942;
+    position: absolute;
+    left: 10px;
+    bottom: -6px;
+    right: 8px;
+    margin: 0 auto;
+}
+    
+    .meet h4 span {
+    font-weight: 700;
+    padding-bottom: 5px;
+    color:#2f2f2f
+    }
+    p.service_text{
+    color:#cccccc !important;
+    font-size:16px;
+    line-height:28px;
+    text-align:center;    
+    }
+    .meet p, p.awesome_line{
+    color:deepskyblue;
+    font-size:16px;
+    line-height:28px;
+    text-align:center;  
+    }
+  .main{
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: linear-gradient(to right, #0c52a1,  #F0F0F0); */
+    background-color: #0c52a1;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border-top-right-radius:100px; */
+    border: 4px solid gray;
+  }
+  .profile-card{
+    position: relative;
+    width: 220px;
+    height: 220px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 50%;
+    box-shadow: 0 0 22px #3336;
+    transition: .6s;
+    
+    margin:auto;
+  }
+  .profile-card:hover{
+    border-radius: 10px;
+    height: 260px;
+  }
+  .profile-card .img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: .6s;
+    z-index: 99;
+  }
+  .profile-card:hover .img{
+    transform: translateY(-60px);
+  }
+  .img img{
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 22px #3336;
+    transition: .6s;
+  }
+  .profile-card:hover img{
+    border-radius: 10px;
+  }
+  .caption{
+    text-align: center;
+    transform: translateY(15px);
+    opacity: 0;
+    transition: .6s;
+  }
+  .profile-card:hover .caption{
+    opacity: 1;
+  }
+  .caption h3{
+    font-size: 16px;
+  }
+  .caption p{
+    font-size: 16px;
+    color: #0c52a1;
+    margin: 2px 0 9px 0;
+  }
+  .caption .social-links a{
+    color: #333;
+    margin-right: 8px;
+    font-size: 21px;
+    transition: .6s;
+  }
+  .social-links a:hover{
+    color: #0c52a1;
+  }
+  .button a{
+    position: fixed;
+    bottom: 5px;
+    right: 10px;
+    color: #fff;
+    background: #6087a0;
+    opacity: 0.7;
+    padding: 7px 12px;;
+    font-size: 18px;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.15);
+    }
+   
+    @media screen and (max-width: 920px) {
+      .head h4 {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+    
+      .head h4:before {
+        width: 100px;
+        height: 3px;
+        bottom: -8px;
+      }
+    
+      .certificate {
+        height: auto;
+      }
+    
+      .certificate .icon {
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 100%;
+        height: auto;
+        line-height: normal;
+      }
+    
+      .third {
+        margin-top: 0;
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+
+
+    
+   
+    
+    
+    
+    
+    

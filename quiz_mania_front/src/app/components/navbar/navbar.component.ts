@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { ImageService } from 'src/app/services/ImageService/image.service';
 import { LoginService } from 'src/app/services/login.service';
 import { QuizService } from 'src/app/services/quiz.service';
@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
     });
     
   }
-  
+
   
   // if create any problem then here you make change
   public logout()
@@ -58,5 +58,8 @@ export class NavbarComponent implements OnInit {
       );
   }
  
+ 
+ }
+ 
 
-}
+
