@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    
+
 <nav>
   <div class="logo">
     <a routerLink="/">
     <img src="../../../assets/Quiz Maniaa.png" alt="Logo" class=" logo-image">
     </a>
-  
+
      <span class="quiz"> Quiz Mania</span>
     <span class="example-spacer"></span>
   </div>
@@ -14,7 +14,7 @@
   <i class="fas fa-bars"></i>
   </label>
   <ul>
-     <li><a 
+     <li><a
       [routerLink]="'/'" >
         Home
      </a></li>
@@ -22,13 +22,13 @@
       [routerLink]="'/contact'" >
        Contact Us
     </a></li>
-    
-      <li><a [routerLink]="'leaderboard'" >Leaderboard</a></li>
-      
-        
-  
 
-     <li><a 
+      <li><a [routerLink]="'leaderboard'" >Leaderboard</a></li>
+
+
+
+
+     <li><a
       *ngIf="!isLoggedIn"
       [routerLink]="'/login'">
       Login
@@ -38,7 +38,7 @@
         [routerLink]="'/signup'">
           Signup </a></li>
      <li><a class="mr20"
-      (click)="logout()" 
+      (click)="logout()"
       *ngIf="isLoggedIn">
       Logout
     </a></li>
@@ -46,7 +46,7 @@
       <a
       *ngIf="isLoggedIn && user"
           routerLink="/user-dashboard/profile" >
-        <img  *ngIf="!dbImage" src="https://tse2.mm.bing.net/th?id=OIP.9UBb9jEPJ74wxTL1FgBuWwAAAA&pid=Api&P=0" 
+        <img  *ngIf="!dbImage" src="https://tse2.mm.bing.net/th?id=OIP.9UBb9jEPJ74wxTL1FgBuWwAAAA&pid=Api&P=0"
         class="profile-image mr20">
         <img [src]="dbImage "  class="profile-image" >
       </a>
@@ -60,4 +60,3 @@
   </ul>
 </nav>
 
- 

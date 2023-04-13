@@ -7,7 +7,7 @@ import { LeaderboardService } from 'src/app/services/leaderboard/leaderboard.ser
 import { LoginService } from 'src/app/services/login.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 export interface LeaderboardElement {
   position: number;
   name: string;
@@ -29,16 +29,18 @@ export class LeaderboardComponent implements OnInit {
   // leader:any;
   qId:any;
   quizzes:any;
-  dbImage: any; 
+  dbImage: any;
   postResponse: any;
   id : any;
 leader=[
   {
     user:{
-      id:''
-    },
-    image:{
-      id:''
+      id:'',
+      image:{
+        id:'',
+        image:'',
+        name:'',
+      }
     }
   }
 ]
@@ -93,9 +95,9 @@ window: any;
             this.leader=data;
             //  this.id=this.leader[0].user.id;
             // this.dbImage = 'data:image/jpeg;base64,' + ;
-       
+
             console.log(this.leader);
-      
+
           },(error)=>{
             alert("error in loading leaderboard data");
           }
@@ -105,7 +107,7 @@ window: any;
     if (!Id) {
       return '';
     }
-    
+
     this.img.showImage(Id).subscribe(
       (res) => {
         this.postResponse=res
@@ -113,26 +115,26 @@ window: any;
         return base64Image;
       }
     );
-    
+
     return '';
   }
-  
+
   getImageUrl(id: any): string {
     return this.viewImage(id);
   }
-  
+
   // viewImage(Id:any) {
-    
+
   //   // const userId = this.login.userId();
   //   // let req:{[key:string]:any}={};
   //   // this.id=userId;
   //   // const params=req;
   //   // this.httpClient.get(`http://localhost:9005/get/image/info/${this.id}`)
   //   if(this.leader.length)
-  //   this.img.showImage(Id)  
+  //   this.img.showImage(Id)
   //   .subscribe(
   //      ( res) => {
-  //         this.postResponse = res;          
+  //         this.postResponse = res;
   //         this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
   //       }
   //     );
@@ -141,9 +143,9 @@ window: any;
   //   return 'data:image/jpeg;base64,' + leader.image.image;
   // }
 
-  
+
   getSanitizedImage(image: string): SafeUrl {
     return this._sanitizer.bypassSecurityTrustUrl(`data:image/jpeg;base64,${image}`);
   }
-  
+
   }

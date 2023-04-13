@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 @Entity
-@Table(name = "image", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id"})})
+@Table(name = "image")
 
 @Data
 @Builder
@@ -36,19 +36,25 @@ public class Image implements Serializable {
 
     @Column(name = "image", unique = false, nullable = false, length = 100000)
     private byte[] image;
-    @OneToOne(mappedBy = "image")
-    @JsonIgnore
-    Leaderboard leaderboard;
+//    @OneToOne(mappedBy = "image")
+//    @JsonIgnore
+//    Leaderboard leaderboard;
 
-    @OneToOne
-            @JoinColumn(name = "user_id",unique = true)
-    @JsonIgnoreProperties("image")
+    @OneToOne(mappedBy = "image",cascade = CascadeType.ALL)
             @JsonIgnore
-
-
     User user;
     @Override
-    public int hashCode() {
-        return Objects.hash(id, name, type, Arrays.hashCode(image));
+    public String toString() {
+        return "Image{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", image=" + (image != null ? Arrays.toString(image) : null) +
+                '}';
     }
+
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, name, type, Arrays.hashCode(image));
+//    }
 }

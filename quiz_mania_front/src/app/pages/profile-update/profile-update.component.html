@@ -18,28 +18,10 @@
                 <!-- here we print data mens data interpolation -->
                  <!-- {{user | json}} -->
 
-                <form (ngSubmit)="formSubmit()" enctype="multipart/form-data">
+                <form *ngIf="user" (ngSubmit)="formSubmit()" enctype="multipart/form-data">
                     <!-- username foeld -->
-                    <h1 >  Register Here!!</h1>
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>User Name</mat-label>
-                        <input required
-                        [(ngModel)] = "user.username"
-                        name = "username"
-                        matInput placeholder="Enter here">
-                        <mat-hint>User name must be unique !!</mat-hint>
-                    </mat-form-field>
-
-                    <!-- password field -->
-                    <mat-form-field class="full-width"  appearance="outline">
-                        <mat-label>User Password</mat-label>
-                        <input required
-                        [(ngModel)] = "user.password"
-                        name = "password"
-                        type="password"
-                        matInput placeholder="enter password">
-                      </mat-form-field>
-
+                    <h1 >  Update Your Profile Here!!</h1>
+                    
                       <!-- firstname -->
                       <mat-form-field class="full-width"  appearance="outline">
                         <mat-label>First Name</mat-label>
@@ -77,6 +59,35 @@
                         type="tel"
                         matInput placeholder="enter phone">
                       </mat-form-field>
+                      
+                    <!-- password field -->
+                    <mat-form-field class="full-width"  appearance="outline">
+                        <mat-label>Description About yourself</mat-label>
+                        <input
+                         [(ngModel)]= "user.discription"
+                        name = "description"
+                        
+                        matInput placeholder="enter password">
+                      </mat-form-field>
+
+                    <!-- password field -->
+                    <mat-form-field class="full-width"  appearance="outline">
+                        <mat-label>Github link</mat-label>
+                        <input 
+                        [(ngModel)] = "user.github"
+                        name = "github"
+                        matInput placeholder="enter password">
+                      </mat-form-field>
+
+                    <!-- password field -->
+                    <mat-form-field class="full-width"  appearance="outline">
+                        <mat-label>Instagram link</mat-label>
+                        <input 
+                        [(ngModel)] = "user.instagram"
+                        name = "instagram"
+                        matInput placeholder="enter password">
+                      </mat-form-field>
+
                       <div class="form-group">
                         <label for="img">Profile Picture</label>
                         <input type="file" id="img" name="img" (change)="onImageUpload($event)">

@@ -21,31 +21,19 @@ public class Leaderboard {
 //@MapsId("id")
     @JoinColumn(name = "user_id")
     User user;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name ="image_id",referencedColumnName = "user_id")
-
-    Image image;
 
 
-    public Image getImage() {
-        return image;
+
+
+
+
+    public Long getId() {
+        return id;
     }
 
-    public void setImage(Image image) {
-        if (image == null || image.getUser() == null) {
-            throw new IllegalArgumentException("Invalid Image object provided");
-        }
-
-        this.image = image;
+    public void setId(Long id) {
+        this.id = id;
     }
-
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
 
     public User getUser() {
         return user;
@@ -76,13 +64,13 @@ public class Leaderboard {
     @JoinColumn(name = "quiz_id")
     Quiz quiz;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
 
     private double score;
 }

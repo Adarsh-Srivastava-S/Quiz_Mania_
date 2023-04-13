@@ -27,13 +27,13 @@ public class LeaderboardServiceImpl implements LeaderboardService {
     @Override
     public List<Leaderboard> getLeaderboard(Quiz quiz) {
        List<Leaderboard> leaderboards= new ArrayList<>(this.leaderboardRepo.findByQuizOrderByScoreDesc(quiz));
-        for (Leaderboard leaderboard : leaderboards) {
-            Image dbImage=leaderboard.getImage();
-            leaderboard.getImage().setImage(ImageUtility.decompressImage(dbImage.getImage()));
-
-//           Image image1= Image.builder().name(dbImage.getName()).type(dbImage.getType()).image(ImageUtility.decompressImage(dbImage.getImage())).build();
-//        leaderboard.setImage(image1);
-        }
+//        for (Leaderboard leaderboard : leaderboards) {
+////            Image dbImage=leaderboard.getImage();
+////            leaderboard.getImage().setImage(ImageUtility.decompressImage(dbImage.getImage()));
+//
+////           Image image1= Image.builder().name(dbImage.getName()).type(dbImage.getType()).image(ImageUtility.decompressImage(dbImage.getImage())).build();
+////        leaderboard.setImage(image1);
+//        }
         return leaderboards;
     }
     @Override
