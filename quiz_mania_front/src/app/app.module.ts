@@ -59,7 +59,7 @@ import { ImageComponent } from './pages/image/image.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { CertificateComponent } from './pages/certificate/certificate.component';
-
+import { ProfileUpdateComponent } from './pages/profile-update/profile-update.component';
 
 @NgModule({
   declarations: [
