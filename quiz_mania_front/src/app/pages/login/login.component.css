@@ -116,6 +116,7 @@ section.side {
     width: 100%;
     position: relative;
     margin-bottom: 20px;
+    background-color: lightblue;
 }
 
 input,
@@ -172,15 +173,26 @@ button.submit:hover {
 }
 
 /* ----  Responsiveness   ----  */
-@media (max-width: 780px) {
 
-    mat-card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
+    @media (max-width: 920px) {
+
+        .mat-card{
+            grid-template-columns: 1fr;
+        }
+    
+        .signup {
+            margin-left: 0;
+            margin-top: 20px;
+        }
+    
+        .login-container {
+            max-width: 100%;
+        }
+    
+        .side {
+            display: none;
+        }
+    
     }
 
-    .side {
-        display: none;
-    }
-}

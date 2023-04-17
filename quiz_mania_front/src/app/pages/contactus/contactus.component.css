@@ -1,3 +1,37 @@
+.contact-container{
+  max-width: 450px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+mat-card{
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding:0px;
+  min-height:77vh;
+  width: 100%;
+background-color:#e3f2fd;
+  
+}
+section.side {
+  background: url(../../../assets/bk.png) no-repeat;
+  background-size: 100% 102%;
+  
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.side img {
+  width: 40%;
+  max-width: 50%;
+  height:280px;
+}
 h1{
     text-align: center;
     font-weight: bolder;
@@ -17,16 +51,86 @@ h3{
     font-size: x-large;
     font-weight: bold;
 }
-.cont{
-    
-    width:70%;
+/* form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  } */
+ 
+  
+  mat-form-field {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+  
+  mat-form-field:last-child {
+    margin-bottom: 0;
 
+  }
+ textarea {
+    height: 90px;
     
-}
-img{
     
+    
+  }
+  
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+/* img{
+
     height:100%;
+} */
+/* .form-group{
+  width: 46%;
+ 
+ 
+} */
+@media screen and (max-width: 920px) {
+  /* Your CSS rules for screens with a width of 920px or less go here */
+  .contact-container {
+    max-width: 100%;
+  }
+  
+  mat-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .side img {
+    width: 60%;
+  }
+  
+  h1 {
+    font-size: x-large;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  
+  h2 {
+    font-size: large;
+    margin: 10px;
+  }
+  
+  h3 {
+    font-size: large;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+    
+  }
+  
+  textarea {
+    height: 80px;
+  }
+  
 }
-.button{
-    word-spacing: 20px;
-}
+
+  
+
