@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
+import { LoginService } from 'src/app/services/login.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
 
@@ -13,15 +14,16 @@ export class UpdateQuizComponent implements OnInit {
 
   constructor(
     private _route:ActivatedRoute,
+    private _login:LoginService,
     private _quiz:QuizService,
     private _cat:CategoryService,
     private _router:Router) { }
-
+  role:any;
   qId = 0;
   quiz: any;
   categories: any;
   ngOnInit(): void {
-
+    this.role=this._login.getUserRole();
      this.qId = this._route.snapshot.params['qid'];
     //  alert(this.qId);
     this._quiz.getQuiz(this.qId).subscribe(
@@ -45,6 +47,8 @@ export class UpdateQuizComponent implements OnInit {
   public updateData()
   {
     //validation
+    if(this.role=='ADMIN')
+    {
     this._quiz.updateQuiz(this.quiz).subscribe(
       (data)=>{
         Swal.fire('Success !!','quiz updated','success').then((e)=>{
@@ -56,5 +60,20 @@ export class UpdateQuizComponent implements OnInit {
         console.log(error);
       }
     );
+    }
+    else if(this.role=='COORDINATOR')
+    {
+      this._quiz.updateQuiz(this.quiz).subscribe(
+        (data)=>{
+          Swal.fire('Success !!','quiz updated','success').then((e)=>{
+            this._router.navigate(['/coordinator/quizzes']);
+          });
+        },
+        (error)=>{
+          Swal.fire('Error','error in loading quiz','error');
+          console.log(error);
+        }
+      );
+    }
   }
 }

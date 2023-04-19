@@ -12,7 +12,6 @@ import { SingupComponent } from './pages/singup/singup.component';
 import { LoginComponent } from './pages/login/login.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HomeComponent } from './pages/home/home.component';
@@ -60,7 +59,13 @@ import {MatMenuModule} from '@angular/material/menu';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { CertificateComponent } from './pages/certificate/certificate.component';
 import { ProfileUpdateComponent } from './pages/profile-update/profile-update.component';
-
+import { CoordinatorSignupComponent } from './pages/admin/coordinator-signup/coordinator-signup.component';
+import { SidebarComponent as coordinatorsidebar } from './pages/coordinator/sidebar/sidebar.component';
+import { CoordinatorDashboardComponent } from './pages/coordinator/coordinator-dashboard/coordinator-dashboard.component';
+import { ForgetPasswordComponent } from './pages/forget/forget-password/forget-password.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ValidateOtpComponent } from './pages/forget/validate-otp/validate-otp.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,6 +99,11 @@ import { ProfileUpdateComponent } from './pages/profile-update/profile-update.co
     ImageComponent,
     CertificateComponent,
     ProfileUpdateComponent,
+    coordinatorsidebar,
+    CoordinatorSignupComponent,
+    CoordinatorDashboardComponent,
+    ForgetPasswordComponent,
+    ValidateOtpComponent,
 
 
   ],
@@ -105,6 +115,7 @@ import { ProfileUpdateComponent } from './pages/profile-update/profile-update.co
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
     MatCardModule,
@@ -122,6 +133,7 @@ import { ProfileUpdateComponent } from './pages/profile-update/profile-update.co
   MatTableModule,
   CKEditorModule,
     NgxUiLoaderModule,
+    MatDialogModule ,
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true,
     }),

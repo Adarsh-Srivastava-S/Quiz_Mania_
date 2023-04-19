@@ -4,8 +4,11 @@
  <div class="row">
     <div class="col-md-12">
         <div class="container text-center">
-            <button mat-raised-button color="accent" 
+            <button mat-raised-button color="accent" *ngIf="this.user=='ADMIN'"
                [routerLink]="'/admin/add-question/' +qId + '/' +qTitle">
+            Add Question</button>
+            <button mat-raised-button color="accent" *ngIf="this.user=='COORDINATOR'"
+               [routerLink]="'/coordinator/add-question/' +qId + '/' +qTitle">
             Add Question</button>
         </div>
         <mat-card *ngFor="let q of questions; let i = index" class="mt20">

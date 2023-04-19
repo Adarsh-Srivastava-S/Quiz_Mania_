@@ -3,6 +3,7 @@ package com.exam.controller;
 import com.exam.model.exam.Question;
 import com.exam.model.exam.Quiz;
 import com.exam.model.leaderboard.Leaderboard;
+import com.exam.repo.QuestionRepository;
 import com.exam.service.QuestionService;
 import com.exam.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
+import static java.lang.Integer.parseInt;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/question")
@@ -18,7 +21,8 @@ public class
 QuestionController {
     @Autowired
     private QuestionService service;
-
+@Autowired
+private QuestionRepository questionRepository;
     @Autowired
     private QuizService quizService;
 
@@ -46,17 +50,30 @@ QuestionController {
 //        return ResponseEntity.ok(questionsOfQuiz);
         Quiz quiz = this.quizService.getQuiz(qid);
         Set<Question> questions = quiz.getQuestions();
-        List<Question> list = new ArrayList(questions);
-        if (list.size()>Integer.parseInt(quiz.getNumberOfQuestions()))
-        {
-            list = list.subList(0,Integer.parseInt(quiz.getNumberOfQuestions()+1));
+        List<Question> list = this.questionRepository.findAll();
+        List<Question> randomQuestions = new ArrayList<>();
+
+        Random random = new Random();
+        while (randomQuestions.size() < parseInt(quiz.getNumberOfQuestions())) {
+            int index = random.nextInt(list.size());
+            Question question = list.get(index);
+
+            if (!randomQuestions.contains(question)) {
+                randomQuestions.add(question);
+            }
         }
-        list.forEach((q)->{
+
+//
+//        if (list.size()>Integer.parseInt(quiz.getNumberOfQuestions()))
+//        {
+//            list = list.subList(0,Integer.parseInt(quiz.getNumberOfQuestions()+1));
+//        }
+        randomQuestions.forEach((q)->{
             q.setAnswer("");
         });
 
-        Collections.shuffle(list);
-        return ResponseEntity.ok(list);
+        Collections.shuffle(randomQuestions);
+        return ResponseEntity.ok(randomQuestions);
     }
 
     @GetMapping("/quiz/all/{qid}")
@@ -102,7 +119,7 @@ QuestionController {
                 // correct
                 correctAnswers++;
                 double marksSingle = Double.parseDouble(questions.get(0).getQuiz().getMaxMarks()) / questions.size();
-                maxMarks=Integer.parseInt(questions.get(0).getQuiz().getMaxMarks());
+                maxMarks= parseInt(questions.get(0).getQuiz().getMaxMarks());
                 marksGot += marksSingle;
             }
             if (q.getGivenAnswer() != null) {
