@@ -350,7 +350,7 @@ color:#2f2f2f
     color: #f91942;
     line-height: 397px;
     border-radius: 20px;
-    border: 5px solid red;
+    /* border: 5px solid red; */
     width: 575px;
     height: 415px;
     margin-right: 796px;
@@ -381,7 +381,7 @@ color:#2f2f2f
     text-align: center;
     color: red;
     margin-top: -407px;
-    WIDTH: 652PX;
+    WIDTH: auto;
     HEIGHT: 371PX;
     MARGIN-LEFT: 666PX;
     PADDING: 36PX;
@@ -424,6 +424,19 @@ color:#2f2f2f
     padding-bottom: 5px;
     color:#2f2f2f
     }
+    .profile{
+      width: 100%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: linear-gradient(to right, #0c52a1,  #F0F0F0); */
+    background-color: #0c52a1;
+    margin: 0;
+    padding: 0;
+    
+  }
+    
     p.service_text{
     color:#cccccc !important;
     font-size:16px;
@@ -448,7 +461,7 @@ color:#2f2f2f
     padding: 0;
     box-sizing: border-box;
     /* border-top-right-radius:100px; */
-    border: 4px solid gray;
+    /* border: 4px solid gray; */
   }
   .profile-card{
     position: relative;
@@ -474,7 +487,7 @@ color:#2f2f2f
     z-index: 99;
   }
   .profile-card:hover .img{
-    transform: translateY(-60px);
+    transform: translateY(-75px);
   }
   .img img{
     width: 100%;
@@ -502,7 +515,7 @@ color:#2f2f2f
     color: #0c52a1;
     margin: 2px 0 9px 0;
   }
-  .caption .social-links a{
+  .caption .social-link a{
     color: #333;
     margin-right: 8px;
     font-size: 21px;
@@ -515,7 +528,7 @@ color:#2f2f2f
     position: fixed;
     bottom: 5px;
     right: 10px;
-    color: #fff;
+    color: red;
     background: #6087a0;
     opacity: 0.7;
     padding: 7px 12px;;
@@ -524,14 +537,26 @@ color:#2f2f2f
     box-shadow: rgba(0, 0, 0, 0.15);
     }
    
-    @media screen and (max-width: 920px) {
+    @media screen and (max-width: 1020px) {
+      .d-block{
+        height: auto;
+      }
+      .certificate {
+ 
+        background: linear-gradient(to right, rosybrown,  #F0F0F0);
+        text-align: center;
+        padding: auto;
+        border-radius: 30px;
+        margin-bottom: 10px;
+        height: auto;
+        }
       .head h4 {
-        font-size: 28px;
-        margin-bottom: 20px;
+        font-size: 20px;
+        margin-bottom: 10px;
       }
     
       .head h4:before {
-        width: 100px;
+        width: auto;
         height: 3px;
         bottom: -8px;
       }
@@ -542,20 +567,146 @@ color:#2f2f2f
     
       .certificate .icon {
         margin-right: 0;
-        margin-bottom: 20px;
-        width: 100%;
+        margin-bottom: 10px;
+        width: auto;
         height: auto;
         line-height: normal;
       }
     
       .third {
-        margin-top: 0;
-        margin-left: 0;
-        width: 100%;
+       margin: auto;
+        width: auto;
         height: auto;
+        font-size: 28px;
+        font-weight: 500;
+        text-align: center;
+        color: red;
+        PADDING: auto;
+        /* background: aqua; */
+        line-height: 1.1;
       }
     }
+    @media screen and (max-width: 1320px) {
+      .head h4 {
+        font-size: 24px;
+        margin-bottom: auto;
+      }
+    
+      .head h4:before {
+        width: 100px;
+        height: 3px;
+        bottom: auto;
+      }
+      
+      .third {
+        
+         width: auto;
+         height: auto;
+         font-size: 30px;
+         font-weight: 500;
+         text-align: center;
+         color: red;
+         PADDING: auto;
+         /* background: aqua; */
+         line-height: 1.1;
+       }
+/* //there is responsive for meeet */
+.main{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: linear-gradient(to right, #0c52a1,  #F0F0F0); */
+  background-color: #0c52a1;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+.profile{
+  width: auto;
+height: auto;
+display: flex;
+justify-content: center;
+align-items: center;
+/* background: linear-gradient(to right, #0c52a1,  #F0F0F0); */
+background-color: #0c52a1;
+margin: 5px;
+padding: 5px;
 
+} 
+.profile-card {
+  width:140px;
+  height: 140px;
+  padding: auto ;
+  margin: 4px;
+ 
+  }
+
+}
+
+    
+    @media only screen and (max-width: 920px) {
+      .meet h4 {
+      font-size: 22px;
+      }
+      .meet h4:before {
+      width: 40px;
+      height: 2px;
+      left: 35px;
+      bottom: -2px;
+      right: 2px;
+      }
+      p.service_text, .meet p, p.awesome_line {
+      font-size: 10px;
+      line-height: 12px;
+      }
+      .profile{
+        max-width: auto;
+      height: auto;
+      margin-top: -43px;
+      
+      background-color:  #0c52a1;
+       }
+      .main {
+        max-width: auto;
+      height: auto;
+      padding-top: auto;
+      border-radius: 0;
+      border: none;
+      background-color:  #0c52a1;
+      padding-top: 28px;
+      display: flex;
+       flex-direction: column;
+      }
+      .profile-card {
+      width: 105px;
+      height: 105px;
+      padding: auto ;
+      margin: 4px;
+     
+      }
+      .profile-card:hover {
+      border-radius: 5px;
+      height:280px;
+      }
+      .profile-card:hover .img {
+      transform: translateY(-75px);
+      }
+      .caption h3 {
+      font-size:13px;
+      }
+      .caption p {
+      font-size: 10px;
+      }
+      .caption .social-links a {
+      font-size: 12px;
+      }
+      .button a {
+      font-size: 10px;
+      }
+      }
 
 
     

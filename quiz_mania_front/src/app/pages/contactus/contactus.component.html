@@ -1,23 +1,21 @@
-<div class="bootstrap-wrapper" id="contact">
-    <div class="row">
-   <div class="col-md-12" >
-
+<div >
 <h2>If You Have Any Query,Please feel Free Contact Us</h2>
-<div>
+
 <h3>Get in Touch</h3>
 </div> 
-<mat-grid-list cols="2" rowHeight="2:1">
-   
-    <mat-grid-tile>
-        
-<img  src="../../../assets/contact us.png" >
-    </mat-grid-tile>
 
-    <mat-grid-tile >
-        
+  <mat-card>
+    <section class="side">
+      <img  src="../../../assets/contactus1.png" >
+  
+    </section>        
+
+<section class="main">
+    <div class="contact-container"   >
+    
         <form (submit)="formSubmit()" >
             <!-- name field -->
-            <mat-form-field   class="cont" appearance="outline"  >
+            <mat-form-field    appearance="outline"  >
                 <mat-label>Enter the Name</mat-label>
                 <input  required
                 [(ngModel)]="con.name"
@@ -26,7 +24,7 @@
               </mat-form-field> 
 
               <!-- email field -->
-              <mat-form-field class="cont" appearance="outline">
+              <mat-form-field  appearance="outline">
                 <mat-label>Email here</mat-label>
                 <input  required
                 [(ngModel)]="con.email"
@@ -35,7 +33,7 @@
               </mat-form-field> 
 
               <!-- subject field -->
-              <mat-form-field class="cont"appearance="outline">
+              <mat-form-field appearance="outline">
                 <mat-label>subject</mat-label>
                 <input  required
                 [(ngModel)]="con.subject"
@@ -44,14 +42,14 @@
               </mat-form-field> 
 
               <!-- message field -->
-              <mat-form-field class="cont"appearance="outline">
+              <mat-form-field appearance="outline">
                 <mat-label>Message</mat-label>
                 <textarea matInput
                 required
                 [(ngModel)]="con.content"
                 name="content"
                 ></textarea>
-              </mat-form-field> 
+          </mat-form-field> 
 <div class="button">
               <button mat-raised-button color="primary" type="send">
                 Send
@@ -60,9 +58,9 @@
            
             </div>
         </form>
-    </mat-grid-tile>
-</mat-grid-list> 
+      </div>
+</section>     
 
-</div>
-</div>
-</div>
+   
+
+
