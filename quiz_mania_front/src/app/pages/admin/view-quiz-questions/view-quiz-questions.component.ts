@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 import { QuestionService } from 'src/app/services/question.service';
 import Swal from 'sweetalert2';
 
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./view-quiz-questions.component.css']
 })
 export class ViewQuizQuestionsComponent implements OnInit {
-
+  user:any;
   qId: any;
   qTitle: any;
 
@@ -28,11 +29,13 @@ export class ViewQuizQuestionsComponent implements OnInit {
 }];
   constructor(
     private _route:ActivatedRoute,
+    private _login:LoginService,
     private _question:QuestionService,
     private _snak:MatSnackBar
     ) { }
 
   ngOnInit(): void {
+    this.user=this._login.getUserRole();
     this.qId = this._route.snapshot.params['qid'];
     this.qTitle = this._route.snapshot.params['title'];
     this._question.getQuestionsOfQuiz(this.qId).subscribe((data:any)=>{

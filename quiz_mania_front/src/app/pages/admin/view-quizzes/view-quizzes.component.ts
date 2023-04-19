@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
 
@@ -9,6 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class ViewQuizzesComponent implements OnInit {
 
+  user:any;
   quizzes=[
     {
       qId:10,
@@ -24,10 +26,11 @@ export class ViewQuizzesComponent implements OnInit {
     },
    
   ];
-  constructor(private _quiz:QuizService) { }
+  constructor(private _quiz:QuizService,private _login:LoginService) { }
 
   ngOnInit(): void 
   {
+this.user=this._login.getUserRole();
     this._quiz.quizzes().subscribe(
       (data:any)=>{
         this.quizzes=data;

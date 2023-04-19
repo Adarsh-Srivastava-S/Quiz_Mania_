@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
@@ -26,7 +26,10 @@ import { ContactusViewComponent } from './pages/admin/contactus-view/contactus-v
 import { ImageComponent } from './pages/image/image.component';
 import { CertificateComponent } from './pages/certificate/certificate.component';
 import { ProfileUpdateComponent } from './pages/profile-update/profile-update.component';
-
+import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component';
+import { CoordinatorSignupComponent } from './pages/admin/coordinator-signup/coordinator-signup.component';
+import { CoordinatorGuard } from './services/coordinator.guard';
+import { CoordinatorDashboardComponent } from './pages/coordinator/coordinator-dashboard/coordinator-dashboard.component';
 
 const routes: Routes = [
 
@@ -35,6 +38,12 @@ const routes: Routes = [
      component: HomeComponent,
      pathMatch:'full',
   },
+
+  {
+    path: 'leaderboard',
+    component: LeaderboardComponent,
+    pathMatch:'full',
+ },
 
   {
     path: 'certi',
@@ -67,7 +76,8 @@ const routes: Routes = [
   {
     path: 'admin',
     component:DashboardComponent,
-    // pathMatch:'full',
+    
+  // pathMatch:'full',
     children:
     [{
       path:'',
@@ -76,6 +86,11 @@ const routes: Routes = [
     {
       path:'profile',
       component:ProfileComponent,
+    },
+    {
+      path:'coordinator-signup',
+      component:CoordinatorSignupComponent,
+
     },
     {
       path:'categories',
@@ -118,6 +133,65 @@ const routes: Routes = [
 
   ],
     canActivate:[AdminGuard],
+  },
+  {  path: 'coordinator',
+    component:CoordinatorDashboardComponent,
+    // pathMatch:'full',
+    children:
+    [
+      {
+      path:'',
+      component:WelcomeComponent,
+    },
+    {
+      path:'profile',
+      component:ProfileComponent,
+    },
+    {
+      path:'coordinator-signup',
+      component:CoordinatorSignupComponent,
+
+    },
+    {
+      path:'categories',
+      component:ViewCategoriesComponent,
+    },
+    {
+      path:'add-category',
+      component:AddCategoryComponent,
+    },
+    {
+      path:'quizzes',
+      component:ViewQuizzesComponent,
+    },
+    {
+      path:'add-quiz',
+      component:AddQuizComponent,
+    },
+    {
+      path:'addfaq',
+      component:AddFaqsComponent,
+    },
+    {
+      path:'viewcontact',
+      component:ContactusViewComponent,
+    },
+
+    {
+      path:'quiz/:qid',
+      component: UpdateQuizComponent,
+    },
+    {
+      path:'view-questions/:qid/:title',
+      component:ViewQuizQuestionsComponent,
+    },
+    {
+      path:'add-question/:qid/:title',
+      component:AddQuestionComponent,
+    }, //
+
+  ],
+    canActivate:[CoordinatorGuard],
   },
 
   {

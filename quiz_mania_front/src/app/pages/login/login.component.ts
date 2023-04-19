@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, importProvidersFrom } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
-
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ForgetPasswordComponent } from '../forget/forget-password/forget-password.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,12 +15,14 @@ export class LoginComponent implements OnInit {
     username:'',
     password:''
   };
-  constructor(private snack:MatSnackBar, private login:LoginService, private router:Router )
+
+  constructor( public dialog:MatDialog,private snack:MatSnackBar, public login:LoginService, private router:Router)
+
    {}
 
   ngOnInit(): void {
   }
-  formSubmit(){
+ public formSubmit(){
     console.log("login btn clicked");
 
     if(this.userloginData.username.trim()=='' || this.userloginData.username==null){
@@ -63,6 +66,10 @@ export class LoginComponent implements OnInit {
               // window.location.href='/user-dashboard';
               this.router.navigate(['user-dashboard/0']);
               this.login.loginStatusSubject.next(true);
+             }else if(this.login.getUserRole()=='COORDINATOR')
+             {
+              this.router.navigate(['coordinator']);
+              this.login.loginStatusSubject.next(true);
              }
              else{
                 this.login.logout();
@@ -77,5 +84,10 @@ export class LoginComponent implements OnInit {
         })
       }
       );
+  }
+  handleForgetAction(){
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.width="550px";
+    this.dialog.open(ForgetPasswordComponent,dialogConfig)
   }
 }

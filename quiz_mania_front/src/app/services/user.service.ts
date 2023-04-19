@@ -18,6 +18,10 @@ export class UserService {
 {
    return this.http.post(`${baseUrl}/user/`,user, {observe:'response'})
 }
+public addCoordinator(user: any)
+{
+   return this.http.post(`${baseUrl}/user/coordinator`,user, {observe:'response'})
+}
 public updateUser(user:any)
 {
   return this.http.post(`${baseUrl}/user/update`,user, {observe:'response'})

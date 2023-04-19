@@ -55,6 +55,32 @@ public class UserController
         roles.add(userRole);
         return this.userService.createUser(user, roles,image);
     }
+    @PostMapping(value = "/coordinator",consumes = {"multipart/form-data"})
+    public User createCoordinator(@ModelAttribute User user, @RequestParam("img") MultipartFile file) throws Exception
+    {
+
+        // encoding password with bcrptpass
+        user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setUsername(user.getUsername());
+        Set<UserRole> roles = new HashSet<>();
+
+        Image image=new Image();
+        image.setImage(file.getBytes());
+        image.setType(file.getContentType());
+        image.setName(file.getName());
+
+
+        Role role = new Role();
+        role.setRoleId(46L);
+        role.setRoleName("COORDINATOR");
+
+        UserRole userRole = new UserRole();
+        userRole.setUser(user);
+        userRole.setRole(role);
+
+        roles.add(userRole);
+        return this.userService.createUser(user, roles,image);
+    }
     @PostMapping(value = "/update",consumes = {"multipart/form-data"})
     public User createUser1(@ModelAttribute User user, @RequestParam(value = "img" , required = false)  MultipartFile file) throws Exception
     {

@@ -1,0 +1,33 @@
+<mat-card>
+    <mat-action-list> 
+                <button mat-list-item routerLink="/coordinator/profile">
+         <mat-icon mat-list-icon>account_circle</mat-icon>Profile
+        </button>
+        
+        <button mat-list-item routerLink="/coordinator/categories">
+         <mat-icon mat-list-icon>list</mat-icon>Categories
+        </button>
+        <button mat-list-item routerLink="/coordinator/add-category">
+         <mat-icon mat-list-icon>add_circle_outline</mat-icon>Add Categories
+        </button>
+        <button mat-list-item routerLink="/coordinator/quizzes">
+         <mat-icon mat-list-icon>quiz</mat-icon>Quizzes
+        </button>
+        <button mat-list-item routerLink="/coordinator/add-quiz">
+         <mat-icon mat-list-icon>add</mat-icon>Add Quiz
+        </button>
+        <button mat-list-item routerLink="/coordinator/addfaq">
+            <mat-icon mat-list-icon>add faq</mat-icon>Add Faq
+        </button>
+ 
+
+        <a
+    (click)="logout()" 
+    *ngIf="isLoggedIn"
+    mat-icon-button class="example-icon favorite-icon mr20 ml20" 
+    aria-label="Example icon-button with heart icon">
+    Logout
+  </a>
+
+    </mat-action-list>
+</mat-card>
