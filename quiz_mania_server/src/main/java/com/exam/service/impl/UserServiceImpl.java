@@ -1,6 +1,6 @@
 package com.exam.service.impl;
 
-import com.exam.config.RestConfig;
+//import com.exam.config.RestConfig;
 import com.exam.helper.UserFoundException;
 import com.exam.helper.UserNotFoundException;
 import com.exam.model.Role;
@@ -28,8 +28,8 @@ public class UserServiceImpl implements UserService
 
     @Autowired
     private UserRepository userRepository;
-    @Autowired
-    private RestConfig restConfig;
+//    @Autowired
+//    private RestConfig restConfig;
     @Autowired
     private RoleRepository roleRepository;
     @Autowired
@@ -59,6 +59,28 @@ public class UserServiceImpl implements UserService
                 roleRepository.save(ur.getRole());
             }
             user.setImage(image);
+            user.getUserRoles().addAll(userRoles);
+            local = this.userRepository.save(user);
+        }
+        return local;
+    }
+    @Override
+    public User createUser3(User user, Set<UserRole> userRoles) throws Exception {
+        User local =this.userRepository.findByUsername(user.getUsername());
+        if(local!=null)
+        {
+            System.out.println("User is already there !!.");
+//            throw new Exception("User already present !!.");
+//            throw new UserNotFoundException();
+            throw new UserFoundException();
+        }
+        else {
+            //user create
+            for(UserRole ur:userRoles)
+            {
+                roleRepository.save(ur.getRole());
+            }
+//            user.setImage(image);
             user.getUserRoles().addAll(userRoles);
             local = this.userRepository.save(user);
         }

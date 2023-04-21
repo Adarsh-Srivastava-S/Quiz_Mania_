@@ -4,7 +4,7 @@ import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dial
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ForgetPasswordService } from 'src/app/services/forget-password.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ValidateOtpComponent } from '../validate-otp/validate-otp.component';
+
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
@@ -24,7 +24,7 @@ flag3=false;
 
 constructor(private formBUilder:FormBuilder,private _forget:ForgetPasswordService,
   private dialog:MatDialog,
-  public dialogRef:MatDialogRef<ValidateOtpComponent> ,
+ 
  private ngxService:NgxUiLoaderService, private snackbarService:MatSnackBar)
    {}
   ngOnInit(): void {

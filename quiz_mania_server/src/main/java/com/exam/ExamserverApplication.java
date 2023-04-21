@@ -33,15 +33,15 @@ public class ExamserverApplication  implements CommandLineRunner {
 	{
 //		try {
 			System.out.println("starting code");
-//
+
 //			User user = new User();
 //
-//			user.setFirstName("Adarsh");
-//			user.setLastName("Lala");
-//			user.setUsername("Lala06");
+//			user.setFirstName("Robin");
+//			user.setLastName("hood");
+//			user.setUsername("RObin007");
 //			user.setPassword(this.bCryptPasswordEncoder.encode("abc"));
-//			user.setEmail("lala@gmail.com");
-////			user.setProfile("default.png");
+//			user.setEmail("quizmania@gmail.com");
+//			user.setProfile("default.png");
 //
 //			Role role1 = new Role();
 //			role1.setRoleId(44L);
@@ -52,7 +52,7 @@ public class ExamserverApplication  implements CommandLineRunner {
 //			userRole.setUser(user);
 //
 //			userRoleSet.add(userRole);
-//			User user1 = this.userService.createUser1(user, userRoleSet);
+//			User user1 = this.userService.createUser3(user, userRoleSet);
 //			System.out.println(user1.getUsername());
 //
 //		}catch(UserFoundException e)

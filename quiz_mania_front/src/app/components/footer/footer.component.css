@@ -107,11 +107,17 @@ ul li :hover{
 }
 }
 
-@media(max-width:700px)
+@media(max-width:920px)
 {
   .footer{
     bottom: unset;
+    padding:auto;
+    font-size: 10px;
   }
+  
+  
+  
+  
   .col{
     flex-basis:100%;
    
