@@ -102,7 +102,9 @@
                             </mat-form-field>
 
                             <div class="container text-center">
-                                <button mat-raised-button color="accent">Add</button>
+                                <button *ngIf="!flag" mat-raised-button color="accent">Add</button>
+            <button mat-raised-button color="accent" *ngIf="flag" (click)=" addNextQuest()">add More quesetion</button>
+                                <!-- <button mat-raised-button color="accent">Add</button> -->
                             </div>
                     </form>
                 </mat-card-content>

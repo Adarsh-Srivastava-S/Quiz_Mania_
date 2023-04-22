@@ -4,6 +4,7 @@ import { QuestionService } from 'src/app/services/question.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { LoginService } from 'src/app/services/login.service';
 @Component({
   selector: 'app-add-question',
   templateUrl: './add-question.component.html',
@@ -13,7 +14,7 @@ export class AddQuestionComponent implements OnInit {
 
   // constructor(private _router:ActivatedRoute,private _question:QuestionService, private _rout:Router){}
   
-  
+  user:any;
   qId="";
   qTitle="";
   question = {
@@ -28,17 +29,28 @@ export class AddQuestionComponent implements OnInit {
       qId:'',
     },
   };
+  flag=false;
 
   constructor(private _route:ActivatedRoute,
-    private _question:QuestionService) { }
+    private _question:QuestionService,
+  
+    private _login:LoginService) { }
     public Editor = ClassicEditor;
-  ngOnInit(): void {
 
+  ngOnInit(): void {
+    
+   this.user= this._login.getUserRole();
     this.qId = this._route.snapshot.params['qid'];
     this.qTitle = this._route.snapshot.params['title'];
     this.question.quiz['qId']= this.qId;
   }
-
+ addNextQuest()
+ {
+  location.reload();
+//   this.qId = this._route.snapshot.params['qid'];
+//   this.qTitle = this._route.snapshot.params['title'];
+//   this.question.quiz['qId']= this.qId;
+ }
   formSubmit()
   {
     if(this.question.content.trim()=='' || this.question.content==null)
@@ -62,6 +74,7 @@ export class AddQuestionComponent implements OnInit {
     this._question.addQuestion(this.question).subscribe(
       (data)=>{
       Swal.fire('Success','Question Added. Add Another one','success');
+      this.flag=true;
       // this.question.answer=''
       this.question=
       {
@@ -82,5 +95,8 @@ export class AddQuestionComponent implements OnInit {
       Swal.fire('Error','Error in adding question','error');
     }
     );
+    // this.location.go(this.location.path());
+   
   }
+  
 }
