@@ -4,7 +4,6 @@ import { MatTableModule } from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import {MatButtonModule} from '@angular/material/button';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -65,7 +64,7 @@ import { CoordinatorDashboardComponent } from './pages/coordinator/coordinator-d
 import { ForgetPasswordComponent } from './pages/forget/forget-password/forget-password.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ValidateOtpComponent } from './pages/forget/validate-otp/validate-otp.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,7 +102,7 @@ import { ValidateOtpComponent } from './pages/forget/validate-otp/validate-otp.c
     CoordinatorSignupComponent,
     CoordinatorDashboardComponent,
     ForgetPasswordComponent,
-    ValidateOtpComponent,
+  
 
 
   ],
