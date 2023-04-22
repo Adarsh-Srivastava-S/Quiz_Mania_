@@ -2,25 +2,25 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
 
 <!-- <mat-card *ngIf="user" style="background-color: rgb(238, 241, 241);">
-   
+
     <h1>Your Profile Details</h1> -->
     <!-- {{user | json}} -->
     <!-- <mat-card-content >
 
         <div class="bootstrap-wrapper">
-            
+
             <div class="container" style="background-color: darkorange;">
                 <div class="container text-center">
-                    <img  *ngIf="!dbImage" src="../../../assets/logo.png" 
+                    <img  *ngIf="!dbImage" src="../../../assets/logo.png"
                     alt=""
                     class="profile-image">
                     <div  >
                         <div  >
                             <img [src]="dbImage"  class="profile-image" >
-                           
+
                         </div>
                     </div> -->
-                    
+
                     <!-- <button (click)="showContent = !showContent">Show Content</button>
                     <div *ngIf="showContent">
                         <div class="form-group">
@@ -65,7 +65,7 @@
         </div>
     </mat-card-content>
 
-    
+
     <mat-card-actions class="text-center">
         <button mat-raised-button color="primary" >UPDATE</button> -->
         <!-- <button mat-raised-button color="accent">SHARE</button> -->
@@ -110,7 +110,7 @@
         <mat-header-cell *matHeaderCellDef class="same"> quiz </mat-header-cell>
         <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.quiz.title }} </mat-cell>
       </ng-container> -->
-  
+
     <!-- Name Column -->
     <!-- <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef class="same"> Name </mat-header-cell>
@@ -122,7 +122,7 @@
       <mat-header-cell *matHeaderCellDef class="same"> Score </mat-header-cell>
       <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.score }} </mat-cell>
     </ng-container> -->
-<!-- 
+<!--
     <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;" ></mat-row>
   </mat-table>
@@ -141,19 +141,19 @@
 							<div class="d-flex flex-column align-items-center text-center">
 
                                 <!-- class="rounded-circle p-1 bg-primary"  -->
-                                <img  *ngIf="!dbImage" src="../../../assets/logo.png" 
-                                alt="Admin" 
+                                <img  *ngIf="!dbImage" src="../../../assets/logo.png"
+                                alt="Admin"
                                 class="img-radius" width="110">
                                 <div  class="user-image">
-                                    
+
                                         <!-- <img [src]="dbImage"  class="profile-image" > -->
                                         <img [src]="dbImage"   class="img-radius" width="110" >
-                                     
+
                                 </div>
-								<!-- <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" 
+								<!-- <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin"
                                 class="rounded-circle p-1 bg-primary" width="110"> -->
 
-                                
+
 								<div class="mt-3">
                                     <!-- <h4>John Doe</h4> -->
                                     <h3>{{ login.getUser().firstName }} {{ login.getUser().lastName }}</h3>
@@ -173,7 +173,23 @@
                                     {{user.discription}}
                                     <!-- Hye, I’m Jitendra Vermn residing in this beautiful world. I create websites and mobile apps with great UX and UI design. I have done work with big companies like Nokia, Google and Yahoo. Meet me or Contact me for any queries. One Extra line for filling space. Fill as many you want. -->
                                 </p>
-                             <hr class="my-4"> 
+                             <hr class="my-4">
+
+                             <!-- <h3 class="header-title mt-0">Personal Information</h3>
+
+                               <span *ngIf="!isEditing" id="personal-info">{{user.discription}}</span>
+                               <div *ngIf="isEditing" id="personal-info-edit">
+                                 <textarea id="personal-info-input" [(ngModel)]="newDescription"></textarea>
+                                 <button (click)="onsubmit()">Save</button>
+                                 <button (click)="cancelPersonalInfo()">Cancel</button>
+
+                                </div>
+
+                             <button (click)="editPersonalInfo()" *ngIf="!isEditing">Edit</button>
+
+
+                             <hr class="my-4"> -->
+
                            <!--<h3 class="header-title mt-0">My Skills</h3>
                             <ul>
                                 <li>Angular</li>
@@ -265,14 +281,14 @@
 									<h3 class="mb-0">Status</h3>
 								</div>
 								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" 
+									<input type="text" class="form-control"
                                     value="{{login.getUser().enabled?'ACTIVE':'NOTACTIVE'}}">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-3"></div>
 								<div class="col-sm-9 text-secondary">
-								 <button 
+								 <button
                                 [routerLink]="'/user-dashboard/pro/'+login.getUser().username"
                                  mat-flat-button color="accent">Update</button>
    <!-- login.getUser().id -->
@@ -367,7 +383,7 @@
         <mat-header-cell *matHeaderCellDef class="same"> quiz </mat-header-cell>
         <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.quiz.title }} </mat-cell>
       </ng-container>
-  
+
 
 
     <!-- Name Column -->
@@ -381,7 +397,7 @@
       <mat-header-cell *matHeaderCellDef class="same"> Score </mat-header-cell>
       <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.score }} </mat-cell>
     </ng-container>
- 
+
     <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;" ></mat-row>
   </mat-table>

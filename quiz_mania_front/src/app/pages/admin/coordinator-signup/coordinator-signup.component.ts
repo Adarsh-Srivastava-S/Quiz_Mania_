@@ -11,8 +11,16 @@ import Swal from 'sweetalert2';
 export class CoordinatorSignupComponent implements OnInit {
 
   constructor(private userServic:UserService,private snack:MatSnackBar) { }
-  uploadedImage: File | any;  
-  dbImage: any; 
+
+  visible:boolean = true;
+  changetype:boolean = true;
+  viewpass(){
+    this.visible = !this.visible;
+    this.changetype = !this.changetype;
+  }
+
+  uploadedImage: File | any;
+  dbImage: any;
   status: any;
   postResponse: any;
   successResponse: string | any;
@@ -49,9 +57,9 @@ export class CoordinatorSignupComponent implements OnInit {
       return;
      }
      const imageFormData = new FormData();
-    
+
     console.log(imageFormData);
-   
+
     // const req = new FormData();
     // req.append('img', this.uploadedImage);
     // req.append('User',JSON.stringify(this.user))
@@ -64,7 +72,7 @@ export class CoordinatorSignupComponent implements OnInit {
     formData.append('email', this.user.email);
     formData.append('phone', this.user.phone);
     const boundary = Math.random().toString().substr(2);
-   
+
     // console.log(req);
     this.userServic.addCoordinator(formData).subscribe(
       (data:any)=>{
@@ -84,7 +92,7 @@ export class CoordinatorSignupComponent implements OnInit {
     );
   }
 
-  public onImageUpload(event:any) {    
+  public onImageUpload(event:any) {
     this.uploadedImage = event.target.files[0];
      }
 

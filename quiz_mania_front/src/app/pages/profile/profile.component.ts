@@ -3,7 +3,8 @@ import { ImageService } from 'src/app/services/ImageService/image.service';
 import { LeaderboardService } from 'src/app/services/leaderboard/leaderboard.service';
 import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
-
+import Swal from 'sweetalert2';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -21,8 +22,8 @@ export class ProfileComponent implements OnInit {
     },
     discription:'',
   };
-  constructor(private user1:UserService ,public login:LoginService,private img:ImageService,private _leader:LeaderboardService) { }
-  dbImage: any; 
+  constructor(private user1:UserService ,private snack:MatSnackBar,public login:LoginService,private img:ImageService,private _leader:LeaderboardService) { }
+  dbImage: any;
   id : any;
   leader:any;
   i:any;
@@ -45,7 +46,7 @@ export class ProfileComponent implements OnInit {
     );
     this.id=this.login.userId();
     // this.viewImage();
-      
+
         this._leader.getLeaderByUser(this.id).subscribe(
           (data:any)=>{
             this.leader=data;
@@ -60,18 +61,22 @@ export class ProfileComponent implements OnInit {
 
 
 
+
+
+
   viewImage() {
     const userId = this.login.userId();
     let req:{[key:string]:any}={};
     this.id=userId;
     const params=req;
     // this.httpClient.get(`http://localhost:9005/get/image/info/${this.id}`)
-    this.img.showImage(this.id)  
+    this.img.showImage(this.id)
     .subscribe(
        ( res) => {
-          this.postResponse = res;          
+          this.postResponse = res;
           this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
         }
       );
   }
 }
+

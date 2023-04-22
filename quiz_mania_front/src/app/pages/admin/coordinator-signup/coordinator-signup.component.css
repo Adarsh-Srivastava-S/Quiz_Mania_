@@ -5,6 +5,27 @@
     font-family: 'Montserrat', sans-serif;
     color: #303433;
 }
+.invalid-input{
+    /* background-color: red; */
+    color: red;
+}
+.alert{
+    color:red;
+}
+.p1{
+    margin: 0px;
+}
+.submit:disabled{
+    color:deeppink;
+    cursor: not-allowed;
+    padding: 10px ;
+    margin: 5px auto;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #a1e8d1, #7383b7);
+    transition: opacity 0.4s;
+}
 .profile-pic-label {
     font-weight: bold;
     font-size: 1.2em;
@@ -30,7 +51,7 @@ section {
 }
 
 section.side {
-    background: url(../../../assets/bk.png) no-repeat;
+    background: url(../../../../assets/bk.png) no-repeat;
     background-size: 100% 102%;
 }
 
@@ -84,7 +105,7 @@ section.side {
 .form-control {
     width: 100%;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     background-color: lightblue;
 }
 
@@ -111,6 +132,7 @@ input ~ i {
     transform: translateY(-50%);
     color: #888;
     transition: color   0.4s;
+    font-size: 20px;
 }
 
 input:focus ~ i {

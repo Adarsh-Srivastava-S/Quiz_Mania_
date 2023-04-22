@@ -8,7 +8,7 @@ h1{
     text-align: center;
     background-color: antiquewhite;
     margin-left: 20px;
-    
+
 }
 .signup{
     text-align: center;
@@ -19,9 +19,9 @@ h1{
 .first{
     text-align: center;
     width: 181px;
-    
+
     margin-top: 2pc;
-   
+
 } */
 * {
     margin: 0;
@@ -29,7 +29,30 @@ h1{
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     color: #303433;
-    
+
+}
+a{
+    color:blue;
+    font-size: 12px;
+
+
+}
+.invalid-input{
+    color: red;
+}
+.submit:disabled{
+    color:deeppink;
+    cursor: not-allowed;
+    padding: 10px ;
+    margin: 5px auto;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #a1e8d1, #7383b7);
+    transition: opacity 0.4s;
+}
+.p1{
+    margin: 0px;
 }
 
 mat-card{
@@ -115,7 +138,7 @@ section.side {
 .form-control {
     width: 100%;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     background-color: lightblue;
 }
 
@@ -165,10 +188,13 @@ button.submit {
 button.submit:hover {
     opacity: 0.9;
 }
+forget{
+    margin: 10px;
+}
 .first{
     text-align: center;
     width: 181px;
-    
+
     margin-top: 2pc;
 }
 
@@ -180,19 +206,19 @@ button.submit:hover {
         .mat-card{
             grid-template-columns: 1fr;
         }
-    
+
         .signup {
             margin-left: 0;
             margin-top: 20px;
         }
-    
+
         .login-container {
             max-width: 100%;
         }
-    
+
         .side {
             display: none;
         }
-    
+
     }
 

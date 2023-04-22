@@ -1,136 +1,205 @@
-.contact-container{
-  max-width: 450px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
+ *{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Poppins" , sans-serif;
+ }
+ h1{
+   text-align: center;
+   font-weight: bold;
+   font-size: xx-large;
+   margin-bottom: 15px;
+   margin-top: 20px;
+   padding: 10px;
+   color: #5029bc;
+ }
+ h2{
+   margin:20px;
+   text-align: center;
+   font-weight:400;
+   font-size: x-large;
+   font-weight: bold;
+   color: #5029bc;
+ }
+ body{
+   min-height: 100vh;
+   width: 100%;
+   background: #c8e8e9;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ .separator {
+   width: 150px;
+   height: 4px;
+   background-color: #e61515;
+   margin-left:677px;
+   margin-bottom: 20px;
+   margin-top: -15px;
+
+ }
+ .container{
+   width: 85%;
+   background:azure;
+   border-radius: 6px;
+   padding: 20px 60px 30px 40px;
+   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+   margin-left: 150px;
+ }
+ .container .content{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+ }
+ .container .content .left-side{
+   width: 25%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin-top: 15px;
+   position: relative;
+ }
+ .content .left-side::before{
+   content: '';
+   position: absolute;
+   height: 70%;
+   width: 2px;
+   right: -15px;
+   top: 50%;
+   transform: translateY(-50%);
+   background: #afafb6;
+ }
+ .content .left-side .details{
+   margin: 14px;
+   text-align: center;
+ }
+ .content .left-side .details i{
+   font-size: 30px;
+   color: #3e2093;
+   margin-bottom: 10px;
+ }
+ .content .left-side .details .topic{
+   font-size: 18px;
+   font-weight: 500;
+ }
+ .content .left-side .details .text-one,
+ .content .left-side .details .text-two{
+   font-size: 14px;
+   color: #b6afaf;
+ }
+ .container .content .right-side{
+   width: 75%;
+   margin-left: 75px;
+ }
+ .content .right-side .topic-text{
+   font-size: 23px;
+   font-weight: 600;
+   color: #3e2093;
+   text-align: center;
+ }
+ .right-side .input-box{
+   height: 50px;
+   width: 100%;
+   margin: 12px 0;
+ }
+ ::placeholder{
+   color: #ea5757 ;
+   opacity: 1;
+ }
+ .right-side .input-box input,
+ .right-side .input-box textarea{
+   height: 100%;
+   width: 100%;
+   border: black;
+   outline: none;
+   font-size: 16px;
+   background: #e0e1ea;
+   border-radius: 6px;
+   padding: 0 15px;
+   resize: none;
+ }
+ .right-side .message-box{
+   min-height: 110px;
+ }
+ .right-side .input-box textarea{
+   padding-top: 6px;
+ }
+ .right-side .button{
+   /* display: inline-block; */
+   margin-top: 12px;
+   text-align: center;
+ }
+ .right-side .button button[type="submit"]{
+   color: #fff;
+   font-size: 18px;
+   outline: none;
+   border: none;
+   padding: 8px 16px;
+   border-radius: 6px;
+   background: #3e2093;
+   cursor: pointer;
+   transition: all 0.3s ease;
+ }
+ .button button[type="submit"]:hover{
+   background: #5029bc;
+ }
+
+ @media (max-width: 950px) {
+   .container{
+     width: 90%;
+     padding: 30px 40px 40px 35px ;
+   }
+   .container .content .right-side{
+    width: 75%;
+    margin-left: 55px;
+   }
+.separator {
+  width: 150px;
+  height: 4px;
+  background-color: #e61515;
+  margin-left: calc((100% - 150px) / 2);
+  margin-bottom: 20px;
+  margin-top: -15px;
 }
 
-mat-card{
+ }
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding:0px;
-  min-height:77vh;
-  width: 100%;
-background-color:#e3f2fd;
-  
-}
-section.side {
-  background: url(../../../assets/bk.png) no-repeat;
-  background-size: 100% 102%;
-  
-}
-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.side img {
-  width: 40%;
-  max-width: 50%;
-  height:280px;
-}
-h1{
-    text-align: center;
-    font-weight: bolder;
-    font-size: xx-large;
-    margin-bottom: 40px;
-    margin-top: 20px;
-    padding: 10px;
-}
-h2{
-    margin:20px;
-    text-align: center;
-    font-weight:400;
-    font-size: x-large;
-}
-h3{
-    text-align: center;
-    font-size: x-large;
-    font-weight: bold;
-}
-/* form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  } */
- 
-  
-  mat-form-field {
-    width: 90%;
-    margin-bottom: 10px;
-  }
-  
-  mat-form-field:last-child {
-    margin-bottom: 0;
-
-  }
- textarea {
-    height: 90px;
-    
-    
-    
-  }
-  
-  .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-
-/* img{
-
-    height:100%;
-} */
-/* .form-group{
-  width: 46%;
- 
- 
-} */
-@media screen and (max-width: 920px) {
-  /* Your CSS rules for screens with a width of 920px or less go here */
-  .contact-container {
-    max-width: 100%;
-  }
-  
-  mat-card {
-    grid-template-columns: 1fr;
-  }
-  
-  .side img {
-    width: 60%;
-  }
-  
-  h1 {
-    font-size: x-large;
-    margin-bottom: 20px;
-    margin-top: 10px;
-  }
-  
-  h2 {
-    font-size: large;
-    margin: 10px;
-  }
-  
-  h3 {
-    font-size: large;
-  }
-  
-  mat-form-field {
+ @media (max-width: 820px) {
+   .container{
+     margin: 40px 0;
+     height: 100%;
+   }
+   .container .content{
+     flex-direction: column-reverse;
+   }
+  .container .content .left-side{
     width: 100%;
-    margin-bottom: 10px;
-    
+    flex-direction: row;
+    margin-top: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
   }
-  
-  textarea {
-    height: 80px;
+  .container .content .left-side::before{
+    display: none;
   }
-  
-}
+  .container .content .right-side{
+    width: 100%;
+    margin-left: 0;
+  }
+  .separator {
+    width: 150px;
+    height: 4px;
+    background-color: #e61515;
+    margin-left: calc((100% - 150px) / 2);
+    margin-bottom: 20px;
+    margin-top: -15px;
+  }
 
-  
+ }
+
+
 

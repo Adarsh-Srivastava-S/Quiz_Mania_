@@ -1,69 +1,160 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 <mat-card>
 <section class="side">
-  <img src="../../../assets/log2.png" alt="">
+    <img src="../../../../assets/log2.png" alt="">
 </section>
-<section class="main">
-  <div class="login-container">
-      <img class="img1"src="../../../assets/avatar.svg">
-      <p class="title">Welcome</p>
-      <div class="separator"></div>
-      <p class="welcome-message">Please, provide login credential to proceed and have access to all our services</p>
 
-      <form   class="login-form" (ngSubmit)="formSubmit()" action="">
-          <div class="form-control">
-              <input type="text" required
-              [(ngModel)] = "user.username"
-              name = "username" placeholder="Username">
-              <i class="fas fa-user-circle"></i>
-          </div>
-          <div class="form-control">
-              <input  [(ngModel)] = "user.password"
-              name = "password"
-               type="password" placeholder="Password">
-              <i class="fas fa-lock"></i>
-          </div>
-          <div class="form-control">
-              <input  required
-              [(ngModel)] = "user.firstName"
-              name = "firstName" type="text" placeholder="FirstName">
-              <i class="fas fa-user"></i>
-          </div>
-          <div class="form-control">
-              <input  required
-              [(ngModel)] = "user.lastName"
-              name = "lastName" type="text" placeholder="LastName">
-              <i class="fas fa-user"></i>
-          </div>
-          <div class="form-control">
-              <input  required
-              [(ngModel)] = "user.email"
-              name = "email"
-              type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  placeholder="Email..">
-              <i class="fa fa-envelope" ></i>
-          </div>
-          
-          <div class="form-control">
-              <input  required
-              [(ngModel)] = "user.phone"
-              name = "phone"
-              type="number" placeholder="Phone">
-              <i class="fas fa-phone"></i>
-          </div>
-          <label for="img" class="profile-pic-label">Choose a profile picture:</label>
-          <div class="form-control">
-            <input type="file" id="img" name="img"  (change)="onImageUpload($event) " profile pic> 
-          </div>
-          <div class="container text-center">
-            <button class="submit" type="submit">Register</button>
-             <button class="submit" style="margin-left:20px">Clear</button>
-          </div>
-      </form>
-  </div>
+<section class="main">
+    <div class="login-container">
+      <img src="../../../../assets/avatar.svg" class="img1">
+        <p class="title">Welcome</p>
+        <div class="separator"></div>
+        <p class="welcome-message">Please, provide login credential to proceed and have access to all our services</p>
+
+        <form class="login-form" (ngSubmit)="formSubmit()" action="" #userLogin="ngForm">
+            <div class="form-control">
+                <input type="text" required
+                 name = "username"
+                [(ngModel)] = "user.username"
+                 placeholder="enter Username"
+                 #username = "ngModel"
+                 minlength="4" maxlength="10" >
+                <i class="fas fa-user-circle"></i>
+            </div>
+             <p class="p1 invalid-input">
+            <span  *ngIf="username.invalid && (username.dirty || username.touched)"
+            class="alert ">
+          <span *ngIf="username.errors?.['required']" class="alert">
+            Name is required.
+          </span>
+          <span *ngIf="username.errors?.['minlength']" class="alert">
+            Name must be at least 4 characters.
+          </span>
+         </span>
+          </p>
+
+            <div class="form-control">
+                <input  [(ngModel)] = "user.password"
+                name = "password"  required
+                 [type]="changetype?'password':'text'"
+                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$"
+                 placeholder="enter password"
+                 #password="ngModel" minlength="8" maxlength="20">
+                <i (click)="viewpass()" [ngClass]="visible?'fas fa-lock':'fas fa-eye-slash'"></i>
+            </div>
+            <p class="p1 invalid-input"  >
+                <span  *ngIf="password.invalid && (password.dirty || password.touched)"
+                class="alert">
+              <span *ngIf="password.errors?.['required']" class="alert">
+                Password is required.
+              </span>
+              <span *ngIf="password.errors?.['pattern']" class="alert">
+                Password must contain at least one uppercase,lowercase,number,special character.
+              </span>
+              <span *ngIf="password.errors?.['minlength']" class="alert">
+                Password can not be longer than 8 characters.
+              </span>
+              <span *ngIf="password.errors?.['maxlength']" class="alert">
+                Password can not be longer than 20 characters.
+              </span>
+             </span>
+              </p>
+
+            <div class="form-control">
+                <input  required
+                [(ngModel)] = "user.firstName"
+                name = "firstName" type="text" placeholder="enter firstName" #firstName="ngModel" minlength="4" maxlength="10">
+                <i class="fas fa-user"></i>
+            </div>
+            <p class="p1 invalid-input"  >
+                <span  *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+                class="alert">
+              <span *ngIf="firstName.errors?.['required']" class="alert">
+                FirstName is required.
+              </span>
+              <span *ngIf="firstName.errors?.['minlength']" class="alert">
+                Name must be at least 10 characters.
+              </span>
+             </span>
+              </p>
+
+            <div class="form-control">
+                <input  required
+                [(ngModel)] = "user.lastName"
+                name = "lastName" type="text" placeholder="enter lastName" #lastName="ngModel" minlength="2" maxlength="6">
+                <i class="fas fa-user"></i>
+            </div>
+            <p class="p1 invalid-input"  >
+                <span  *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+                class="alert">
+              <span *ngIf="lastName.errors?.['required']" class="alert">
+                LastName is required.
+              </span>
+              <span *ngIf="lastName.errors?.['minlength']" class="alert">
+                Name must be at least 6 characters.
+              </span>
+             </span>
+              </p>
+
+            <div class="form-control">
+                <input  required
+                [(ngModel)] = "user.email"
+                name = "email"
+                #email = "ngModel" email
+                type="email" placeholder="enter email.." minlength="13" maxlength="18">
+                <i class="fa fa-envelope" ></i>
+            </div>
+            <p class="p1 invalid-input"  >
+                <span  *ngIf="email.invalid && (email.dirty || email.touched)"
+                class="alert">
+              <span *ngIf="email.errors?.['required']" class="alert" >
+                Email is required.
+              </span>
+              <span *ngIf="email.errors?.['minlength']" class="alert">
+                Email like abcd@gmail.com
+              </span>
+             </span>
+              </p>
+
+            <div class="form-control">
+                <input  required
+                [(ngModel)] = "user.phone"
+                name = "phone"
+                #phone ="ngModel" minlength="6" maxlength="10"
+                type="number" placeholder="enter phoneNumber">
+                <i class="fas fa-phone"></i>
+            </div>
+            <p class="p1 invalid-input"  >
+                <span  *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+                class="alert">
+              <span *ngIf="phone.errors?.['required']" class="alert">
+                PhoneNumber is required.
+              </span>
+              <span *ngIf="phone.errors?.['minlength']" class="alert">
+                Number must be at least 10 characters long.
+              </span>
+             </span>
+              </p>
+              <label for="img" class="profile-pic-label">Choose a profile picture:</label>
+              <div class="form-control">
+                <input type="file" id="img" name="img"
+                 (change)="onImageUpload($event) " profile pic>
+              </div>
+              <!-- <p class="p1"><span class="invalid-input" *ngIf="image.invalid && (password.touched || password.dirty || password.errors?.['minlength'])">Please Enter Valid Password</span></p> -->
+
+            <div class="container text-center">
+              <button [disabled]="userLogin.invalid"  class="submit" type="submit">Register</button>
+               <button class="submit" type="reset" style="margin-left:20px">Clear</button>
+            </div>
+        </form>
+    </div>
 </section>
 </mat-card>
-                     
-            
 
-                      
-            
-     
+
+
+
+
+

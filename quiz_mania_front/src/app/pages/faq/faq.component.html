@@ -1,38 +1,48 @@
-<!-- <p class="faqdisc">faq works!</p> -->
-
-<mat-grid-list cols="2" id="FAQs"  >
-<mat-grid-tile    >
-  
-  <mat-accordion >
-    <h1>
-      Frequently Asked Question (FAQs) :- 
-    </h1>
- 
-  <mat-expansion-panel *ngFor="let result of faqs "  >
-    <mat-expansion-panel-header>
-      <mat-panel-title class="faqtitle">
-        <!-- How do I handle tiebreakers? -->
-        {{result.content}}
-      </mat-panel-title >
-      
-    </mat-expansion-panel-header>
-    <p class="faqdisc">
-      {{result.answer}}
-    </p>
-  </mat-expansion-panel>
-  <mat-paginator [length]="50"
-              [pageSize]="5"
-              [pageSizeOptions]="[5, 10]" (page)="nextPage($event)">
-</mat-paginator> 
-  </mat-accordion>
-  </mat-grid-tile>
-  
-  
-  <mat-grid-tile >
-    <img  src="../../../assets/faqs.jpeg">
-  </mat-grid-tile>
-</mat-grid-list>
-
-
-<!-- (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false" -->
+<mat-card >
+  <section class="bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card card-style1 border-0">
+                    <div class="card-body p-4 p-md-5 p-xl-6">
+                        <div class="text-center mb-2-3 mb-lg-6">
+                            <span class="section-title text-primary">FAQ's</span>
+                            <h2 class="h1 mb-0 text-secondary">Frequently Asked Questions</h2>
+                        </div>
+                        <div id="accordion" class="accordion-style"  >
+                            <div class="card mb-3">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                          <span class="text-theme-secondary me-2">Q.</span>What is Java Programming</button>
+                                    </h5>
+                                </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion">
+                                    <div class="card-body">
+                                      Java is high level,object oriented programming language.</div>
+                                </div>
+                            </div>
+                            <div class="card mb-3" *ngFor="let result of faqs ">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                          <span class="text-theme-secondary me-2">Q.</span> {{result.content}}</button>
+                                    </h5>
+                                </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion">
+                                    <div class="card-body">
+                                      {{result.answer}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <mat-paginator [length]="50"
+    [pageSize]="5"
+    [pageSizeOptions]="[5, 10]" (page)="nextPage($event)">
+</mat-paginator>
+</section>
+</mat-card>

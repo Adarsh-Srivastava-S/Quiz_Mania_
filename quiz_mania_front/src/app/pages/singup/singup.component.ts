@@ -2,24 +2,33 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+
 @Component({
   selector: 'app-singup',
   templateUrl: './singup.component.html',
   styleUrls: ['./singup.component.css']
 })
-export class SingupComponent implements OnInit {
+export class SingupComponent implements  OnInit {
 
-  constructor(private userServic:UserService,private snack:MatSnackBar) { }
-  uploadedImage: File | any;  
-  dbImage: any; 
+
+  constructor(private userServic:UserService,private snack:MatSnackBar ) {
+    }
+  visible:boolean = true;
+  changetype:boolean = true;
+  viewpass(){
+    this.visible = !this.visible;
+    this.changetype = !this.changetype;
+  }
+  uploadedImage: File | any;
+  dbImage: any;
   status: any;
   postResponse: any;
   successResponse: string | any;
 
   id : any;
 
-  
+
   public user={
     username:'',
     password:'',
@@ -47,9 +56,9 @@ export class SingupComponent implements OnInit {
       return;
      }
      const imageFormData = new FormData();
-    
+
     console.log(imageFormData);
-   
+
     // const req = new FormData();
     // req.append('img', this.uploadedImage);
     // req.append('User',JSON.stringify(this.user))
@@ -62,7 +71,7 @@ export class SingupComponent implements OnInit {
     formData.append('email', this.user.email);
     formData.append('phone', this.user.phone);
     const boundary = Math.random().toString().substr(2);
-   
+
     // console.log(req);
     this.userServic.addUser(formData).subscribe(
       (data:any)=>{
@@ -82,30 +91,30 @@ export class SingupComponent implements OnInit {
     );
   }
 
-  public onImageUpload(event:any) {    
+  public onImageUpload(event:any) {
     this.uploadedImage = event.target.files[0];
      }
 
 
-  // imageUploadAction() {    
+  // imageUploadAction() {
   //   const imageFormData = new FormData();
-  
+
   //   console.log(imageFormData);
   //   const req = new FormData();
   //   req.append('img', this.uploadedImage, this.uploadedImage.name);
   //   req.append('userid', userId.toString());
-  
+
   //   // Generate a boundary string using Math.random()
   //   const boundary = Math.random().toString().substr(2);
-  
+
     // this.httpClient.post('http://localhost:9005/upload/image', req, {
-  
+
     //   observe: 'response'
     // }
   //   this.img.addImage(req).subscribe((
   // response) => {
-  //     if (response.status === 200) { 
-  //         this.postResponse = response;                
+  //     if (response.status === 200) {
+  //         this.postResponse = response;
   //         this.successResponse = this.postResponse.body.message;
   //     } else {
   //         this.successResponse = 'Image not uploaded due to some error!';
@@ -114,4 +123,4 @@ export class SingupComponent implements OnInit {
     }
 
   // this.user
-  
+

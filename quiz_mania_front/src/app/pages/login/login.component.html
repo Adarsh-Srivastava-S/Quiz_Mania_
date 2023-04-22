@@ -7,41 +7,47 @@
 
 <section class="main">
     <div class="login-container">
-        <img class="img1"src="../../../">
+        <img class="img1"src="../../../assets/avatar.svg">
         <p class="title">Welcome</p>
         <div class="separator"></div>
         <p class="welcome-message">Please, provide login credential to proceed and have access to all our services</p>
 
-        <form class="login-form" (ngSubmit)="formSubmit()" action="">
+        <form class="login-form" (ngSubmit)="formSubmit()" action="" #userLogin="ngForm">
             <div class="form-control">
                 <input type="text" [(ngModel)]="userloginData.username"
                 name="username"
-                required placeholder="Username">
+                required
+                #username = "ngModel"
+                minlength="4" maxlength="10"
+                placeholder="enter username"
+                >
                 <i class="fas fa-user"></i>
             </div>
+            <p class="p1"><span class="invalid-input" *ngIf="username.invalid && (username.touched || username.dirty || username.errors?.['minlength'])">Please Enter Valid Username</span></p>
+
             <div class="form-control">
                 <input [(ngModel)]="userloginData.password"
                 name="password"
                  required
-                 type="password" placeholder="Password">
+                 type="password"
+                 placeholder="enter your Password"
+                 minlength="3" maxlength="8"
+                 #password="ngModel"  >
                 <i class="fas fa-lock"></i>
             </div>
-                <h6>Having Trouble in sign in?</h6>  <button class="submit" (click)="handleForgetAction()">Forget</button>
+            <p class="p1"><span class="invalid-input" *ngIf="password.invalid && (password.touched || password.dirty || password.errors?.['minlength'])">Please Enter Valid Password</span></p>
+                <h6 >Having Trouble in sign in? <a (click)="handleForgetAction()" > <u> forget</u> </a></h6>
+                <!-- <button class="forget" type="forgot" >Forgot</button> -->
                 <div class="container text-center">
-                    <button class="submit" type="submit">Login</button>
+                    <button [disabled]="userLogin.invalid" class="submit" type="submit">Login</button>
                      <button class="submit" type="reset" style="margin-left:20px">Reset</button>
+
                   </div>
             <hr>
             <div class="first">
                 <h3> Don't you have account?</h3>
              </div>
-             <button [routerLink]="'/signup'"   class="signup" >Create Account</button>
-                <!-- <div class="signup">  <a
-                [routerLink]="'/signup'"
-                 mat-raised-button color="primary">
-                  Create Account
-                </a> -->
-             
+            <button class="submit" [routerLink]="'/signup'" style="margin-left: 180px;">Create Account</button>
         </form>
     </div>
 </section>
