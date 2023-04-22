@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -72,8 +73,13 @@ export class LoginComponent implements OnInit {
       (error)=>{
         console.log('Error !');
         console.log(error);
-        this.snack.open("Invalid Details !! Try again",'',{
-          duration:3000,
+        // this.snack.open("Invalid Details !! Try again",'',{
+        //   duration:3000,
+        // })
+        Swal.fire({
+          title: 'Invalid details !! Try Again?',
+          showCancelButton: true,
+          icon:'info',
         })
       }
       );

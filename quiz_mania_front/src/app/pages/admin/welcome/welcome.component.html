@@ -1,135 +1,154 @@
-<mat-card>
-<h1>Welcome to admin panel</h1>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
-
-<mat-card style="background-color: aqua;">
-<div class="container">
-<div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
-       <div class="col">
-		 <div class="card radius-10 border-start border-0 border-3 border-info">
-			<div class="card-body">
-				<div class="d-flex align-items-center">
-					<div>
-						<p class="mb-0 text-secondary">Total Users</p>
-						<h4 class="my-1 text-info">4805</h4>
-						<p class="mb-0 font-13">+2.5% from last week</p>
-					</div>
-					<div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="fa fa-users"></i>
-					</div>
-				</div>
-			</div>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<mat-card style="background-color:azure;">
+	<h1>Welcome to Admin Dashboard</h1>
+	<main>
+		<div class="cards">
+			 <div class="card-single">
+				 <div>
+					 <h2>2100</h2>
+					 <small>Students</small>
+				 </div>
+				 <div>
+					 <span class="fas fa-user-graduate"></span>
+				 </div>
+			 </div>
+			 <div class="card-single">
+				 <div>
+					 <h2>+30</h2>
+					 <small>Teacher</small>
+				 </div>
+				 <div>
+					 <span class="fas fa-chalkboard-teacher"></span>
+				 </div>
+			 </div>
+			 <div class="card-single">
+				 <div>
+					 <h2>58</h2>
+					 <small>Employee</small>
+				 </div>
+				 <div>
+					 <span class="fas fa-users"></span>
+				 </div>
+			 </div>
+		
+			 <div class="card-single">
+				 <div>
+				 <h2>20k</h2>
+				 <small>Earnings</small>
+				 </div>
+				 <div>
+				 <span class="fas fa-dollar-sign"></span>
+			 </div>
+		
 		 </div>
-	   </div>
-	   <div class="col">
-		<div class="card radius-10 border-start border-0 border-3 border-danger">
-		   <div class="card-body">
-			   <div class="d-flex align-items-center">
-				   <div>
-					   <p class="mb-0 text-secondary">Total Quizzes</p>
-					   <h4 class="my-1 text-danger">$84,245</h4>
-					   <p class="mb-0 font-13">+5.4% from last week</p>
-				   </div>
-				   <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fa fa-plus"></i>
-				   </div>
-			   </div>
-		   </div>
 		</div>
+	</main>
+	
+	<mat-card style="background-color:azure;">
+	<div class="table-responsive">
+	<table class="table caption-top">
+		<caption>List of All Users</caption>
+		<thead>
+		  <tr>
+			<th scope="col">S.No.</th>
+			<th scope="col">Name</th>
+			<th scope="col">First</th>
+			<th scope="col">Last</th>
+			<th scope="col">Phone</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			<th scope="row">1</th>
+			<td>Mark</td>
+			<td>Otto</td>
+			<td>abcd@gmail.com</td>
+			<td>2256982</td>
+		  </tr>
+		  <tr>
+			<th scope="row">2</th>
+			<td>Jacob</td>
+			<td>Thornton</td>
+			<td>abc@gmail.com</td>
+			<td>7418596</td>
+		  </tr>
+		  <tr>
+		</tbody>
+	  </table>
 	  </div>
-	  <div class="col">
-		<div class="card radius-10 border-start border-0 border-3 border-success">
-		   <div class="card-body">
-			   <div class="d-flex align-items-center">
-				   <div>
-					   <p class="mb-0 text-secondary">Success Rate</p>
-					   <h4 class="my-1 text-success">34.6%</h4>
-					   <p class="mb-0 font-13">-4.5% from last week</p>
-				   </div>
-				   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="fa fa-bar-chart"></i>
-				   </div>
-			   </div>
-		   </div>
-		</div>
-	  </div>
-	  <div class="col">
-		<div class="card radius-10 border-start border-0 border-3 border-warning">
-		   <div class="card-body">
-			   <div class="d-flex align-items-center">
-				   <div>
-					   <p class="mb-0 text-secondary">Attempted Quiz</p>
-					   <h4 class="my-1 text-warning">8.4K</h4>
-					   <p class="mb-0 font-13">+8.4% from last week</p>
-				   </div>
-				   <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class="fa fa-plus"></i>
-				   </div>
-			   </div>
-		   </div>
-		</div>
-	  </div> 
-      <br><br>
-	  <div class="col">
-		<div class="card radius-10 border-start border-0 border-3 border-warning">
-		   <div class="card-body">
-			   <div class="d-flex align-items-center">
-				   <div>
-					   <p class="mb-0 text-secondary">Certification</p>
-					   <h4 class="my-1 text-warning">8.4K</h4>
-					   <p class="mb-0 font-13">+8.4% from last week</p>
-				   </div>
-				   <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class="fa fa-plus"></i>
-				   </div>
-			   </div>
-		   </div>
-		</div>
-	  </div> 
-	</div>
-</div>
-</mat-card>
-<br>
+	  </mat-card>
 
-<mat-card style="background-color: chartreuse;">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <div class="mb-3">
-                    <h3 class="card-title">User Contact List <span class="text-muted fw-normal ms-2">(834)</span></h3>
-                </div>
-            </div>
-          
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="">
-                    <div class="table-responsive">
-                        <table class="table project-list-table table-nowrap align-middle table-borderless">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Position</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Projects</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="avatar-sm rounded-circle me-2" /><a href="#" class="text-body">Jitendra Verma</a></td>
-                                    <td><span class="badge badge-soft-success mb-0">Full Stack Java Developer</span></td>
-                                    <td>SimonRyles@minible.com</td>
-                                    <td>125</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</mat-card>
-<br>
+	  <mat-card style="background: rgb(177, 48, 65);">
+		<div class="container">
+				<section class="home-section">   
+					<div class="home-content">
+					  <div class="sales-boxes">
+						<div class="top-sales box">
+						  <div class="title">Recent Users</div>
+						  <ul class="top-sales-details">
+							<li>
+							<a href="#">
+							  <img src="../../../../assets/pic.jpg" alt="">
+							  <span class="product">Jitendra Verma</span>
+							</a>
+							<span class="price">7896541</span>
+						  </li>
+						  <li>
+							<a href="#">
+							   <img src="../../../../assets/pic.jpg" alt="">
+							  <span class="product">Anand Singh </span>
+							</a>
+							<span class="price">7896541</span>
+						 </li>
+						 <li>
+							<a href="#">
+							  <img src="../../../../assets/pic.jpg" alt="">
+							  <span class="product">Adarsh Lala</span>
+							</a>
+							<span class="price">7896541</span>
+						  </li>
+						  </ul>
+						</div>
+					  </div>
+					</div>
+				  </section>
 
-<mat-card>
-    
-</mat-card>
-</mat-card>
+			<section class="home-section">   
+			  <div class="home-content">
+				<div class="sales-boxes">
+				  <div class="top-sales box">
+					<div class="title">List Of Co-Ordinator</div>
+					<ul class="top-sales-details">
+					  <li>
+					  <a href="#">
+						<img src="../../../../assets/pic.jpg" alt="">
+						<span class="product">Jitendra Verma</span>
+					  </a>
+					  <span class="price">7896541</span>
+					</li>
+					<li>
+					  <a href="#">
+						 <img src="../../../../assets/pic.jpg" alt="">
+						<span class="product">Anand Singh </span>
+					  </a>
+					  <span class="price">7896541</span>
+				   </li>
+				   <li>
+					  <a href="#">
+						<img src="../../../../assets/pic.jpg" alt="">
+						<span class="product">Adarsh Lala</span>
+					  </a>
+					  <span class="price">7896541</span>
+					</li>
+					</ul>
+				  </div>
+				</div>
+			  </div>
+			</section>
+	 </div>
+	  </mat-card>
+
+	</mat-card>

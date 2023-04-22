@@ -1,77 +1,4 @@
-<!-- <div class="bootstrap-wrapper">
-
-
-
-
-<mat-grid-list cols="2" >
-
-<mat-grid-tile>
-    <img src="../../../assets/login.png">
-
-</mat-grid-tile>
-
-    <mat-grid-tile > -->
-
-                    <!-- here you we use height and padding to adjust the img -->
-
-
-
-
-                 <!-- {{userloginData | json}} -->
-                 <!-- <form action=""  (ngSubmit)="formSubmit()"> -->
-                  <!-- username feld -->
-                  <!-- <h1  >Login Here!!</h1>
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>User Name</mat-label>
-                        <input
-                        [(ngModel)]="userloginData.username"
-                        name="username"
-                        required matInput placeholder="Enter here">
-                        <mat-hint>Valid User Name</mat-hint>
-                    </mat-form-field> -->
-
-                    <!-- password field -->
-                    <!-- <mat-form-field class="full-width"  appearance="outline">
-                        <mat-label>User Password</mat-label>
-                        <input
-                        [(ngModel)]="userloginData.password"
-                        name="password"
-                         required
-                         type="password"
-                         matInput
-                         placeholder="enter password">
-                      </mat-form-field>
-                      <div>
-                        <h5>Having Trouble in sign in?</h5>
-                      </div>
-
-                    <div class="login">
-                        <button mat-raised-button color="primary" type="submit">
-                            Login
-                        </button>
-                        <button mat-raised-button color="accent" class="ml20" type="reset">
-                            Reset
-                        </button>
-                    </div>
-                   <div class="first">
-                       <h3> Don't you have account?</h3>
-                    </div>
-                       <div class="signup">  <a
-                       [routerLink]="'/signup'"
-                        mat-raised-button color="primary">
-                         Create Account
-
-                       </a>
-
-                    </div>
-                </form>
-            </mat-grid-tile>
-            </mat-grid-list>
-
-
-            </div> -->
-
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
    <mat-card>
     <section class="side">
@@ -85,35 +12,41 @@
             <div class="separator"></div>
             <p class="welcome-message">Please, provide login credential to proceed and have access to all our services</p>
 
-            <form class="login-form" (ngSubmit)="formSubmit()" action="">
+            <form class="login-form" (ngSubmit)="formSubmit()" action="" #userLogin="ngForm">
                 <div class="form-control">
                     <input type="text" [(ngModel)]="userloginData.username"
                     name="username"
-                    required placeholder="Username">
+                    required 
+                    #username = "ngModel"
+                    minlength="4" maxlength="10"
+                    placeholder="enter username"
+                    >
                     <i class="fas fa-user"></i>
                 </div>
+                <p class="p1"><span class="invalid-input" *ngIf="username.invalid && (username.touched || username.dirty || username.errors?.['minlength'])">Please Enter Valid Username</span></p>
+
                 <div class="form-control">
                     <input [(ngModel)]="userloginData.password"
                     name="password"
                      required
-                     type="password" placeholder="Password">
+                     type="password" 
+                     placeholder="enter your Password"
+                     minlength="3" maxlength="8"
+                     #password="ngModel"  >
                     <i class="fas fa-lock"></i>
                 </div>
+                <p class="p1"><span class="invalid-input" *ngIf="password.invalid && (password.touched || password.dirty || password.errors?.['minlength'])">Please Enter Valid Password</span></p>
                     <h6>Having Trouble in sign in?</h6>
                     <div class="container text-center">
-                        <button class="submit" type="submit">Login</button>
+                        <button [disabled]="userLogin.invalid" class="submit" type="submit">Login</button>
                          <button class="submit" type="reset" style="margin-left:20px">Reset</button>
+                         <button class="submit" type="forgot" style="margin-left:20px">Forgot</button>
                       </div>
                 <hr>
                 <div class="first">
                     <h3> Don't you have account?</h3>
                  </div>
-                    <div class="signup">  <a
-                    [routerLink]="'/signup'"
-                     mat-raised-button color="primary">
-                      Create Account
-                    </a>
-                 </div>
+                <button class="submit" [routerLink]="'/signup'" style="margin-left: 180px;">Create Account</button>
             </form>
         </div>
     </section>

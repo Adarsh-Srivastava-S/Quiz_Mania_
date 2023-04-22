@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
@@ -10,7 +11,16 @@ import Swal from 'sweetalert2';
 })
 export class SingupComponent implements OnInit {
 
+
+  
   constructor(private userService:UserService,private snack:MatSnackBar) { }
+
+  visible:boolean = true;
+  changetype:boolean = true;
+  viewpass(){
+    this.visible = !this.visible;
+    this.changetype = !this.changetype;
+  }
 
   public user={
     username:'',
@@ -38,8 +48,6 @@ export class SingupComponent implements OnInit {
       return;
      }
 
-     //validate
-     
     // addUser:userservice
     
     this.userService.addUser(this.user).subscribe(

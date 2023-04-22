@@ -1,14 +1,4 @@
-/* .full-width
-{
-    width: 100%;
-} */
-/* it is optional  */
-/* *{
-    font-weight: 10px;
-}
-h1{
-    text-align: center;
-} */
+
 * {
     margin: 0;
     padding: 0;
@@ -17,6 +7,23 @@ h1{
     color: #303433;
 }
 
+.invalid-input{
+    color: red;  
+}
+.submit:disabled{
+    color:deeppink;
+    cursor: not-allowed;
+    padding: 10px ;
+    margin: 5px auto;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #a1e8d1, #7383b7);
+    transition: opacity 0.4s;
+}
+.p1{
+    margin: 0px;
+}
 mat-card{
     min-height: 95vh;
     width: 100%;
@@ -85,7 +92,7 @@ section.side {
 .form-control {
     width: 100%;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 input,
@@ -109,8 +116,9 @@ input ~ i {
     left: 32px;
     top: 50%;
     transform: translateY(-50%);
-    color: #888;
+    color: #f33cb0;
     transition: color   0.4s;
+    font-size: 20px;
 }
 
 input:focus ~ i {
