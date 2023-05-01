@@ -1,36 +1,23 @@
-<div>
-    <h2>Messages:</h2>
-
-    <mat-accordion>
-    <mat-expansion-panel *ngFor="let result of contactus "  >
-      <mat-expansion-panel-header>
-        
-          <mat-panel-title>
-           <div class="name"> {{result.name}}
-            
-           </div>
-           <div class="email">
-
-           <{{result.email}}>
-          </div>
-          </mat-panel-title>
-          <mat-panel-description>
-            {{result.subject}}
-          </mat-panel-description>
-      </mat-expansion-panel-header>
-        
-        <p>{{result.content}}</p>
-      
-
-     
-       
-      
- 
-      </mat-expansion-panel>
-    
-    </mat-accordion>
-<mat-paginator [length]="50"
-[pageSize]="5"
-[pageSizeOptions]="[5, 10]" (page)="nextPage($event)">
-</mat-paginator> 
-</div>
+<mat-card>
+  <div>
+      <h2>Messages:</h2>
+      <mat-accordion>
+      <mat-expansion-panel *ngFor="let result of contactus "  >
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+             <div class="name"> {{result.name}} </div>
+             <div class="email"><{{result.email}}></div>
+            </mat-panel-title>
+            <mat-panel-description>
+              {{result.subject}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+          <p>{{result.content}}</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+  <mat-paginator [length]="50"
+  [pageSize]="5"
+  [pageSizeOptions]="[6, 10]" (page)="nextPage($event)">
+  </mat-paginator> 
+  </div>
+</mat-card>

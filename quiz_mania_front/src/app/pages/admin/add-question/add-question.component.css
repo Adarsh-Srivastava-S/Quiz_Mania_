@@ -4,3 +4,7 @@
 :host ::ng-deep .ck-editor__editable_inline {
     min-height: 250px;
 }
+mat-card{
+    background: azure;
+    border: 10px;
+}

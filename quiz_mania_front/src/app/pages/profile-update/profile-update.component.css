@@ -5,6 +5,30 @@
     font-family: 'Montserrat', sans-serif;
     color: #303433;
 }
+.invalid-input{
+    /* background-color: red; */
+    color: red;
+}
+.alert{
+    color:red;
+}
+.p1{
+    margin: 0px;
+}
+.i1{
+    font-size: 20px;
+}
+.submit:disabled{
+    color:deeppink;
+    cursor: not-allowed;
+    padding: 10px ;
+    margin: 5px auto;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #a1e8d1, #7383b7);
+    transition: opacity 0.4s;
+}
 .profile-pic-label {
     font-weight: bold;
     font-size: 1.2em;
@@ -17,7 +41,7 @@ mat-card{
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-   background-color:#e3f2fd;
+   /* background-color:#e3f2fd; */
    padding: 0px;
    
 }
@@ -85,8 +109,8 @@ section.side {
 .form-control {
     width: 100%;
     position: relative;
-    margin-bottom: 20px;
-    background-color: lightblue;
+    margin-bottom: 5px;
+    /* background-color: lightblue; */
 }
 
 input,
@@ -110,7 +134,7 @@ input ~ i {
     left: 32px;
     top: 50%;
     transform: translateY(-50%);
-    color: #888;
+    color:deeppink;
     transition: color   0.4s;
 }
 

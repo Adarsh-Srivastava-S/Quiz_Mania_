@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ForgetPasswordComponent } from '../forget/forget-password/forget-password.component';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,6 +20,12 @@ export class LoginComponent implements OnInit {
   constructor( public dialog:MatDialog,private snack:MatSnackBar, public login:LoginService, private router:Router)
 
    {}
+   visible:boolean = true;
+   changetype:boolean = true;
+   viewpass(){
+     this.visible = !this.visible;
+     this.changetype = !this.changetype;
+   }
 
   ngOnInit(): void {
   }
@@ -79,8 +86,14 @@ export class LoginComponent implements OnInit {
       (error)=>{
         console.log('Error !');
         console.log(error);
-        this.snack.open("Invalid Details !! Try again",'',{
-          duration:3000,
+        // this.snack.open("Invalid Details !! Try again",'',{
+        //   duration:3000,
+        // })
+        Swal.fire({
+          title: 'Invalid Details !! Try Again?',
+          showCancelButton: true,
+          confirmButtonText: 'Ok',
+          icon:'info',
         })
       }
       );

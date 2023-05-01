@@ -3,5 +3,10 @@
     text-align: justify;
 }
 h1{
-    font-weight: bolder;
+    font-weight: bold;
+    color: black;
+}
+mat-card{
+    background: azure;
+    border: 10px;
 }

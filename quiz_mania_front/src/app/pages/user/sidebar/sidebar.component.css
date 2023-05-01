@@ -1,0 +1,11 @@
+mat-card{
+    background: azure;
+    border: 10px;
+}
+mat-icon{
+    font-weight: bold;
+}
+mat-action-list{
+    font-size: 25px;
+    font-weight: 400;
+}

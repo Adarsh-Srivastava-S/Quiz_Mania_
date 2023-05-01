@@ -16,6 +16,14 @@ export class ProfileUpdateComponent implements OnInit {
     private snack:MatSnackBar,
     private _route:ActivatedRoute,
     private _router:Router) { }
+    
+    visible:boolean = true;
+    changetype:boolean = true;
+    viewpass(){
+      this.visible = !this.visible;
+      this.changetype = !this.changetype;
+    }
+
   uploadedImage: File | any;  
 
   dbImage: any; 

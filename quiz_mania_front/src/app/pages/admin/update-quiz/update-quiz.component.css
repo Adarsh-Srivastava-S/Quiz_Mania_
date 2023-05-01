@@ -2,3 +2,7 @@
 
     width: 100%;
 }
+mat-card{
+    background: azure;
+    border: 10px;
+}

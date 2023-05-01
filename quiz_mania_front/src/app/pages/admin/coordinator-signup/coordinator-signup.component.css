@@ -38,8 +38,9 @@ mat-card{
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-   background-color:#e3f2fd;
+   /* background-color:#e3f2fd; */
    padding: 0px;
+   border: 20px;
 }
 .signup{
     text-align: right
@@ -106,7 +107,7 @@ section.side {
     width: 100%;
     position: relative;
     margin-bottom: 5px;
-    background-color: lightblue;
+    /* background-color: lightblue; */
 }
 
 input,
@@ -130,7 +131,7 @@ input ~ i {
     left: 32px;
     top: 50%;
     transform: translateY(-50%);
-    color: #888;
+    color: #f33cb0;
     transition: color   0.4s;
     font-size: 20px;
 }

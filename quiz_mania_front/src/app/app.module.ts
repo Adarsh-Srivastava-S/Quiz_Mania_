@@ -64,6 +64,7 @@ import { CoordinatorDashboardComponent } from './pages/coordinator/coordinator-d
 import { ForgetPasswordComponent } from './pages/forget/forget-password/forget-password.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AboutmeComponent } from './pages/aboutme/aboutme.component';
 
 @NgModule({
   declarations: [
@@ -102,6 +103,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CoordinatorSignupComponent,
     CoordinatorDashboardComponent,
     ForgetPasswordComponent,
+    AboutmeComponent,
   
 
 

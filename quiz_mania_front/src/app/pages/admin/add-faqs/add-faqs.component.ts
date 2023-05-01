@@ -33,7 +33,7 @@ export class AddFaqsComponent implements OnInit {
     }
     this._faq.addFaq(this.faq).subscribe(
       (data)=>{
-      Swal.fire('Success','Question Added. Add Another one','success');
+      Swal.fire('Success','FAQ Added. Add Another one','success');
       this.faq=
       {
         content:'',
@@ -41,7 +41,7 @@ export class AddFaqsComponent implements OnInit {
       };
     },
     (error)=>{
-      Swal.fire('Error','Error in adding question','error');
+      Swal.fire('Error','Error in adding FAQ','error');
     }
     );
   }

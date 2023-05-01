@@ -1,102 +1,97 @@
-<h1 > Leaderboard Quiz Mania</h1>
 
-<!-- <div class="text-center"> -->
-  <!-- <h3 > Choose categories option </h3> -->
-<!-- <button mat-raised-button color="primary"mat-button [matMenuTriggerFor]="menu">Categories</button>
-<mat-menu #menu="matMenu" xPosition="before">
-	<button mat-menu-item [matMenuTriggerFor]="quiz"(click)="Quiz(categorie.cid)" *ngFor="let categorie of category" [value]="categorie" >
-    {{categorie.title}}</button>
-
-</mat-menu>
-<mat-menu #quiz="matMenu" >
-	<button (click)="Leaderboard(quiz.qId)" *ngFor="let quiz of quizzes" [value]="quiz">
-    {{quiz.title}}</button>
-</mat-menu>
-</div> -->
-
-<div >
-  <mat-form-field appearance="fill">
-    <mat-label>Categories</mat-label>
-    <mat-select  required>
-      <mat-option >--</mat-option>
-
-      <mat-option  (click)="Quiz(categorie.cid)" *ngFor="let categorie of category" [value]="categorie" >
-        {{categorie.title}}
-      </mat-option>
-    </mat-select>
-    <!-- <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error> -->
-    <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Quiz</mat-label>
-    <mat-select  required>
-      <mat-option >--</mat-option>
-      <mat-option (click)="Leaderboard(quiz.qId)" *ngFor="let quiz of quizzes" [value]="quiz">
-        {{quiz.title}}
-      </mat-option>
-
-    </mat-select>
-
-    <!-- <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error> -->
-    <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
-  </mat-form-field>
+<mat-card>
+  <h1 > Leaderboard Of Quiz Mania</h1>
+  
+  <h3 > Choose categories option </h3>
+  <div class="text-center">
+  <button mat-raised-button color="primary"mat-button [matMenuTriggerFor]="menu">Categories</button>
+  <mat-menu #menu="matMenu" xPosition="before">
+    <button mat-menu-item [matMenuTriggerFor]="quiz"(click)="Quiz(categorie.cid)" *ngFor="let categorie of category" [value]="categorie" >
+      {{categorie.title}}</button>
+  
+  </mat-menu>
+  <mat-menu #quiz="matMenu" >
+    <button (click)="Leaderboard(quiz.qId)" *ngFor="let quiz of quizzes" [value]="quiz">
+      {{quiz.title}}</button>
+  </mat-menu>
   </div>
-
-
-  <!-- <div>
-    <table>
-              <tr>
-                <td>
-                  Rank
-                </td>
-              </tr>
-            </table>
-            </div> -->
-            <mat-table class="mat-elevation-z8" [dataSource]="leader">
-              <!-- Position Column -->
-              <!-- <ng-container matColumnDef="position">
-                <mat-header-cell *matHeaderCellDef class="same"> Position </mat-header-cell>
-                <mat-cell *matCellDef="let i = index , let leaders" class="same1"> {{ viewImage(leaders[i+1].user.id) }}</mat-cell>
-              </ng-container> -->
-              <ng-container matColumnDef="position" >
-                <mat-header-cell *matHeaderCellDef class="same">Position</mat-header-cell>
-                <mat-cell *matCellDef="let i = index; let leaders" class="same1">
-                 {{i+1}}
-                </mat-cell>
-              </ng-container>
-
-              <ng-container matColumnDef="image">
-                <mat-header-cell *matHeaderCellDef class="same">Image</mat-header-cell>
-                <mat-cell *matCellDef="let i = index; let leaders" class="same1">
-                  <img class="leader" *ngIf="leaders?.user?.image?.image" [src]="'data:image/jpeg;base64,' + leaders.user.image.image" [alt]="leaders.user.image.name + 's profile picture'">
-                </mat-cell>
-              </ng-container>
-
-
-              <!-- Name Column -->
-              <ng-container matColumnDef="name">
-                <mat-header-cell *matHeaderCellDef class="same"> Name </mat-header-cell>
-                <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.user.username }} </mat-cell>
-              </ng-container>
-
-              <!-- Score Column -->
-              <ng-container matColumnDef="score">
-                <mat-header-cell *matHeaderCellDef class="same"> Score </mat-header-cell>
-                <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.score }} </mat-cell>
-              </ng-container>
-
-              <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
-              <mat-row *matRowDef="let row; columns: displayedColumns;" ></mat-row>
-            </mat-table>
-
-
+  
+  <br>
+  <mat-card style="background-color: rgb(240, 237, 233);">
+  <div>
+    <mat-form-field appearance="outline" >
+      <mat-label >Categories</mat-label>
+      <mat-select  required>
+        <mat-option class="option1">Please select your categories..</mat-option>
+  
+        <mat-option class="option2" (click)="Quiz(categorie.cid)" *ngFor="let categorie of category" [value]="categorie" >
+          {{categorie.title}}
+        </mat-option>
+      </mat-select>
+      <!-- <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error> -->
+      <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field appearance="outline">
+      <mat-label >Quiz</mat-label>
+      <mat-select  required>
+        <mat-option class="option1">Please select your quiz..</mat-option>
+        <mat-option class="option2" (click)="Leaderboard(quiz.qId)" *ngFor="let quiz of quizzes" [value]="quiz">
+          {{quiz.title}}
+        </mat-option>
+  
+      </mat-select>
+  
+      <!-- <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error> -->
+      <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
+    </mat-form-field>
+    </div>
+    
+    <mat-card>
+              <mat-table class="mat-elevation-z8" [dataSource]="leader">
+                <!-- Position Column -->
+                <!-- <ng-container matColumnDef="position">
+                  <mat-header-cell *matHeaderCellDef class="same"> Position </mat-header-cell>
+                  <mat-cell *matCellDef="let i = index , let leaders" class="same1"> {{ viewImage(leaders[i+1].user.id) }}</mat-cell>
+                </ng-container> -->
+               
+                <ng-container matColumnDef="position" >
+                  <mat-header-cell *matHeaderCellDef class="same">Position</mat-header-cell>
+                  <mat-cell *matCellDef="let i = index; let leaders" class="same1">
+                   {{i+1}}
+                  </mat-cell>
+                </ng-container>
+  
+                <!-- image column -->
+                <ng-container matColumnDef="image">
+                  <mat-header-cell *matHeaderCellDef class="same">Image</mat-header-cell>
+                  <mat-cell *matCellDef="let i = index; let leaders" class="same1">
+                    <img class="avatar-sm rounded-circle me-2" *ngIf="leaders?.image?.image" [src]="'data:image/jpeg;base64,' + leaders.image.image" [alt]="leaders.image.name + 's profile picture'">
+                  </mat-cell>
+                </ng-container>
+                
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef class="same"> Name </mat-header-cell>
+                  <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.user.username }} </mat-cell>
+                </ng-container>
+              
+                <!-- Score Column -->
+                <ng-container matColumnDef="score">
+                  <mat-header-cell *matHeaderCellDef class="same"> Score </mat-header-cell>
+                  <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.score }} </mat-cell>
+                </ng-container>
+  
+                <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;" ></mat-row>
+              </mat-table>
+              </mat-card>
+              </mat-card>
+              
+      <!-- <div class="container text-center">
+      <button  class="mt10" mat-raised-button color="primary"  > Load more </button>
+    </div> -->
     <!-- <div class="container text-center">
     <button  class="mt10" mat-raised-button color="primary"  > Load more </button>
   </div> -->
-
-
-
-  <!-- <div class="container text-center">
-  <button  class="mt10" mat-raised-button color="primary"  > Load more </button>
-</div> -->
+  </mat-card>

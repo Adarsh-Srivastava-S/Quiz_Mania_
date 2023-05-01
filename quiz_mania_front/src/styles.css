@@ -3,14 +3,14 @@
 html, body 
 { 
     height: 100%; 
-    background: #f9f7dc;
+    /* background-color:rgb(210, 171, 171); */
+    background: azure;
 }
-
+mat-card{
+    background: azure;
+}
 body 
-{ 
-    
-      
-      
+{   
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif; 
 }

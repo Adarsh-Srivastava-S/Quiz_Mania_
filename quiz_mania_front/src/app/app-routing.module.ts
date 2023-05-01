@@ -30,6 +30,7 @@ import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component'
 import { CoordinatorSignupComponent } from './pages/admin/coordinator-signup/coordinator-signup.component';
 import { CoordinatorGuard } from './services/coordinator.guard';
 import { CoordinatorDashboardComponent } from './pages/coordinator/coordinator-dashboard/coordinator-dashboard.component';
+import { AboutmeComponent } from './pages/aboutme/aboutme.component';
 
 const routes: Routes = [
 
@@ -42,6 +43,11 @@ const routes: Routes = [
   {
     path: 'leaderboard',
     component: LeaderboardComponent,
+    pathMatch:'full',
+ },
+  {
+    path: 'about',
+    component: AboutmeComponent,
     pathMatch:'full',
  },
 

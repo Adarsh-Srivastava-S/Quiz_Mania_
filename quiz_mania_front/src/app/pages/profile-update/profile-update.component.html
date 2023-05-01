@@ -1,8 +1,9 @@
-
-            
-
-                 
-            <mat-card>
+          
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <mat-card>
               <section class="side">
                 <img src="../../../assets/log2.png" alt="">
               </section>
@@ -13,75 +14,178 @@
                     <div class="separator"></div>
                     <p class="welcome-message">Please, provide login credential to proceed and have access to all our services</p>
               
-                    <form  *ngIf="user" (ngSubmit)="formSubmit()" enctype="multipart/form-data" class="login-form" >
+                    <form  *ngIf="user" (ngSubmit)="formSubmit()" enctype="multipart/form-data" class="login-form"  >
                         <div class="form-control">
                             <input type="text" required
                             [(ngModel)] = "user.username"
                             name = "username" placeholder="Username">
                             <i class="fas fa-user-circle"></i>
                         </div>
+                        <!-- <p class="p1 invalid-input">
+                          <span  *ngIf="username.invalid && (username.dirty || username.touched)"
+                          class="alert ">
+                        <span *ngIf="username.errors?.['required']" class="alert">
+                          Name is required.
+                        </span>
+                        <span *ngIf="username.errors?.['minlength']" class="alert">
+                          Name must be at least 4 characters.
+                        </span>
+                       </span>
+                        </p> -->
+
                         <div class="form-control">
                             <input  [(ngModel)] = "user.password"
                             name = "password"
-                             type="password" placeholder="Password">
-                            <i class="fas fa-lock"></i>
+                            [type]="changetype?'password':'text'"
+                             placeholder="enter password"
+                            placeholder="Password"
+                            >
+                           <i (click)="viewpass()" [ngClass]="visible?'fas fa-lock':'fas fa-eye-slash'"></i>
                         </div>
+                        <!-- <p class="p1 invalid-input"  >
+                          <span  *ngIf="password.invalid && (password.dirty || password.touched)"
+                          class="alert">
+                        <span *ngIf="password.errors?.['required']" class="alert">
+                          Password is required.
+                        </span>
+                        <span *ngIf="password.errors?.['pattern']" class="alert">
+                          Password must contain at least one uppercase,lowercase,number,special character.
+                        </span>
+                        <span *ngIf="password.errors?.['minlength']" class="alert">
+                          Password can not be longer than 8 characters.
+                        </span>
+                        <span *ngIf="password.errors?.['maxlength']" class="alert">
+                          Password can not be longer than 20 characters.
+                        </span>
+                       </span>
+                        </p> -->
+
                         <div class="form-control">
-                            <input  required
-                            [(ngModel)] = "user.firstName"
-                            name = "firstName" type="text" placeholder="FirstName">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="form-control">
-                            <input  required
-                            [(ngModel)] = "user.lastName"
-                            name = "lastName" type="text" placeholder="LastName">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="form-control">
-                            <input  required
-                            [(ngModel)] = "user.email"
-                            name = "email"
-                            type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  placeholder="Email..">
-                            <i class="fa fa-envelope" ></i>
-                        </div>
+                <input  required
+                [(ngModel)] = "user.firstName"
+                name = "firstName" type="text" placeholder="enter firstName"><i class="fas fa-user"></i>
+            </div>
+            <!-- <p class="p1 invalid-input"  >
+                <span  *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+                class="alert">
+              <span *ngIf="firstName.errors?.['required']" class="alert">
+                FirstName is required.
+              </span>
+              <span *ngIf="firstName.errors?.['minlength']" class="alert">
+                Name must be at least 10 characters.
+              </span>
+             </span>
+              </p> -->
+              <div class="form-control">
+                <input  required
+                [(ngModel)] = "user.lastName"
+                name = "lastName" type="text" placeholder="enter lastName" >
+                <i class="fas fa-user"></i>
+            </div>
+            <!-- <p class="p1 invalid-input"  >
+                <span  *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+                class="alert">
+              <span *ngIf="lastName.errors?.['required']" class="alert">
+                LastName is required.
+              </span>
+              <span *ngIf="lastName.errors?.['minlength']" class="alert">
+                Name must be at least 6 characters.
+              </span>
+             </span>
+              </p> -->
+              <div class="form-control">
+                <input  required
+                [(ngModel)] = "user.email"
+                name = "email"
+               
+                type="email" placeholder="enter email.." >
+                <i class="fa fa-envelope" ></i>
+            </div>
+            <!-- <p class="p1 invalid-input"  >
+                <span  *ngIf="email.invalid && (email.dirty || email.touched)"
+                class="alert">
+              <span *ngIf="email.errors?.['required']" class="alert" >
+                Email is required.
+              </span>
+              <span *ngIf="email.errors?.['minlength']" class="alert">
+                Email like abcd@gmail.com
+              </span>
+             </span>
+              </p> -->
                         <div class="form-control">
                           <input  required
-                          [(ngModel)] = "user.discription"
-                          name = "description" type="text" placeholder="Write Description">
-                          <i class="fas fa-user"></i>
+                          [(ngModel)] = "user.discription" 
+                          name = "description" type="text" placeholder="Write Description"
+                          
+                          >
+                          <i class="fa fa-address-card"></i>
                       </div>
+                      <!-- <p class="p1 invalid-input"  >
+                        <span  *ngIf="description.invalid && (description.dirty || description.touched)"
+                        class="alert">
+                      <span *ngIf="description.errors?.['required']" class="alert" >
+                        Description is required.
+                      </span>
+                      <span *ngIf="description.errors?.['minlength']" class="alert">
+                        Description must at least 15 characters long.
+                      </span>
+                     </span>
+                      </p> -->
                        
                       <div class="form-control">
                         <input  required
                         [(ngModel)] = "user.discription"
-                        name = "Github" type="text" placeholder="GithubLink">
-                        <i class="fas fa-github"></i>
+                        name = "Github"  type="text" placeholder="GithubLink">
+                        <i class="fa fa-github i1"></i>
                     </div>
+                    <!-- <p class="p1 invalid-input"  >
+                      <span  *ngIf="Github.invalid && (Github.dirty || Github.touched)"
+                      class="alert">
+                    <span *ngIf="Github.errors?.['required']" class="alert" >
+                      GitHub link is required.
+                   </span></span>
+                    </p> -->
+
                     <div class="form-control">
                       <input  required
                       [(ngModel)] = "user.discription"
                       name = "Instagram" type="text" placeholder="Instagram Link">
-                      <i class="fas fa-instagram"></i>
+                      <i class="fa fa-linkedin i1"></i>
                   </div>
-                      
-  
-                     
+                      <!-- <p class="p1 invalid-input"  >
+                      <span  *ngIf="Instagram.invalid && (Instagram.dirty || Instagram.touched)"
+                      class="alert">
+                    <span *ngIf="Instagram.errors?.['required']" class="alert" >
+                      Linkdin link is required.
+                   </span></span>
+                    </p> -->
 
-                        <div class="form-control">
-                            <input  required
-                            [(ngModel)] = "user.phone"
-                            name = "phone"
-                            type="number" placeholder="Phone">
-                            <i class="fas fa-phone"></i>
-                        </div>
+                  <div class="form-control">
+                    <input  required
+                    [(ngModel)] = "user.phone"
+                    name = "phone"
+                
+                    type="number" placeholder="enter phoneNumber">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <!-- <p class="p1 invalid-input"  >
+                    <span  *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+                    class="alert">
+                  <span *ngIf="phone.errors?.['required']" class="alert">
+                    PhoneNumber is required.
+                  </span>
+                  <span *ngIf="phone.errors?.['minlength']" class="alert">
+                    Number must be at least 10 characters long.
+                  </span>
+                 </span>
+                  </p> -->
                         <label for="img" class="profile-pic-label">Choose a profile picture:</label>
                         <div class="form-control">
                           <input type="file" id="img" name="img"  (change)="onImageUpload($event) " profile pic> 
                         </div>
                         <div class="container text-center">
-                          <button class="submit" type="submit">Register</button>
-                           <button class="submit" style="margin-left:20px">Clear</button>
+                          <button class="submit" type="submit">Save</button>
+                           <button class="submit" type="reset" style="margin-left:20px">Clear</button>
                         </div>
                     </form>
                 </div>

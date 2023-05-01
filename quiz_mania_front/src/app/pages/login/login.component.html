@@ -16,9 +16,9 @@
             <div class="form-control">
                 <input type="text" [(ngModel)]="userloginData.username"
                 name="username"
-                required
+                required 
                 #username = "ngModel"
-                minlength="4" maxlength="10"
+                minlength="4" maxlength="20"
                 placeholder="enter username"
                 >
                 <i class="fas fa-user"></i>
@@ -29,19 +29,19 @@
                 <input [(ngModel)]="userloginData.password"
                 name="password"
                  required
-                 type="password"
+                 [type]="changetype?'password':'text'"
+                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$"
                  placeholder="enter your Password"
-                 minlength="3" maxlength="8"
+                 minlength="8" maxlength="20"
                  #password="ngModel"  >
-                <i class="fas fa-lock"></i>
+                 <i (click)="viewpass()" [ngClass]="visible?'fas fa-lock':'fas fa-eye-slash'"></i>
             </div>
-            <p class="p1"><span class="invalid-input" *ngIf="password.invalid && (password.touched || password.dirty || password.errors?.['minlength'])">Please Enter Valid Password</span></p>
-                <h6 >Having Trouble in sign in? <a (click)="handleForgetAction()" > <u> forget</u> </a></h6>
-                <!-- <button class="forget" type="forgot" >Forgot</button> -->
+            <p class="p1"><span class="invalid-input" *ngIf="password.invalid && (password.touched || password.dirty || password.errors?.['minlength'] || password.errors?.['pattern'])">Please Enter Valid Password</span></p>
+                <h6>Having Trouble in sign in?<a  (click)="handleForgetAction()" type="forgot"><u> Forget</u></a> </h6> <br>
                 <div class="container text-center">
                     <button [disabled]="userLogin.invalid" class="submit" type="submit">Login</button>
                      <button class="submit" type="reset" style="margin-left:20px">Reset</button>
-
+                     <!-- <button class="submit" type="forgot" style="margin-left:20px">Forgot</button> -->
                   </div>
             <hr>
             <div class="first">

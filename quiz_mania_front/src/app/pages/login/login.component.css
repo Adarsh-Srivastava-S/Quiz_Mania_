@@ -8,37 +8,38 @@ h1{
     text-align: center;
     background-color: antiquewhite;
     margin-left: 20px;
-
+    
 }
-.signup{
+*/
+/* .signup{
     text-align: center;
     margin-left: 219px;
     width: 150px;
     margin-top: -50px;
-}
-.first{
+} */
+/* .first{
     text-align: center;
     width: 181px;
-
+    
     margin-top: 2pc;
-
-} */
+   
+}  */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     color: #303433;
-
 }
-a{
-    color:blue;
-    font-size: 12px;
 
-
+u{
+    color: blue;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
 }
 .invalid-input{
-    color: red;
+    color: red;  
 }
 .submit:disabled{
     color:deeppink;
@@ -54,30 +55,15 @@ a{
 .p1{
     margin: 0px;
 }
-
 mat-card{
-    min-height: 93vh;
+    min-height: 95vh;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding:0px;
-    background-color:#e3f2fd;
 }
 .signup{
-    text-align: center;
-    margin-left: 215px;
-    width: 208px;
-    margin-top: -49px;
-    height: 34px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: bold;
-    background-image: linear-gradient(to right, #8b33c5, #15a0e1);
-    cursor: pointer;
-    transition: opacity 0.4s;
+    text-align: right
 }
-
 section {
     display: flex;
     justify-content: center;
@@ -91,7 +77,6 @@ section.side {
 
 .img1{
     width: 100px;
-    margin-bottom:10px;
 }
 .side img {
     width: 50%;
@@ -139,7 +124,6 @@ section.side {
     width: 100%;
     position: relative;
     margin-bottom: 5px;
-    background-color: lightblue;
 }
 
 input,
@@ -163,8 +147,9 @@ input ~ i {
     left: 32px;
     top: 50%;
     transform: translateY(-50%);
-    color: #888;
+    color: #f33cb0;
     transition: color   0.4s;
+    font-size: 20px;
 }
 
 input:focus ~ i {
@@ -188,37 +173,17 @@ button.submit {
 button.submit:hover {
     opacity: 0.9;
 }
-forget{
-    margin: 10px;
-}
-.first{
-    text-align: center;
-    width: 181px;
-
-    margin-top: 2pc;
-}
 
 /* ----  Responsiveness   ----  */
+@media (max-width: 780px) {
 
-
-    @media (max-width: 920px) {
-
-        .mat-card{
-            grid-template-columns: 1fr;
-        }
-
-        .signup {
-            margin-left: 0;
-            margin-top: 20px;
-        }
-
-        .login-container {
-            max-width: 100%;
-        }
-
-        .side {
-            display: none;
-        }
-
+    mat-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
+    .side {
+        display: none;
+    }
+}

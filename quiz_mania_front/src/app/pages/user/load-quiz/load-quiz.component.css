@@ -9,3 +9,8 @@
     background-image: url('/assets/quiz.png');
     background-size: cover;
 }
+
+mat-card{
+    background: azure;
+    border: 20px;
+}

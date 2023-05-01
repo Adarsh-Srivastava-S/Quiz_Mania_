@@ -15,6 +15,7 @@ margin-right: 40px;
   font-weight: 600;
   font-size: 28px;
   color: red;
+  cursor: pointer;
 }
 
 .profile-image{
@@ -67,10 +68,11 @@ nav ul li{
 margin: 0 5px;
 }
 nav ul li a{
-color: #5e5e5e;
+/* color: #5e5e5e; */
+color: black;
 text-decoration: none;
 font-size: 16px;
-font-weight: 300;
+font-weight: 500;
 padding: 8px 15px;
 border-radius: 5px;
 letter-spacing: 1px;
@@ -78,7 +80,7 @@ transition: all 0.3s ease;
 }
 nav ul li a.active,
 nav ul li a:hover{
-color:#0ad0f4;
+color:blue;
 
 }
 nav .menu-btn i{

@@ -89,6 +89,10 @@
     font-weight: 500;
   }
   
+  mat-card{
+    background: azure;
+    border: 10px;
+  }
   .same1{
     background-color: beige;
   }

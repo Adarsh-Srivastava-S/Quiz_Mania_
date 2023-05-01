@@ -15,46 +15,46 @@
        </mat-card>
         </div>
 
-        <div class="col-md-8">
-        <!-- questions -->
-        <ng-container *ngIf="questions">
-            <h1 class="mt20">On Going Quiz <b>{{questions[0].quiz.title}} </b></h1>
-        </ng-container>
-
-        <mat-card *ngFor="let q of questions; let i=index" class="mt10">
-            <mat-card-content>
-              <p> <b>Q {{i + 1}})</b>
-                <span class="ml10" [innerHTML]="q.content "></span></p>
-
-                <mat-divider></mat-divider>
-                 <br>
-                <div class="row mt20">
-                    <div class="col-md-6">
-                        <input type="radio" [value]="q.option1"
-                         [name]="q" [(ngModel)]="q.givenAnswer" />
-                        {{q.option1}}
+            <div class="col-md-8">
+            <!-- questions -->
+            <ng-container *ngIf="questions">
+                <h1 class="mt20">On Going Quiz <b>{{questions[0].quiz.title}} </b></h1>
+            </ng-container>
+    
+            <mat-card *ngFor="let q of questions; let i=index" class="mt10">
+                <mat-card-content>
+                  <p> <b>Q {{i + 1}})</b>
+                    <span class="ml10" [innerHTML]="q.content "></span></p>
+    
+                    <mat-divider></mat-divider>
+                     <br>
+                    <div class="row mt20">
+                        <div class="col-md-6">
+                            <input type="radio" [value]="q.option1"
+                             [name]="q" [(ngModel)]="q.givenAnswer" />
+                            {{q.option1}}
+                        </div>
+                        <div class="col-md-6">
+                            <input type="radio" [value]="q.option2" [name]="q"  [(ngModel)]="q.givenAnswer">
+                            {{q.option2}}
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <input type="radio" [value]="q.option2" [name]="q"  [(ngModel)]="q.givenAnswer">
-                        {{q.option2}}
+                    <div class="row mt20">
+                        <div class="col-md-6">
+                            <input type="radio" [value]="q.option3" [name]="q"  [(ngModel)]="q.givenAnswer">
+                            {{q.option3}}
+                        </div>
+                        <div class="col-md-6">
+                            <input type="radio" [value]="q.option4" [name]="q"  [(ngModel)]="q.givenAnswer">
+                            {{q.option4}}
+                        </div>
                     </div>
-                </div>
-                <div class="row mt20">
-                    <div class="col-md-6">
-                        <input type="radio" [value]="q.option3" [name]="q"  [(ngModel)]="q.givenAnswer">
-                        {{q.option3}}
-                    </div>
-                    <div class="col-md-6">
-                        <input type="radio" [value]="q.option4" [name]="q"  [(ngModel)]="q.givenAnswer">
-                        {{q.option4}}
-                    </div>
-                </div>
-            </mat-card-content>
-        </mat-card>
-        <div class="container text-center mt20 mb20">
-            <button (click)="submitQuiz(); exitFullscreen()" mat-raised-button color="primary">Submit Quiz</button>
-        </div>
-        </div>
+                </mat-card-content>
+            </mat-card>
+            <div class="container text-center mt20 mb20">
+                <button (click)="submitQuiz(); exitFullscreen()" mat-raised-button color="primary">Submit Quiz</button>
+            </div>
+            </div>
         <div class="col-md-2">
             <!-- progress -->
 
@@ -93,12 +93,12 @@
                 </mat-card-title>
             </mat-card-header>
             <mat-card-content class="text-center">
-                <img src="../../../../assets/Quiz Maniaa.png" alt="Logo" class=" logo-image">
-                <h1><b>Name: </b> <b style="color: deeppink;">{{ user1.firstName }} {{user1.lastName }}</b></h1>
-                <h1><b>Quiz on: </b> <b style="color: deeppink;">{{questions[0].quiz.title}}</b></h1>
-                <h1><b>Marks Obtained: </b> <b style="color: deeppink;">{{marksGot}}/{{maximumMarks}}</b></h1>
-                <h1><b>Correct Answers: </b> <b style="color: deeppink;">{{correctAnswers}}</b></h1>
-                <h1><b>Questions Attempted: </b><b style="color: deeppink;">{{attempted}}</b></h1>
+                <img src="../../../../assets/cong.jpg" alt="Logo" class=" logo-image">
+                <h2><b>Name: </b> <b style="color: deeppink;">{{ user1.firstName }} {{user1.lastName }}</b></h2>
+                <h2><b>Quiz on: </b> <b style="color: deeppink;">{{questions[0].quiz.title}}</b></h2>
+                <h2><b>Marks Obtained: </b> <b style="color: deeppink;">{{marksGot}}/{{maximumMarks}}</b></h2>
+                <h2><b>Correct Answers: </b> <b style="color: deeppink;">{{correctAnswers}}</b></h2>
+                <h2><b>Questions Attempted: </b><b style="color: deeppink;">{{attempted}}</b></h2>
             </mat-card-content>
 
             <mat-card-actions class="text-center">
