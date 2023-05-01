@@ -1,4 +1,4 @@
-          
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -13,7 +13,7 @@
                     <p class="title">Welcome</p>
                     <div class="separator"></div>
                     <p class="welcome-message">Please, provide login credential to proceed and have access to all our services</p>
-              
+
                     <form  *ngIf="user" (ngSubmit)="formSubmit()" enctype="multipart/form-data" class="login-form"  >
                         <div class="form-control">
                             <input type="text" required
@@ -97,7 +97,7 @@
                 <input  required
                 [(ngModel)] = "user.email"
                 name = "email"
-               
+
                 type="email" placeholder="enter email.." >
                 <i class="fa fa-envelope" ></i>
             </div>
@@ -114,9 +114,9 @@
               </p> -->
                         <div class="form-control">
                           <input  required
-                          [(ngModel)] = "user.discription" 
+                          [(ngModel)] = "user.discription"
                           name = "description" type="text" placeholder="Write Description"
-                          
+
                           >
                           <i class="fa fa-address-card"></i>
                       </div>
@@ -131,7 +131,7 @@
                       </span>
                      </span>
                       </p> -->
-                       
+
                       <div class="form-control">
                         <input  required
                         [(ngModel)] = "user.discription"
@@ -164,7 +164,7 @@
                     <input  required
                     [(ngModel)] = "user.phone"
                     name = "phone"
-                
+
                     type="number" placeholder="enter phoneNumber">
                     <i class="fas fa-phone"></i>
                 </div>
@@ -181,7 +181,7 @@
                   </p> -->
                         <label for="img" class="profile-pic-label">Choose a profile picture:</label>
                         <div class="form-control">
-                          <input type="file" id="img" name="img"  (change)="onImageUpload($event) " profile pic> 
+                          <input type="file" id="img" name="img"  (change)="onImageUpload($event) " profile pic>
                         </div>
                         <div class="container text-center">
                           <button class="submit" type="submit">Save</button>
@@ -191,4 +191,3 @@
                 </div>
               </section>
               </mat-card>
-                               

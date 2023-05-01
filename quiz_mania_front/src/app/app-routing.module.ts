@@ -135,6 +135,10 @@ const routes: Routes = [
       path:'add-question/:qid/:title',
       component:AddQuestionComponent,
     },
+    {
+      path:'pro/:id',
+      component:ProfileUpdateComponent,
+    },
     //
 
   ],
@@ -195,6 +199,10 @@ const routes: Routes = [
       path:'add-question/:qid/:title',
       component:AddQuestionComponent,
     }, //
+    {
+      path:'pro/:id',
+      component:ProfileUpdateComponent,
+    },
 
   ],
     canActivate:[CoordinatorGuard],
