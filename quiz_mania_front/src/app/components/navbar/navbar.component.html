@@ -44,7 +44,7 @@
     </a></li>
     <!-- <li> -->
       <a
-      *ngIf="isLoggedIn && user"
+      *ngIf="isLoggedIn && user.authorities[0].authority=='NORMAL'"
           routerLink="/user-dashboard/profile" >
         <img  *ngIf="!dbImage" src="https://tse2.mm.bing.net/th?id=OIP.9UBb9jEPJ74wxTL1FgBuWwAAAA&pid=Api&P=0"
         class="profile-image mr20">
@@ -52,11 +52,38 @@
       </a>
       <!-- </li> -->
       <li>
-        <a  *ngIf="isLoggedIn && user"
+        <a  *ngIf="isLoggedIn && user.authorities[0].authority=='NORMAL'"
         routerLink="/user-dashboard/profile">
         {{login.getUser().username}}
       </a>
     </li>
+    <a
+      *ngIf="isLoggedIn && user.authorities[0].authority=='COORDINATOR'"
+          routerLink="/coordinator/profile" >
+        <img  *ngIf="!dbImage" src="https://tse2.mm.bing.net/th?id=OIP.9UBb9jEPJ74wxTL1FgBuWwAAAA&pid=Api&P=0"
+        class="profile-image mr20">
+        <img [src]="dbImage "  class="profile-image" >
+      </a>
+      <!-- </li> -->
+      <li>
+        <a  *ngIf="isLoggedIn && user.authorities[0].authority=='COORDINATOR'"
+        routerLink="/coordinator/profile">
+        {{login.getUser().username}}
+      </a>
+    </li><a
+    *ngIf="isLoggedIn && user.authorities[0].authority=='ADMIN'"
+        routerLink="/admin/profile" >
+      <img  *ngIf="!dbImage" src="https://tse2.mm.bing.net/th?id=OIP.9UBb9jEPJ74wxTL1FgBuWwAAAA&pid=Api&P=0"
+      class="profile-image mr20">
+      <img [src]="dbImage "  class="profile-image" >
+    </a>
+    <!-- </li> -->
+    <li>
+      <a  *ngIf="isLoggedIn && user.authorities[0].authority=='ADMIN'"
+      routerLink="/admin/profile">
+      {{login.getUser().username}}
+    </a>
+  </li>
   </ul>
 </nav>
 

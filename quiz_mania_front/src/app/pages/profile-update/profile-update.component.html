@@ -1,7 +1,3 @@
-
-            
-
-                 
             <mat-card>
               <section class="side">
                 <img src="../../../assets/log2.png" alt="">
@@ -14,18 +10,7 @@
                     <p class="welcome-message">Please, provide login credential to proceed and have access to all our services</p>
               
                     <form  *ngIf="user" (ngSubmit)="formSubmit()" enctype="multipart/form-data" class="login-form" >
-                        <div class="form-control">
-                            <input type="text" required
-                            [(ngModel)] = "user.username"
-                            name = "username" placeholder="Username">
-                            <i class="fas fa-user-circle"></i>
-                        </div>
-                        <div class="form-control">
-                            <input  [(ngModel)] = "user.password"
-                            name = "password"
-                             type="password" placeholder="Password">
-                            <i class="fas fa-lock"></i>
-                        </div>
+                          
                         <div class="form-control">
                             <input  required
                             [(ngModel)] = "user.firstName"

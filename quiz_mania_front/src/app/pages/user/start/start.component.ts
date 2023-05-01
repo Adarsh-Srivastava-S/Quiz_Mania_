@@ -23,7 +23,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StartComponent implements OnInit {
 
-  
+
   qid: any;
   questions: any=[{content:'',
   option1:'',
@@ -76,7 +76,7 @@ maximumMarks:any;
     this.leaderboard1.user.id=this.login.userId();
     // this.leaderboard1.image.user.id=this.login.userId();
     this.leaderboard1.quiz.qId=this.qid;
-    
+
   }
   exitFullscreen(){
     if(document.exitFullscreen){
@@ -177,28 +177,7 @@ maximumMarks:any;
           }
 
          );
-        //  this._leaderboard.addLeaderboard(this.leaderboard1);
 
-        //  this._leaderboard.addLeaderboard(this.leaderboard)
-      //  this.isSubmit=true;
-      //  this.questions.forEach((q: { givenAnswer: any; answer: any; })=>{
-      //   if(q.givenAnswer==q.answer)
-      //   {
-      //     this.correctAnswers++;
-      //     let marksSingle =
-      //             this.questions[0].quiz.maxMarks / this.questions.length;
-      //     this.marksGot += marksSingle;
-      //   }
-
-      //   if(q.givenAnswer.trim()!='')
-      //   {
-      //     this.attempted++;
-      //   }
-      // });
-      // console.log("Correct Answers"+this.correctAnswers);
-      // console.log("Marks Got:"+this.marksGot);
-      // console.log("attempted"+this.attempted);
-      // console.log(this.questions);
     }
     leader()
     {
@@ -257,12 +236,12 @@ maximumMarks:any;
     //   // For example:
     //   // this.http.post('https://example.com/api/print', formData).subscribe();
     // }
-   
+
   // public exportPDF() {
   //   const pdfTable = this.pdfTable.nativeElement;
   //   var html = htmlToPdfmake(pdfTable.innerHTML);
   //   const documentDefinition = { content: html };
-  //    pdfMake.createPdf(documentDefinition); 
+  //    pdfMake.createPdf(documentDefinition);
   // }
   @ViewChild('printableContent') printableContent!: ElementRef;
 
@@ -275,7 +254,7 @@ printPage() {
       console.log(htmlContent);
       const data={
         userid:this.uid,
-        
+
         name:htmlContent.substring("data:image/png;base64,".length)
       }
       console.log(data.name);
@@ -286,7 +265,7 @@ console.error('Error sending certificate',error);
 });
 
 });
-     
+
     //   fetch('http://localhost:9005/pdf/submit-pdf', {
     //      method: 'POST',
     //      body: data
@@ -305,8 +284,8 @@ console.error('Error sending certificate',error);
     // //   formData.append('userid', userId.toString());
 
     //   // perform an HTTP request with the formData object as the payload, e.g.:
-   
-    
+
+
   }
 }
 }

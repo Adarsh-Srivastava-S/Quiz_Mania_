@@ -226,7 +226,7 @@
 								</li>
 							</ul> -->
                             <!-- <hr class="my-4"> -->
-                            <mat-card style="background-color: rgb(249, 245, 245);">
+                            <mat-card style="background-color: rgb(249, 245, 245);" *ngIf="login.getUser().authorities[0].authority!='ADMIN'&&login.getUser().authorities[0].authority!='COORDINATOR'" >
                             <h1>Total number of quiz attempted <span style="color: darkorchid;">{{ login.getUser().firstName }} {{ login.getUser().lastName }}</span> : {{i}}</h1>
                             </mat-card>
 						</div>
@@ -288,16 +288,22 @@
 							<div class="row">
 								<div class="col-sm-3"></div>
 								<div class="col-sm-9 text-secondary">
-								 <button
+								 <button *ngIf="login.getUser().authorities[0].authority=='NORMAL'"
                                 [routerLink]="'/user-dashboard/pro/'+login.getUser().username"
                                  mat-flat-button color="accent">Update</button>
+                                 <button *ngIf="login.getUser().authorities[0].authority=='ADMIN'"
+                                 [routerLink]="'/admin/pro/'+login.getUser().username"
+                                  mat-flat-button color="accent">Update</button> 
+                                  <button *ngIf="login.getUser().authorities[0].authority=='COORDINATOR'"
+                                  [routerLink]="'/coordinator/pro/'+login.getUser().username"
+                                   mat-flat-button color="accent">Update</button>
    <!-- login.getUser().id -->
                                     <!-- <input type="button" class="btn btn-primary px-4" value="Save Changes"> -->
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row" *ngIf="login.getUser().authorities[0].authority!='ADMIN'&&login.getUser().authorities[0].authority!='COORDINATOR'">
 						<div class="col-sm-12">
 							<div class="card">
 								<div class="card-body" *ngFor="let l of leader">
@@ -352,7 +358,7 @@
 						</div>
 					</div> -->
 
-                    <div class="row">
+                    <div class="row" *ngIf="login.getUser().authorities[0].authority!='ADMIN'&&login.getUser().authorities[0].authority!='COORDINATOR'">
 						<div class="col-sm-12">
 							<div class="card">
 								<div class="card-body">
