@@ -1,7 +1,5 @@
 package com.exam.model.exam;
-import com.fasterxml.jackson.annotation.JacksonInject;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
 
 import javax.persistence.*;

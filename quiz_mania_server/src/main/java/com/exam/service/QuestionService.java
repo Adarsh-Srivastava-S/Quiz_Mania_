@@ -3,6 +3,7 @@ package com.exam.service;
 import com.exam.model.exam.Question;
 import com.exam.model.exam.Quiz;
 
+import java.util.List;
 import java.util.Set;
 
 public interface QuestionService
@@ -15,7 +16,7 @@ public interface QuestionService
 
     public Question getQuestion(Long questionId);
 
-    public Set<Question> getQuestionsOfQuiz(Quiz quiz);
+    public List<Question> getQuestionsOfQuiz(Quiz quiz);
 
     public void deleteQuestion(Long quesId);
 

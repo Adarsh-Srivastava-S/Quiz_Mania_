@@ -30,13 +30,11 @@
                 name="password"
                  required
                  [type]="changetype?'password':'text'"
-                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$"
-                 placeholder="enter your Password"
-                 minlength="8" maxlength="20"
+             placeholder="enter your Password"
                  #password="ngModel"  >
                  <i (click)="viewpass()" [ngClass]="visible?'fas fa-lock':'fas fa-eye-slash'"></i>
             </div>
-            <p class="p1"><span class="invalid-input" *ngIf="password.invalid && (password.touched || password.dirty || password.errors?.['minlength'] || password.errors?.['pattern'])">Please Enter Valid Password</span></p>
+            <!-- <p class="p1"><span class="invalid-input" *ngIf="password.invalid && (password.touched || password.dirty || password.errors?.['minlength'] || password.errors?.['pattern'])">Please Enter Valid Password</span></p> -->
                 <h6>Having Trouble in sign in?<a  (click)="handleForgetAction()" type="forgot"><u> Forget</u></a> </h6> <br>
                 <div class="container text-center">
                     <button [disabled]="userLogin.invalid" class="submit" type="submit">Login</button>

@@ -1,5 +1,7 @@
 package com.exam.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,6 +17,7 @@ public class UserRole
     private User user;
 
     @ManyToOne
+    @JsonIgnore
     private Role role;
 
     public UserRole() {

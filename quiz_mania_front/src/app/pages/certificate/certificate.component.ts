@@ -16,6 +16,7 @@ export class CertificateComponent implements OnInit {
  score="10/10"
  leader:any;
   id:any;
+  username:any;
   constructor( private _http:HttpClient, private _route:ActivatedRoute,private _leader:LeaderboardService) { }
 
   ngOnInit(): void {
@@ -24,6 +25,7 @@ export class CertificateComponent implements OnInit {
       this._leader.getLeaderByUser(this.id).subscribe(
         (data:any)=>{
           this.leader=data;
+          this.username=this.leader.user.username;
           console.log(this.leader);
         },(error)=>{
           alert("error in loading leader data");
@@ -47,7 +49,9 @@ printPage() {
         name:htmlContent.substring("data:image/png;base64,".length)
       }
       console.log(data.name);
-      this._http.post('http://localhost:9005/pdf/submit-pdf', data).subscribe(response => { console.log('Certificate sent successfully'); }, error => {
+      // https://api.quizmania.live
+      this._http.post('https://api.quizmania.live/pdf/submit-pdf', data).subscribe(response => { console.log(response); }, error => {
+      //  this._http.post('http://localhost:9005/pdf/submit-pdf', data).subscribe(response => { console.log(response); }, error => {
 
 console.error('Error sending certificate',error);
 

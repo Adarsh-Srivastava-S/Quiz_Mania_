@@ -10,10 +10,8 @@ import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import javax.mail.util.ByteArrayDataSource;
 import java.io.*;
 import java.util.Base64;
-import java.util.zip.Inflater;
 
 @Service
 public class PdfServiceImpl implements PdfService {

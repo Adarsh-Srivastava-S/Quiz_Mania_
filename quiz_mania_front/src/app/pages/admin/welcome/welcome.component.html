@@ -8,39 +8,41 @@
 		<div class="cards">
 			 <div class="card-single">
 				 <div>
-					 <h2>2100</h2>
-					 <small>Students</small>
+					 <h2>{{user.length}}</h2>
+					 <small>Users</small>
 				 </div>
 				 <div>
-					 <span class="fas fa-user-graduate"></span>
-				 </div>
-			 </div>
-			 <div class="card-single">
-				 <div>
-					 <h2>+30</h2>
-					 <small>Teacher</small>
-				 </div>
-				 <div>
-					 <span class="fas fa-chalkboard-teacher"></span>
+					<span class="fas fa-users"></span>
 				 </div>
 			 </div>
 			 <div class="card-single">
 				 <div>
-					 <h2>58</h2>
-					 <small>Employee</small>
+					 <h2>{{coordinator.length}}</h2>
+					 <small>Coordinator</small>
 				 </div>
 				 <div>
-					 <span class="fas fa-users"></span>
+					<span class="fas fa-user-graduate"></span>
+					 
+				 </div>
+			 </div>
+			 <div class="card-single">
+				 <div>
+					 <h2>{{quizzes.length}}</h2>
+					 <small>Total Quiz</small>
+				 </div>
+				 <div>
+					<span class="fas fa-chalkboard-teacher"></span>
+					
 				 </div>
 			 </div>
 		
 			 <div class="card-single">
 				 <div>
-				 <h2>20k</h2>
-				 <small>Earnings</small>
+				 <h2>{{categories.length}}</h2>
+				 <small>Total category</small>
 				 </div>
 				 <div>
-				 <span class="fas fa-dollar-sign"></span>
+				 <span class="fas fa-book-reader"></span>
 			 </div>
 		
 		 </div>
@@ -50,38 +52,32 @@
 	<mat-card style="background-color:azure;">
 	<div class="table-responsive">
 	<table class="table caption-top">
-		<caption>List of All Users</caption>
-		<thead>
+		<caption style="background-color:wheat; padding-left: 20px;">List of All Users</caption>
+		<thead >
 		  <tr>
 			<th scope="col">S.No.</th>
-			<th scope="col">Name</th>
-			<th scope="col">First</th>
-			<th scope="col">Last</th>
-			<th scope="col">Phone</th>
+			<th scope="col">Username</th>
+			<th scope="col">First Name</th>
+			<th scope="col">Last Name</th>
+			<th scope="col">Phone No.</th>
 		  </tr>
 		</thead>
-		<tbody>
-		  <tr>
-			<th scope="row">1</th>
-			<td>Mark</td>
-			<td>Otto</td>
-			<td>abcd@gmail.com</td>
-			<td>2256982</td>
+		<tbody >
+		  <tr *ngFor="let c of user ;let i=index" >
+			<th scope="row">{{i+1}}</th>
+			<td>{{c.user.username}}</td>
+			<td>{{c.user.firstName}}</td>
+			<td>{{c.user.email}}</td>
+			<td>{{c.user.phone}}</td>
 		  </tr>
-		  <tr>
-			<th scope="row">2</th>
-			<td>Jacob</td>
-			<td>Thornton</td>
-			<td>abc@gmail.com</td>
-			<td>7418596</td>
-		  </tr>
-		  <tr>
+		 
+		  
 		</tbody>
 	  </table>
 	  </div>
 	  </mat-card>
 
-	  <mat-card style="background: #c4d9ea;">
+	  <!-- <mat-card style="background: #c4d9ea;">
 		<div class="container">
 				<section class="home-section">   
 					<div class="home-content">
@@ -149,6 +145,6 @@
 			  </div>
 			</section>
 	 </div>
-	  </mat-card>
+	  </mat-card> -->
 
 	</mat-card>

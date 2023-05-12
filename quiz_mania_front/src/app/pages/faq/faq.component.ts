@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FaqService } from 'src/app/services/faq/faq.service';
 import { PageEvent } from '@angular/material/paginator';
+import { TranslateServiceService } from 'src/app/services/translate-service.service';
+
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
@@ -9,11 +11,11 @@ import { PageEvent } from '@angular/material/paginator';
 export class FaqComponent implements OnInit {
   panelOpenState: boolean = false;
   faqs:any;
-  constructor(private faq:FaqService) { }
+  constructor(private faq:FaqService,public trans:TranslateServiceService) { }
 
   ngOnInit(): void {
     let request:{[key:string]:any}={};
-    request['pageNumber']="1";
+    request['pageNumber']="0";
     request['pageSize'] ="5";
 
 

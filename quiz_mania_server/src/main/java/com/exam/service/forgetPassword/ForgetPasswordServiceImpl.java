@@ -45,7 +45,7 @@ public class ForgetPasswordServiceImpl implements ForgetPasswordService{
         message.setText("Your OTP for resetting your password is: " + otp);
 System.out.println(message);
 // Send the email
-//        emailSender.send(message);
+        emailSender.send(message);
 
 
     }

@@ -11,7 +11,7 @@ import { LoginComponent } from '../../login/login.component';
   styleUrls: ['./load-quiz.component.css']
 })
 export class LoadQuizComponent implements OnInit {
-
+  b: any;
   catId: any;
   leader:any;
   quizzes: any;
@@ -83,8 +83,10 @@ setFlagvalue()
     
 
   }
+
   public hasUserCompletedQuiz(q:any): boolean {
-    return this.leader.some((l: { user: { id: any; }; quiz: { qId: any; }; }) => l.user.id == this._login.userId() && l.quiz.qId == q);
+   this.b=this.leader.some((l: { user: { id: any; }; quiz: { qId: any; maxMarks: any;}; score:any; }) => ((l.user.id == this._login.userId() && l.quiz.qId == q) && (l.quiz.maxMarks>=(l.score/3))));
+    return this.b;
   }
 
   

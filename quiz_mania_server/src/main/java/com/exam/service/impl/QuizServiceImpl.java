@@ -5,7 +5,6 @@ import com.exam.model.exam.Quiz;
 import com.exam.repo.QuizRepository;
 import com.exam.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -22,6 +21,7 @@ public class QuizServiceImpl implements QuizService
 
     @Override
     public Quiz addQuiz(Quiz quiz) {
+
         return this.quizRepository.save(quiz) ;
     }
 

@@ -1,7 +1,6 @@
 package com.exam.model.exam;
 import com.exam.model.leaderboard.Leaderboard;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
 
 import javax.persistence.*;
 import java.util.HashSet;

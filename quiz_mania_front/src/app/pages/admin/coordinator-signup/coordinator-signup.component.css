@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    /* background-color: #15a0e1; */
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     color: #303433;
@@ -38,6 +39,7 @@ mat-card{
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    background: radial-gradient(rgb(42, 179, 179), transparent);
    /* background-color:#e3f2fd; */
    padding: 0px;
    border: 20px;

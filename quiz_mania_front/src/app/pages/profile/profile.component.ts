@@ -15,7 +15,13 @@ export class ProfileComponent implements OnInit {
   displayedColumns: string[] = ['position','category','quiz','name', 'score'];
 
 
-  user ={
+   user={
+    username:'',
+    password:'',
+    firstName:'',
+    lastName:'',
+    email:'',
+    phone:'',
     image:{
       id:'',
       image:'',
@@ -32,6 +38,8 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+  // location.reload();
     this.user1.getUser(this.login.getUser().username).subscribe(
       (data:any)=>{
         this.user=data;

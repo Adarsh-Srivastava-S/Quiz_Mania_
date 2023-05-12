@@ -2,7 +2,6 @@ package com.exam.controller;
 
 import com.exam.model.exam.Question;
 import com.exam.model.exam.Quiz;
-import com.exam.model.leaderboard.Leaderboard;
 import com.exam.repo.QuestionRepository;
 import com.exam.service.QuestionService;
 import com.exam.service.QuizService;
@@ -44,19 +43,18 @@ private QuestionRepository questionRepository;
     @GetMapping("/quiz/{qid}")
     public ResponseEntity<?> getQuestionsOfQuiz(@PathVariable("qid") Long qid)
     {
-//        Quiz quiz = new Quiz();
-//        quiz.setqId(qid);
-//        Set<Question> questionsOfQuiz = this.service.getQuestionsOfQuiz(quiz);
-//        return ResponseEntity.ok(questionsOfQuiz);
         Quiz quiz = this.quizService.getQuiz(qid);
-        Set<Question> questions = quiz.getQuestions();
-        List<Question> list = this.questionRepository.findAll();
+        List<Question> questions = this.service.getQuestionsOfQuiz(quiz);
+//        return ResponseEntity.ok(questionsOfQuiz);
+
+//        List<Question> questions = quiz.getQuestions();
+//        List<Question> list = this.questionRepository.findAll();
         List<Question> randomQuestions = new ArrayList<>();
 
         Random random = new Random();
         while (randomQuestions.size() < parseInt(quiz.getNumberOfQuestions())) {
-            int index = random.nextInt(list.size());
-            Question question = list.get(index);
+            int index = random.nextInt(questions.size());
+            Question question = questions.get(index);
 
             if (!randomQuestions.contains(question)) {
                 randomQuestions.add(question);
@@ -81,7 +79,7 @@ private QuestionRepository questionRepository;
     {
         Quiz quiz = new Quiz();
         quiz.setqId(qid);
-        Set<Question> questionsOfQuiz = this.service.getQuestionsOfQuiz(quiz);
+        List<Question> questionsOfQuiz = this.service.getQuestionsOfQuiz(quiz);
         return ResponseEntity.ok(questionsOfQuiz);
 //        return ResponseEntity.ok(list);
     }

@@ -66,7 +66,7 @@
                 <ng-container matColumnDef="image">
                   <mat-header-cell *matHeaderCellDef class="same">Image</mat-header-cell>
                   <mat-cell *matCellDef="let i = index; let leaders" class="same1">
-                    <img class="avatar-sm rounded-circle me-2" *ngIf="leaders?.image?.image" [src]="'data:image/jpeg;base64,' + leaders.image.image" [alt]="leaders.image.name + 's profile picture'">
+                    <img class="avatar-sm rounded-circle me-2" *ngIf="leaders?.user?.image?.image" [src]="'data:image/jpeg;base64,' + leaders.user.image.image" [alt]="leaders.user.image.name + 's profile picture'">
                   </mat-cell>
                 </ng-container>
                 

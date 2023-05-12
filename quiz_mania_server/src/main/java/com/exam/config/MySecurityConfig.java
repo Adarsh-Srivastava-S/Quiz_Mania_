@@ -56,7 +56,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter
                 .cors()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/forget", "/forget/change-password", "/user/alluser", "/forget/password", "/forget/validate", "/pdf", "/pdf/submit-pdf", "/generate-token", "/get/image/info/{id}", "/upload/image", "/leader", "/category", "/category/", "/quiz/category/active/{cid}", "/category/active/{cid}", "/quiz", "/leaderboard", "/leaderboard/", "/leaderboard/leaderboard/all/{qid}", "/leaderboard/leaderboard/user/", "/leaderboard/leaderboard/user/{uid}", "/faqs", "/faqs/add", "/faqs/faqpage", "/faqs/show", "/contact", "/contact/show", "/contact/add", "/contact/page", "/user/", "/user/{username}", "/{userid}", "/user/{userid}", "/feedback/feed/{fid}", "/feed/{fid}", "/feed/", "/feedback/").permitAll()
+                .antMatchers("/user/test", "/user/allcoordinator", "/forget", "/forget/change-password", "/user/alluser", "/forget/password", "/forget/validate", "/pdf", "/pdf/submit-pdf", "/generate-token", "/get/image/info/{id}", "/upload/image", "/leader", "/category", "/category/", "/quiz/category/active/{cid}", "/category/active/{cid}", "/quiz", "/leaderboard", "/leaderboard/", "/leaderboard/leaderboard/all/{qid}", "/leaderboard/leaderboard/user/", "/leaderboard/leaderboard/user/{uid}", "/faqs", "/faqs/add", "/faqs/faqpage", "/faqs/show", "/contact", "/contact/show", "/contact/add", "/contact/page", "/user/", "/user/{username}", "/{userid}", "/user/{userid}", "/feedback/feed/{fid}", "/feed/{fid}", "/feed/", "/feedback/").permitAll()
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
                 .anyRequest().authenticated()
                 .and()

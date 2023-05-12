@@ -1,19 +1,17 @@
 package com.exam.controller;
 
-import com.exam.helper.UserFoundException;
-import com.exam.helper.UserNotFoundException;
 import com.exam.model.Role;
 import com.exam.model.User;
 import com.exam.model.UserRole;
 import com.exam.model.image.Image;
 import com.exam.service.UserService;
-import com.exam.utility.ImageUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,10 +26,14 @@ public class UserController
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    @GetMapping("/test")
+    public String test() {
+        return "Welcome to Backend of quiz mania";
+    }
+
     //for creating user
-    @PostMapping(value = "/",consumes = {"multipart/form-data"})
-    public User createUser(@ModelAttribute User user, @RequestParam("img") MultipartFile file) throws Exception
-    {
+    @PostMapping(value = "/", consumes = {"multipart/form-data"})
+    public User createUser(@ModelAttribute User user, @RequestParam("img") MultipartFile file) throws Exception {
 
         // encoding password with bcrptpass
         user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
@@ -100,6 +102,23 @@ public class UserController
 //        return this.userService.getUserById(userId);
 //    }
 
+    @GetMapping("/alluser")
+    public ResponseEntity<ArrayList<UserRole>> getallUser() {
+        Role role = new Role();
+        role.setRoleId(45L);
+        role.setRoleName("NORMAL");
+        ArrayList<UserRole> allUser = (ArrayList<UserRole>) this.userService.getAllUser(role);
+        return ResponseEntity.ok(allUser);
+    }
+
+    @GetMapping("/allcoordinator")
+    public ResponseEntity<ArrayList<UserRole>> getallCoordinator() {
+        Role role = new Role();
+        role.setRoleId(46L);
+        role.setRoleName("COORDINATOR");
+        ArrayList<UserRole> allUser = (ArrayList<UserRole>) this.userService.getAllUser(role);
+        return ResponseEntity.ok(allUser);
+    }
 
     @GetMapping("/{username}")
     public ResponseEntity<User> getUser(@PathVariable("username") String username) {
@@ -109,8 +128,7 @@ public class UserController
 
     // delete the user by id
     @DeleteMapping("/{userId}")
-    public void deleteUser(@PathVariable("userId") Long userId)
-    {
+    public void deleteUser(@PathVariable("userId") Long userId) {
         this.userService.deleteUser(userId);
     }
 

@@ -4,6 +4,7 @@ import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dial
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ForgetPasswordService } from 'src/app/services/forget-password.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-forget-password',
@@ -66,19 +67,35 @@ handleSubmit()
 this._forget.getOtp(formData).subscribe((response:any) => {
   this.ngxService.stop();
  this.user=response;
-  this.responseMessage = response?.message;
+ console.log(this.user);
+
+    //  this.flag=fals;
+    //  this.flag3=false;
+   if(response.body.status==false)
+   {
+    this.flag=false;
+    this.flag3=false;
+    this.responseMessage = response?.message;
   // this.dialogRef.close();
-  
-  this.snackbarService.open(this.responseMessage, '');
+  Swal.fire(response.body.Message);
+   }else if(response.body.status==true)
+   {
+    this.flag=true;
+    this.flag3=true;
+
+   }
+     
+  // this.snackbarService.open("Message",response.body.Message);
   // this.handleForgetAction();
   
 
 }, (error) => {
   this.ngxService.stop();
+
   if (error.error?.message) {
     this.responseMessage = error.error?.message;
   } else {
-    this.responseMessage = 'An error occurred. Please try again later.';
+    this.responseMessage = 'An error occurred. Please try again later.'+error;
   }
   this.snackbarService.open(this.responseMessage, '');
 });
@@ -151,11 +168,11 @@ handleChangePassword()
 
 
 }
-flag1()
-{
-  this.flag=true;
-  this.flag3=true;
-}
+// flag1()
+// {
+//   this.flag=true;
+//   this.flag3=true;
+// }
 flag4()
 {
   this.flag=false;

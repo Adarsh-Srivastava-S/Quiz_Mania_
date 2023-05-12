@@ -258,7 +258,9 @@ printPage() {
         name:htmlContent.substring("data:image/png;base64,".length)
       }
       console.log(data.name);
-      this._http.post('http://localhost:9005/pdf/submit-pdf', data).subscribe(response => { console.log('Certificate sent successfully'); }, error => {
+      // https://api.quizmania.live
+      this._http.post('https://api.quizmania.live/pdf/submit-pdf', data).subscribe(response => { console.log('Certificate sent successfully'); }, error => {
+        //  this._http.post('http://localhost:9005/pdf/submit-pdf', data).subscribe(response => { console.log('Certificate sent successfully'); }, error => {
 
 console.error('Error sending certificate',error);
 

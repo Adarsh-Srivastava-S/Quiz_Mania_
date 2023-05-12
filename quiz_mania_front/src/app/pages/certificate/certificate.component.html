@@ -1,4 +1,6 @@
-
+<mat-card>
+  <mat-card style="background-color:
+  blanchedalmond;">
 <div class="row mt20">
   <div class="col-md-6">
     <div class="bg" id="printableContent">
@@ -15,8 +17,9 @@
     <h3>{{ onlineDate | date:'shortDate' }}</h3>
     </div>
     </div>
+
     <mat-card-actions class="text-center">
-      
+
       <button (click)="printPage()" mat-raised-button color="primary">Get in Mail</button>
       <button (click)="Mail()" mat-raised-button color="primary">Download</button>
       <button  mat-raised-button color="accent"
@@ -24,6 +27,8 @@
       </button>
   </mat-card-actions>
   </div>
-  
+
 
 </div>
+</mat-card>
+</mat-card>

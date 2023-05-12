@@ -26,6 +26,14 @@ public updateUser(user:any)
 {
   return this.http.post(`${baseUrl}/user/update`,user, {observe:'response'})
 }
+public allCoordinator()
+{
+  return this.http.get(`${baseUrl}/user/allcoordinator`);
+}
+public allUser()
+{
+  return this.http.get(`${baseUrl}/user/alluser`);
+}
 public getUser(username:any)
 {
   return this.http.get(`${baseUrl}/user/${username}`);

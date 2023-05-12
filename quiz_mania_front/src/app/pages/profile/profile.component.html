@@ -1,133 +1,5 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
-
-<!-- <mat-card *ngIf="user" style="background-color: rgb(238, 241, 241);">
-
-    <h1>Your Profile Details</h1> -->
-    <!-- {{user | json}} -->
-    <!-- <mat-card-content >
-
-        <div class="bootstrap-wrapper">
-
-            <div class="container" style="background-color: darkorange;">
-                <div class="container text-center">
-                    <img  *ngIf="!dbImage" src="../../../assets/logo.png"
-                    alt=""
-                    class="profile-image">
-                    <div  >
-                        <div  >
-                            <img [src]="dbImage"  class="profile-image" >
-
-                        </div>
-                    </div> -->
-
-                    <!-- <button (click)="showContent = !showContent">Show Content</button>
-                    <div *ngIf="showContent">
-                        <div class="form-group">
-                            <app-image></app-image>
-                        </div>
-                    </div> -->
-
-                    <!-- <input type="button" (click)="viewImage()" value="View Image" class="btn1"> -->
-                    <!-- <h1 class="mt20">{{ login.getUser().firstName }} {{ login.getUser().lastName }}</h1>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-10 offset-md-1"> -->
-
-                        <!-- //tables details -->
-                        <!-- <table class="table text-center">
-                            <tr>
-                                <td>Username</td>
-                                <td>{{login.getUser().username}}</td>
-                            </tr>
-                            <tr>
-                                <td>Userid</td>
-                                <td>EXAM{{login.getUser().id}}</td>
-                            </tr> -->
-                            <!-- <tr>   *ngIf="user.phone" => used if moblie number is null -->
-                                <!-- <td>Phone</td>
-                                <td>{{login.getUser().phone}}</td>
-                            </tr>
-                            <tr>
-                                <td>Role</td>
-                                <td>{{login.getUser().authorities[0].authority}}</td>
-                            </tr>
-                            <tr>
-                                <td>Status</td>
-                                <td>{{login.getUser().enabled?"ACTIVE":"NOTACTIVE"}}</td>
-                            </tr>
-                        </table>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </mat-card-content>
-
-
-    <mat-card-actions class="text-center">
-        <button mat-raised-button color="primary" >UPDATE</button> -->
-        <!-- <button mat-raised-button color="accent">SHARE</button> -->
-    <!-- </mat-card-actions>
-</mat-card>
-
-<br>
-
-<mat-card style="background-color: rgb(238, 241, 241);">
-<h1>Total number of quiz attempted <span style="color: darkorchid;">{{ login.getUser().firstName }} {{ login.getUser().lastName }}</span> : {{i}}</h1>
-</mat-card>
-
-<br>
-
-<mat-card style="background-color: rgb(238, 241, 241);">
-<h1 align="center"><b>Activity</b></h1> -->
-<!-- <mat-divider color=></mat-divider> -->
-
-<!-- <mat-table class="mat-elevation-z8" [dataSource]="leader" style="background-color: rgb(244, 229, 211);"> -->
-
-    <!-- Position Column -->
-    <!-- <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef class="same"> Position </mat-header-cell>
-      <mat-cell *matCellDef="let i = index , let leaders" class="same1"> {{ viewImage(leaders[i+1].user.id) }}</mat-cell>
-    </ng-container> -->
-
-    <!-- <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef class="same">Sr No.</mat-header-cell>
-      <mat-cell *matCellDef="let i = index; let leaders" class="same1">
-       {{i+1}}
-      </mat-cell>
-    </ng-container> -->
-
-    <!-- category -->
-    <!-- <ng-container matColumnDef="category">
-        <mat-header-cell *matHeaderCellDef class="same"> category </mat-header-cell>
-        <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.quiz.category.title}} </mat-cell>
-      </ng-container> -->
-
-      <!-- quizzes -->
-      <!-- <ng-container matColumnDef="quiz">
-        <mat-header-cell *matHeaderCellDef class="same"> quiz </mat-header-cell>
-        <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.quiz.title }} </mat-cell>
-      </ng-container> -->
-
-    <!-- Name Column -->
-    <!-- <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef class="same"> Name </mat-header-cell>
-      <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.user.username }} </mat-cell>
-    </ng-container> -->
-
-    <!-- Score Column -->
-    <!-- <ng-container matColumnDef="score">
-      <mat-header-cell *matHeaderCellDef class="same"> Score </mat-header-cell>
-      <mat-cell *matCellDef="let leaders" class="same1"> {{ leaders.score }} </mat-cell>
-    </ng-container> -->
-<!--
-    <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" ></mat-row>
-  </mat-table>
-  </mat-card> -->
-
   <mat-card *ngIf="user">
     <h1>Your Profile Details</h1>
     <hr class="my-4">
@@ -156,7 +28,7 @@
 
 								<div class="mt-3">
                                     <!-- <h4>John Doe</h4> -->
-                                    <h3>{{ login.getUser().firstName }} {{ login.getUser().lastName }}</h3>
+                                    <h3>{{ user.firstName }} {{ user.lastName }}</h3>
                                     <p class="text-muted">{{login.getUser().authorities[0].authority}} | {{login.getUser().id}} | Status-{{login.getUser().enabled?'ACTIVE':'NOTACTIVE'}}</p>
 									<p class="text-secondary mb-1">Full Stack Developer</p>
 									<p class="text-muted font-size-sm">Banglore, Karnataka India, SI</p>
@@ -175,59 +47,8 @@
                                 </p>
                              <hr class="my-4">
 
-                             <!-- <h3 class="header-title mt-0">Personal Information</h3>
-
-                               <span *ngIf="!isEditing" id="personal-info">{{user.discription}}</span>
-                               <div *ngIf="isEditing" id="personal-info-edit">
-                                 <textarea id="personal-info-input" [(ngModel)]="newDescription"></textarea>
-                                 <button (click)="onsubmit()">Save</button>
-                                 <button (click)="cancelPersonalInfo()">Cancel</button>
-
-                                </div>
-
-                             <button (click)="editPersonalInfo()" *ngIf="!isEditing">Edit</button>
-
-
-                             <hr class="my-4"> -->
-
-                           <!--<h3 class="header-title mt-0">My Skills</h3>
-                            <ul>
-                                <li>Angular</li>
-                                <li>Spring Boot</li>
-                                <li>Hibernate</li>
-                            </ul>
-                            <hr class="my-4"> -->
-							<!-- <ul class="list-group list-group-flush">
-								<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-									<h3 class="mb-0">
-                                        <svg href="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe me-2 icon-inline">
-                                        <circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12">
-                                        </line>
-                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                                        </svg>Website</h3>
-                                       <span><a href="http://facebook.com" class="text-secondary">https://facebook.com</a></span> -->
-									<!-- <span class="text-secondary">https://mania.com</span> -->
-								<!-- </li>
-								<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-									<h3 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github me-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>Github</h3>
-									<span class="text-secondary">quizmaina</span>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-									<h3 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter me-2 icon-inline text-info"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>Twitter</h3>
-									<span class="text-secondary">@quizmania</span>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-									<h3 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram me-2 icon-inline text-danger"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram</h3>
-									<span class="text-secondary">quizmania</span>
-								</li> -->
-								<!-- <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-									<h3 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook me-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Facebook</h3>
-									<span class="text-secondary">quizmania</span>
-								</li>
-							</ul> -->
-                            <!-- <hr class="my-4"> -->
                             <mat-card style="background-color: rgb(249, 245, 245);" *ngIf="login.getUser().authorities[0].authority!='ADMIN'&&login.getUser().authorities[0].authority!='COORDINATOR'" >
-                            <h1>Total number of quiz attempted <span style="color: darkorchid;">{{ login.getUser().firstName }} {{ login.getUser().lastName }}</span> : {{i}}</h1>
+                            <h1>Total number of quiz attempted <span style="color: darkorchid;">{{ user.firstName }} {{ user.lastName }}</span> : {{i}}</h1>
                             </mat-card>
 						</div>
 					</div>
@@ -241,15 +62,7 @@
 									<h3 class="mb-0">Full Name</h3>
 								</div>
 								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="{{login.getUser().username}}">
-								</div>
-							</div>
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h3 class="mb-0">Userid</h3>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="EXAM{{login.getUser().id}}">
+									<input type="text" class="form-control" value="{{user.username}}">
 								</div>
 							</div>
 							<div class="row mb-3">
@@ -257,7 +70,7 @@
 									<h3 class="mb-0">Phone</h3>
 								</div>
 								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="{{login.getUser().phone}}">
+									<input type="text" class="form-control" value="{{user.phone}}">
 								</div>
 							</div>
 							<div class="row mb-3">
@@ -265,7 +78,7 @@
 									<h3 class="mb-0">Email</h3>
 								</div>
 								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="{{login.getUser().email}}">
+									<input type="text" class="form-control" value="{{user.email}}">
 								</div>
 							</div>
 							<div class="row mb-3">
@@ -293,70 +106,14 @@
                                  mat-flat-button color="accent">Update</button>
                                  <button *ngIf="login.getUser().authorities[0].authority=='ADMIN'"
                                  [routerLink]="'/admin/pro/'+login.getUser().username"
-                                  mat-flat-button color="accent">Update</button> 
+                                  mat-flat-button color="accent">Update</button>
                                   <button *ngIf="login.getUser().authorities[0].authority=='COORDINATOR'"
                                   [routerLink]="'/coordinator/pro/'+login.getUser().username"
                                    mat-flat-button color="accent">Update</button>
-   <!-- login.getUser().id -->
-                                    <!-- <input type="button" class="btn btn-primary px-4" value="Save Changes"> -->
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="row" *ngIf="login.getUser().authorities[0].authority!='ADMIN'&&login.getUser().authorities[0].authority!='COORDINATOR'">
-						<div class="col-sm-12">
-							<div class="card">
-								<div class="card-body" *ngFor="let l of leader">
-									<h3 class="d-flex align-items-center mb-3">Quiz Status</h3>
-									<p>Web Design</p>
-									<div class="progress mb-3" style="height: 5px">
-										<div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-									<!-- <p>Website Markup</p>
-									<div class="progress mb-3" style="height: 5px">
-										<div class="progress-bar bg-danger" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-									<p>One Page</p>
-									<div class="progress mb-3" style="height: 5px">
-										<div class="progress-bar bg-success" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-									</div> -->
-									<!-- <p>Mobile Template</p>
-									<div class="progress mb-3" style="height: 5px">
-										<div class="progress-bar bg-warning" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-									</div> -->
-									<!-- <p>Backend API</p>
-									<div class="progress" style="height: 5px">
-										<div class="progress-bar bg-info" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-									</div> -->
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- <div class="row">
-						<div class="col-sm-12">
-							<div class="card">
-								<div class="card-body">
-                                    <h3 class="header-title mt-0 mb-3">Experience</h3>
-                                    <div class="">
-                                        <div class="">
-                                            <h3 class="text-custom">Lead designer / Developer</h3>
-                                            <p class="mb-0">websitename.com</p>
-                                            <p><b>2010-2015</b></p>
-                                            <p class="text-muted font-13 mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                        </div>
-                                        <hr>
-                                        <div class="">
-                                            <h3 class="text-custom">Senior Graphic Designer</h3>
-                                            <p class="mb-0">coderthemes.com</p>
-                                            <p><b>2007-2009</b></p>
-                                            <p class="text-muted font-13 mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                        </div>
-                                    </div>
-								</div>
-							</div>
-						</div>
-					</div> -->
 
                     <div class="row" *ngIf="login.getUser().authorities[0].authority!='ADMIN'&&login.getUser().authorities[0].authority!='COORDINATOR'">
 						<div class="col-sm-12">
@@ -365,11 +122,6 @@
                                     <h3 align="center">User Activity</h3>
                                     <hr class="my-2">
                                     <mat-table class="mat-elevation-z8" [dataSource]="leader">
-                                     <!-- Position Column -->
-    <!-- <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef class="same"> Position </mat-header-cell>
-      <mat-cell *matCellDef="let i = index , let leaders" class="same1"> {{ viewImage(leaders[i+1].user.id) }}</mat-cell>
-    </ng-container> -->
 
     <ng-container matColumnDef="position">
       <mat-header-cell *matHeaderCellDef class="same">Sr. No.</mat-header-cell>
